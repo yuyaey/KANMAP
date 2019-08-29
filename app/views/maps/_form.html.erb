@@ -1,0 +1,29 @@
+<%= form_for [@kanzume,@map] do |form| %>
+  <% if @map.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@map.errors.count, "error") %> prohibited this map from being saved:</h2>
+
+      <ul>
+      <% @map.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.hidden_field :kanzume_id, value: @kanzume.id %>
+    <% if @map.address == nil %>
+      <%= form.label :address %>
+      <%= form.text_field :address,:value => @kanzume.name %>
+    <% else %>
+      <%= form.label :address %>
+      <%= form.text_field :address,:value => @map.address %>
+    <% end %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

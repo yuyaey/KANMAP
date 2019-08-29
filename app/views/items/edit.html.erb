@@ -1,0 +1,6 @@
+<h1>アイテムの編集</h1>
+<ul class='nav justify-content-end'>
+  <%= link_to '一覧', items_path, class: 'nav-link' %>
+</ul>
+
+<%= render partial: 'form', locals: { item: @item } %>

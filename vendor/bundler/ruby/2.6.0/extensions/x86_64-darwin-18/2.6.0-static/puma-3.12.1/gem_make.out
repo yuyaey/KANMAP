@@ -1,0 +1,21 @@
+current directory: /Users/yamashinayuya/KANMAP/vendor/bundler/ruby/2.6.0/gems/puma-3.12.1/ext/puma_http11
+/Users/yamashinayuya/.rbenv/versions/2.6.3/bin/ruby -I /Users/yamashinayuya/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20190824-62835-nyqcz8.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+creating Makefile
+
+current directory: /Users/yamashinayuya/KANMAP/vendor/bundler/ruby/2.6.0/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: /Users/yamashinayuya/KANMAP/vendor/bundler/ruby/2.6.0/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR="
+compiling http11_parser.c
+compiling io_buffer.c
+compiling mini_ssl.c
+compiling puma_http11.c
+linking shared-object puma/puma_http11.bundle
+
+current directory: /Users/yamashinayuya/KANMAP/vendor/bundler/ruby/2.6.0/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 puma_http11.bundle ./.gem.20190824-62835-1kz4ha3/puma

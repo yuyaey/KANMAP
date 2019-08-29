@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KANMAP</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <nav class="app-title navbar navbar-expand-md navbar-light bg-light">
+      <div class="navbar-brand"><a href= "/">KANMAP</a></div>
+        <ul class="navbar-nav ml-auto">
+          <% if current_user %>
+            <li class="nav-item">
+              <%= link_to 'Kanzume', kanzumes_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'アイテム', items_path, class: 'nav-link' %>
+            </li>
+            <% if current_user.admin? %>
+              <li class="nav-item">
+                <%= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to '🥫', kanzume_icons_path, class: 'nav-link' %>
+              </li>
+              </li>
+              <li class="nav-item">
+                <%= link_to '🥝', item_icons_path, class: 'nav-link' %>
+              </li>
+            <% end %>
+            <li class="nav-item">
+              <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'ログイン', login_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  <div class="container">
+    <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% elsif flash[:alert] %>
+    <div class="alert alert-warning"><%= flash[:alert] %></div>
+    <% end %>
+  </div>
+  <%= yield %>
+</body>
+</html>

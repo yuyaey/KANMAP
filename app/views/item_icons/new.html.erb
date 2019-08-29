@@ -1,0 +1,6 @@
+<h1><%= "🥝を追加する" %></h1>
+<ul class='nav justify-content-end'>
+  <%= link_to '一覧', item_icons_path, class: 'nav-link' %>
+</ul>
+<%= render partial: 'form', locals: { item_icon: @item_icon } %>
+

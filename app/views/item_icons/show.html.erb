@@ -1,0 +1,33 @@
+<h1><%= @item_icon.name %></h1>
+
+<ul class='nav justify-content-end'>
+  <%= link_to '一覧', item_icons_path, class: 'nav-link' %>
+</ul>
+
+<table class= 'table table-hover'>
+  <tbody>
+    <tr>
+      <th><%= ItemIcon.human_attribute_name(:id) %></th>
+      <td><%= @item_icon.id %></td>
+    </tr>
+    <tr>
+      <th><%= ItemIcon.human_attribute_name(:name) %></th>
+      <td><%= @item_icon.name %></td>
+    </tr>
+    <tr>
+      <th><%= ItemIcon.human_attribute_name(:picture) %></th>
+      <td><%= image_tag(@item_icon.picture_url) if @item_icon.picture.present? %></td>
+    </tr>
+    <tr>
+      <th><%= ItemIcon.human_attribute_name(:created_at) %></th>
+      <td><%= @item_icon.created_at %></td>
+    </tr>
+    <tr>
+      <th><%= ItemIcon.human_attribute_name(:updated_at) %></th>
+      <td><%= @item_icon.updated_at %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to '編集', edit_item_icon_path, class: 'btn btn-primary mr-3' %>
+<%= link_to '削除', @item_icon, method: :delete, data: {confirm: "#{@item_icon.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger' %>

@@ -1,0 +1,2 @@
+module KanzumeIconsHelper
+end

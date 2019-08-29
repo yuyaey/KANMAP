@@ -1,0 +1,28 @@
+<% if item.errors.present? %>
+  <ul id="error_explanation">
+    <% item.errors.full_messages.each do |message| %>
+    <li> <%= message %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: item, local: true do |f| %>
+  <%= f.hidden_field :kanzume_id, value: @kanzume.id %>
+  <div class='form-group'>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, class: 'form-control', id: 'item_name' %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :memo %>
+    <%= f.text_area :memo, rows: 5, class: 'form-control', id: 'item_memo' %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Itemを選択' %>
+    <%= f.collection_select :item_icon_id, ItemIcon.all, :id, :name, {include_blank: true}, {required: true} %>
+  </div>
+  <%= f.submit nil, class: 'btn btn-primary' %>
+<% end %>
