@@ -14,15 +14,22 @@
     <%= f.label 'Kanzumeを選択' %>
     <%= f.collection_select :kanzume_icon_id, KanzumeIcon.all, :id, :name, {include_blank: true}, {required: true} %>
   </div>
-  <% unless params[:id] %>
-    ここに位置情報フォームを追加
+  <% unless params[:address_name]%>
     <%= f.fields_for :maps do |m| %>
-    <div>
-      <%= m.label '位置情報を追加' %>
-      <%= m.text_field :address, required: true%>
-    </div>
+      <div>
+        <%= m.label "位置情報" %>
+        <%= m.text_field :address, required: true%>
+      </div>
     <% end %>
   <% else %>
+    <%= f.fields_for :maps do |m| %>
+      <div>
+        <%= m.label "位置情報: #{params[:address_name]}" %>
+        <%= m.hidden_field :address, value: params[:address_name], required: true%>
+        <%= m.hidden_field :latitude, value: params[:address_latitude], required: true%>
+        <%= m.hidden_field :longitude, value: params[:address_longitude], required: true%>
+      </div>
+    <% end %>
   <% end %>
   <%= f.submit nil, class: 'btn btn-primary' %>
 <% end %>

@@ -2,9 +2,6 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBwVfFPbRIzMuOHE5p01Nm1K0Y8E4IK5IA&callback=initMap"></script>
-    
     <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
@@ -13,9 +10,11 @@
   </head>
   <body>
     <button id='currentPosition' >現在地を表示</button>
-    <div id="maps" data-maps-id="<%= @maps.to_json %>"></div>
+    <div id="maplocations" data-maplocations-id="<%= @maps.to_json %>"></div>
     <div id="kanzumes" data-kanzumes-id="<%= @kanzumes.to_json %>"></div>
     <div id="map"></div>
     <script src="maps.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBwVfFPbRIzMuOHE5p01Nm1K0Y8E4IK5IA&callback=initMap"></script>
   </body>
 </html>

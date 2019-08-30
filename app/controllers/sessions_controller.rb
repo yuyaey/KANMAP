@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_url, notice: 'ログインしました。'
     else
+      flash.now[:danger] = "入力された情報が正しくありません。"
       render :new
     end
   end

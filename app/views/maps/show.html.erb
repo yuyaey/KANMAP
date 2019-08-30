@@ -23,7 +23,7 @@
       var transitLayer = new google.maps.TransitLayer();
       transitLayer.setMap(map);
   
-      var contentString = '📍：<%= @map.address %>';
+      var contentString = '<%= @map.address %>';
       var infowindow = new google.maps.InfoWindow({
           content: contentString
       });
@@ -45,14 +45,5 @@
   <strong>Address:</strong>
   <%= @map.address %>
 </p>
-<p>
-  <strong>Latitude:</strong>
-  <%= @map.latitude %>
-</p>
-<p>
-  <strong>Longitude:</strong>
-  <%= @map.longitude %>
-</p>
 <div id="map"></div>
-<%= link_to 'Edit', edit_kanzume_map_path(kanzume_id: @map.kanzume_id,id: @map.id) %>
-<%= link_to 'Destroy', @map, method: :delete, data: { confirm: 'Are you sure?' } %>
+
