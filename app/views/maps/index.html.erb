@@ -10,6 +10,7 @@
   </head>
   <body>
     <button id='currentPosition' >現在地を表示</button>
+    <input type="text" id="keyword"><button id="search">検索</button>
     <div id="maplocations" data-maplocations-id="<%= @maps.to_json %>"></div>
     <div id="kanzumes" data-kanzumes-id="<%= @kanzumes.to_json %>"></div>
     <div id="map"></div>

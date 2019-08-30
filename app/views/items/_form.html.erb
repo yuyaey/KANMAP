@@ -1,13 +1,16 @@
 <% if item.errors.present? %>
   <ul id="error_explanation">
     <% item.errors.full_messages.each do |message| %>
-    <li> <%= message %> </li>
+      <li> <%= message %> </li>
     <% end %>
   </ul>
 <% end %>
-
 <%= form_with model: item, local: true do |f| %>
-  <%= f.hidden_field :kanzume_id, value: @kanzume.id %>
+  <% if params[:kanzume_id] %>
+    <%= f.hidden_field :kanzume_id, value: params[:kanzume_id] %>
+  <% else %>
+    <%= f.hidden_field :kanzume_id, value: @kanzume.id %>
+  <% end %>
   <div class='form-group'>
     <%= f.label :name %>
     <%= f.text_field :name, required: true, class: 'form-control', id: 'item_name' %>
