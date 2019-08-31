@@ -144,12 +144,13 @@ function initMap() {
 
 
         });
+
         //Window内のボタンを表示
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
 
                 var contentinfo = document.createElement("div");
-                var kanzumeinfo = document.createTextNode(("Kanzumeの名前: " + kanzumes[i]["name"] + " " + "場所: " + locations[i]["address"]).toString());
+                var kanzumeinfo = document.createTextNode(("Kanzumeの名前: " + kanzumes[i]["name"] + " " + "場所: " + locations[i]["address"]));
                 contentinfo.appendChild(kanzumeinfo);
                 var addItem_btn = document.createElement("button");
                 var kanzume_id = kanzumes[i]["id"];
@@ -169,7 +170,7 @@ function initMap() {
                     });
                 });
                 contentinfo.appendChild(addItem_btn);
-                if (nowmarker) { //現在地マーカーが設置されている場合は消去
+                if (nowmarker) { //マーカーが設置されている場合は消去
                     nowmarker.setMap(null);
                 }
                 infoWindow.setContent(
@@ -195,7 +196,7 @@ function initMap() {
     $(function addKanzume() {
 
         google.maps.event.addListener(map, 'click', (function(event) {
-            if (nowmarker) { //現在地マーカーが設置されている場合は消去
+            if (nowmarker) { //マーカーが設置されている場合は消去
                 nowmarker.setMap(null);
             }
             geocodeLatLng(testResults);
@@ -210,8 +211,10 @@ function initMap() {
 
             });
             //marker設置
+
             nowmarker.setPosition(clickedLatlng);
             nowmarker.setMap(map);
+
             var address_name;
             var address_latlng;
 
@@ -224,9 +227,7 @@ function initMap() {
                     if (status === google.maps.GeocoderStatus.OK) {
                         if (results[1]) {
                             address_name = results[0].formatted_address;
-                            console.log(address_name);
-
-                            console.log(clickedLatlng.lat().toString());
+                            kanwindowinfo(address_name, clickedLatlng, map, nowmarker);
                         } else {
                             alert('No results found');
                         }
@@ -242,32 +243,9 @@ function initMap() {
             }
 
 
-            //Window内のボタン
-
-            var a_btn = document.createElement("button");
-            a_btn.innerText = "ここにKanzumeを追加する";
-            google.maps.event.addDomListener(a_btn, "click", function() {
-                $.ajax({
-                    type: "GET",
-                    url: "/kanzumes/new",
-                    data: {
-                        address_name: address_name,
-                        address_latitude: clickedLatlng.lat().toString(),
-                        address_longitude: clickedLatlng.lng().toString()
-                    },
-                    dataType: 'html',
-                    success: function(data) {
-                        var win = window.open();
-                        win.document.write(data);
-                    }
-                });
-            });
-            infoWindow.setContent(
-                a_btn
-            );
-            infoWindow.open(map, nowmarker); // 吹き出しの表示
 
         }));
+
     });
 
 
@@ -286,6 +264,7 @@ function initMap() {
                     if (marker) { //現在地マーカーが設置されている場合は消去
                         marker.setMap(null);
                     }
+
                     var position = result.coords,
                         radius = position.accuracy,
                         latLng = new google.maps.LatLng(position.latitude, position.longitude)
@@ -295,9 +274,14 @@ function initMap() {
                     marker = new google.maps.Marker({
                         position: latLng,
                         map: map,
-                        icon: 'https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com/uploads/NowLocationIcon2.png',
-                        scaledSize: new google.maps.Size(1, 1)
+                        icon: new google.maps.MarkerImage(
+                            'https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com/uploads/NowLocation.png',
+                            null,
+                            null,
+                            null,
+                            new google.maps.Size(64, 64))
                     });
+
                 },
                 function(error) {
                     //取得失敗
@@ -308,15 +292,19 @@ function initMap() {
         }
     });
 
+
+
+
+
     //検索ボタン
     var searchmarker;
     document.getElementById('search').addEventListener('click', function() {
 
-        var place = document.getElementById('keyword').value;
+        var search_name = document.getElementById('keyword').value;
         var geocoder = new google.maps.Geocoder(); // geocoderのコンストラクタ
 
         geocoder.geocode({
-            address: place
+            address: search_name
         }, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
 
@@ -332,7 +320,7 @@ function initMap() {
                         // マーカーのセット
                         setMarker(s_latlng);
                         // マーカーへの吹き出しの追加
-                        setInfoW(place);
+                        kanwindowinfo(address, s_latlng, map, searchmarker, search_name);
                         // マーカーにクリックイベントを追加
                         searchmarkerEvent();
                     }
@@ -368,18 +356,39 @@ function initMap() {
         searchmarker = null;
     }
 
-    // マーカーへの吹き出しの追加
-    function setInfoW(place) {
-        infoWindow = new google.maps.InfoWindow({
-            content: "<br><br>" + place + "<br><br>"
-        });
-    }
-
     // クリックイベント
     function searchmarkerEvent() {
         searchmarker.addListener('click', function() {
             infoWindow.open(map, searchmarker);
         });
+    }
+    // Window内情報（Kanzume）
+    function kanwindowinfo(address_name, Latlng, map, marker, search_name) {
+
+        var a_btn = document.createElement("button");
+        if (search_name === undefined) { a_btn.innerText = "ここにKanzumeを追加する"; } else {
+            a_btn.innerText = `「${search_name}」にKanzumeを追加する`;
+        }
+        google.maps.event.addDomListener(a_btn, "click", function() {
+            $.ajax({
+                type: "GET",
+                url: "/kanzumes/new",
+                data: {
+                    address_name: address_name,
+                    address_latitude: Latlng.lat().toString(),
+                    address_longitude: Latlng.lng().toString()
+                },
+                dataType: 'html',
+                success: function(data) {
+                    var win = window.open();
+                    win.document.write(data);
+                }
+            });
+        });
+        infoWindow.setContent(
+            a_btn
+        );
+        infoWindow.open(map, marker); // 吹き出しの表示
     }
 
 }
