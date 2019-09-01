@@ -14,82 +14,83 @@ function initMap() {
     var bounds = new google.maps.LatLngBounds();
     var infoWindow = new google.maps.InfoWindow();
     var transitLayer = new google.maps.TransitLayer();
+    if (kanzumes !== []) {
+        for (var i = 0; i < locations.length; i++) {
+            transitLayer.setMap(map);
+            marker = new google.maps.Marker({
 
-    for (var i = 0; i < locations.length; i++) {
-        transitLayer.setMap(map);
-        marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i]["latitude"], locations[i]["longitude"]),
 
-            position: new google.maps.LatLng(locations[i]["latitude"], locations[i]["longitude"]),
-
-            map: map,
-            icon: {
-                url: "https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com/uploads/kanzume_icon/picture/" + kanzumes[i]["kanzume_icon_id"] + "/" + kanzumes[i]["kanzume_icon_name"],
-                scaledSize: new google.maps.Size(30, 30)
-            }
-
-
-        });
-
-        //Window内のボタンを表示
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-
-                var contentinfo = document.createElement("div");
-                var kanzumeinfo = document.createTextNode(("Kanzumeの名前: " + kanzumes[i]["name"] + " " + "場所: " + locations[i]["address"]));
-                contentinfo.appendChild(kanzumeinfo);
-                var kanzume_id = kanzumes[i]["id"];
-                var showKanzume_btn = document.createElement("button")
-                showKanzume_btn.innerText = "このKanzumeの詳細を表示";
-                google.maps.event.addDomListener(showKanzume_btn, "click", function() {
-                    $.ajax({
-                        type: "GET",
-                        url: `/kanzumes/${kanzume_id}`,
-                        dataType: 'html',
-                        success: function(data) {
-                            var win = window.open();
-                            win.document.write(data);
-                        }
-                    });
-                });
-                contentinfo.appendChild(showKanzume_btn);
-                var addItem_btn = document.createElement("button");
-                addItem_btn.innerText = "このKanzumeにアイテムを入れる";
-                google.maps.event.addDomListener(addItem_btn, "click", function() {
-                    $.ajax({
-                        type: "GET",
-                        url: "/items/new",
-                        data: {
-                            kanzume_id: kanzume_id.toString()
-                        },
-                        dataType: 'html',
-                        success: function(data) {
-                            var win = window.open();
-                            win.document.write(data);
-                        }
-                    });
-                });
-                contentinfo.appendChild(addItem_btn);
-
-                if (c_marker) { //マーカーが設置されている場合は消去
-                    c_marker.setMap(null);
+                map: map,
+                icon: {
+                    url: "https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com/uploads/kanzume_icon/picture/" + kanzumes[i]["kanzume_icon_id"] + "/" + kanzumes[i]["kanzume_icon_name"],
+                    scaledSize: new google.maps.Size(30, 30)
                 }
-                infoWindow.setContent(
-                    contentinfo
-                );
-
-                infoWindow.open(map, marker);
-            }
-        })(marker, i));
 
 
-        // 引数に指定した矩形領域を地図に収める
-        map.fitBounds(bounds);
-        // 地図表示領域をマーカー位置に合わせて拡大
-        bounds.extend(marker.position);
+            });
 
+            //Window内のボタンを表示
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
 
+                    var contentinfo = document.createElement("div");
+                    var kanzumeinfo = document.createTextNode(("Kanzumeの名前: " + kanzumes[i]["name"] + " " + "場所: " + locations[i]["address"]));
+                    contentinfo.appendChild(kanzumeinfo);
+                    var kanzume_id = kanzumes[i]["id"];
+                    var showKanzume_btn = document.createElement("button")
+                    showKanzume_btn.innerText = "このKanzumeの詳細を表示";
+                    google.maps.event.addDomListener(showKanzume_btn, "click", function() {
+                        $.ajax({
+                            type: "GET",
+                            url: `/kanzumes/${kanzume_id}`,
+                            dataType: 'html',
+                            success: function(data) {
+                                var win = window.open();
+                                win.document.write(data);
+                            }
+                        });
+                    });
+                    contentinfo.appendChild(showKanzume_btn);
+                    var addItem_btn = document.createElement("button");
+                    addItem_btn.innerText = "このKanzumeにアイテムを入れる";
+                    google.maps.event.addDomListener(addItem_btn, "click", function() {
+                        $.ajax({
+                            type: "GET",
+                            url: "/items/new",
+                            data: {
+                                kanzume_id: kanzume_id.toString()
+                            },
+                            dataType: 'html',
+                            success: function(data) {
+                                var win = window.open();
+                                win.document.write(data);
+                            }
+                        });
+                    });
+                    contentinfo.appendChild(addItem_btn);
 
+                    if (c_marker) { //マーカーが設置されている場合は消去
+                        c_marker.setMap(null);
+                    }
+                    infoWindow.setContent(
+                        contentinfo
+                    );
+
+                    infoWindow.open(map, marker);
+                }
+            })(marker, i));
+            // 引数に指定した矩形領域を地図に収める
+            map.fitBounds(bounds);
+            // 地図表示領域をマーカー位置に合わせて拡大
+            bounds.extend(marker.position);
+        }
     };
+
+    transitLayer.setMap(map);
+    map.fitBounds(bounds);
+    bounds.extend(marker.position);
+
     // 地図上をクリックした時情報を取得
     var clickedLatlng;
     var c_marker;
@@ -101,7 +102,7 @@ function initMap() {
             if (c_marker) { //マーカーが設置されている場合は消去
                 c_marker.setMap(null);
             }
-            infoWindow.close(map, marker);
+            infoWindow.close(map, c_marker);
             geocodeLatLng(testResults);
 
             // クリックした位置情報

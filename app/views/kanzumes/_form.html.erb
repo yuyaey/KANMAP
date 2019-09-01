@@ -14,14 +14,7 @@
     <%= f.label 'Kanzumeを選択' %>
     <%= f.collection_select :kanzume_icon_id, KanzumeIcon.all, :id, :name, {include_blank: true}, {required: true} %>
   </div>
-  <% unless params[:address_name]%>
-    <%= f.fields_for :maps do |m| %>
-      <div>
-        <%= m.label "位置情報" %>
-        <%= m.text_field :address, required: true%>
-      </div>
-    <% end %>
-  <% else %>
+  <% if local_assigns.has_key? :new_flag %>
     <%= f.fields_for :maps do |m| %>
       <div>
         <%= m.label "位置情報: #{params[:address_name]}" %>

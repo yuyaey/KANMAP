@@ -1,5 +1,7 @@
 class KanzumesController < ApplicationController
-  before_action :set_kanzume, only: [:show, :edit, :update, :destroy]
+  helper_method :correct_user
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :set_kanzume, only: [:edit, :update, :destroy]
   
   def index
     @q = current_user.kanzumes.ransack(params[:q])
@@ -7,6 +9,7 @@ class KanzumesController < ApplicationController
   end
 
   def show
+    @kanzume = Kanzume.find_by(id: params[:id])
   end
 
   def new
@@ -57,6 +60,14 @@ class KanzumesController < ApplicationController
 
   def map_params
     params.require(:map).permit(:address, :latitude, :longitude)
+  end
+
+  def correct_user
+    @kanzume = current_user.kanzumes.find_by(id: params[:id])
+    if @kanzume.nil?
+    redirect_to root_url, alert: "他のユーザーのKanzumeのデータは編集できません。"
+    end
+
   end
 
 

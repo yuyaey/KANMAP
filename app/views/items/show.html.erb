@@ -18,13 +18,15 @@
       <th><%= Item.human_attribute_name(:memo) %></th>
       <td><%= auto_link(simple_format(h(@item.memo), {}, sanitize: false, wrapper_tag: "div")) %></td>
     <tr>
+    <% if @item.image.present? %> 
     <tr>
       <th><%= Item.human_attribute_name(:image) %></th>
-      <td><%= image_tag(@item.image_url) if @item.image.present? %></td>
+      <td><%= image_tag(@item.image_url)%></td>
     </tr>
+    <% end %>
     <tr>
       <th><%= Kanzume.human_attribute_name(:name) %></th>
-      <td><%= link_to @item.kanzume.name, @item.kanzume %></td>
+      <td><%= @item.kanzume.name %></td>
     </tr>
     <tr>
       <th><%= Item.human_attribute_name(:created_at) %></th>
@@ -36,6 +38,3 @@
     </tr>
   </tbody>
 </table>
-
-<td><%= link_to '編集', edit_item_path(id: @item.id, kanzume_id: @item.kanzume.id), class: 'btn btn-primary' %></td>
-<%= link_to '削除', @item, method: :delete, data: {confirm: "#{@item.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger' %>

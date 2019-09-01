@@ -16,7 +16,6 @@
     <%= f.submit class: 'btn btn-outline-primary' %>
   </div>
 <% end %>
-<%= link_to 'Kanzumeを追加', new_kanzume_path, class: 'btn btn-primary' %>
 <div class='mb-3'>
   <table class='table table-hover'>
     <thead class='thead thead-default'>
@@ -29,6 +28,8 @@
           <tr>
             <td><%= link_to kanzume.name, kanzume %></td>
             <td><%= kanzume.created_at %></td>
+            <td><%= link_to '編集', edit_kanzume_path(kanzume), class: 'btn btn-primary' %></td>
+            <td><%= link_to '削除', kanzume, method: :delete, remote: true, data: {confirm: "「#{kanzume.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger delete' %></td>
           </tr>
         <% end %>
       </tbody>

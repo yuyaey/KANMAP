@@ -2,5 +2,5 @@
 <ul class='nav justify-content-end'>
   <%= link_to '一覧', kanzumes_path, class: 'nav-link' %>
 </ul>
-<%= render partial: 'form', locals: { kanzume: @kanzume } %>
+<%= render partial: 'form', locals: { kanzume: @kanzume , new_flag: true } %>
 

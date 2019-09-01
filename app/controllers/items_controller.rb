@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  helper_method :correct_user
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy]
+  
   
   def index
     @q = current_user.items.ransack(params[:q])
@@ -7,11 +10,12 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find_by(id: params[:id])
   end
 
   def new
     @item = current_user.items.new
-    @kanzume = current_user.kanzumes.find_by(id: params[:id])
+    @kanzume = Kanzume.find_by(id: params[:kanzume_id])
   end
 
   def create
@@ -24,7 +28,7 @@ class ItemsController < ApplicationController
   end
 
   def edit 
-    @kanzume = current_user.kanzumes.find_by(id: params[:kanzume_id])
+    @kanzume = Kanzume.find_by(id: params[:kanzume_id])
   end
 
   def update
@@ -49,6 +53,13 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = current_user.items.find(params[:id])
+  end
+
+  def correct_user
+    @item = current_user.items.find_by(id: params[:id])
+    if @item.nil?
+    redirect_to root_url, alert: "他のユーザーのItemのデータは編集できません。"
+    end
   end
 
 end

@@ -5,10 +5,6 @@
 <table class= 'table table-hover'>
   <tbody>
     <tr>
-      <th><%= Kanzume.human_attribute_name(:id) %></th>
-      <td><%= @kanzume.id %></td>
-    </tr>
-    <tr>
       <th><%= Kanzume.human_attribute_name(:name) %></th>
       <td><%= @kanzume.name %></td>
     </tr>
@@ -22,14 +18,12 @@
         </td>
       </tr>
     <% end %>
-  
       <tr>
         <th>Kaznumeの場所</th>
         <td><% @kanzume.maps.each do |map| %>
-            <div class='map_address'><%= link_to map.address, map %></div>
+            <%= map.address %></div>
           <% end %></td>
       </tr>
-  
     <tr>
       <th><%= Kanzume.human_attribute_name(:created_at) %></th>
       <td><%= @kanzume.created_at %></td>
@@ -40,7 +34,5 @@
     </tr>
   </tbody>
 </table>
-<%= link_to 'Kanzumeを編集', edit_kanzume_path,class: 'btn btn-primary mr-3' %>
-<%= link_to 'アイテムを追加', { controller: 'items', action: 'new', id: @kanzume }, class: 'btn btn-primary btn-info' %>
-<%= link_to '位置情報を追加', { controller: 'maps', action: 'new', id: @kanzume }, class: 'btn btn-primary btn-info' %>
-<%= link_to '削除', @kanzume, method: :delete, data: {confirm: "#{@kanzume.name}を削除します。よろしいですか？"}, class: 'btn btn-danger' %>
+
+<%= link_to 'アイテムを追加', { controller: 'items', action: 'new', kanzume_id: @kanzume.id }, class: 'btn btn-primary btn-info' %>
