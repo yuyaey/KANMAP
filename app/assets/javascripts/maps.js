@@ -37,8 +37,22 @@ function initMap() {
                 var contentinfo = document.createElement("div");
                 var kanzumeinfo = document.createTextNode(("Kanzumeの名前: " + kanzumes[i]["name"] + " " + "場所: " + locations[i]["address"]));
                 contentinfo.appendChild(kanzumeinfo);
-                var addItem_btn = document.createElement("button");
                 var kanzume_id = kanzumes[i]["id"];
+                var showKanzume_btn = document.createElement("button")
+                showKanzume_btn.innerText = "このKanzumeの詳細を表示";
+                google.maps.event.addDomListener(showKanzume_btn, "click", function() {
+                    $.ajax({
+                        type: "GET",
+                        url: `/kanzumes/${kanzume_id}`,
+                        dataType: 'html',
+                        success: function(data) {
+                            var win = window.open();
+                            win.document.write(data);
+                        }
+                    });
+                });
+                contentinfo.appendChild(showKanzume_btn);
+                var addItem_btn = document.createElement("button");
                 addItem_btn.innerText = "このKanzumeにアイテムを入れる";
                 google.maps.event.addDomListener(addItem_btn, "click", function() {
                     $.ajax({
@@ -55,6 +69,7 @@ function initMap() {
                     });
                 });
                 contentinfo.appendChild(addItem_btn);
+
                 if (c_marker) { //マーカーが設置されている場合は消去
                     c_marker.setMap(null);
                 }
