@@ -18,6 +18,9 @@
             <li class="nav-item">
               <%= link_to 'アイテム', items_path, class: 'nav-link' %>
             </li>
+            <li class="nav-item">
+              <%= link_to 'プロフィール', current_user, class: 'nav-link' %>
+            </li>
             <% if current_user.admin? %>
               <li class="nav-item">
                 <%= link_to 'ユーザー一覧', users_path, class: 'nav-link' %>

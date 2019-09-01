@@ -20,12 +20,14 @@
   <table class='table table-hover'>
     <thead class='thead thead-default'>
       <tr>
+      <th></th>
         <th><%= sort_link(@q, :name) %></th>
         <th><%= sort_link(@q, :created_at) %></th>
       </tr>
       <tbody>
         <% @items.each do |item| %>
           <tr>
+          <td><%= image_tag item.item_icon.picture_url(:thumb) if item.item_icon.picture.present? %></td>
             <td><%= link_to item.name, item %></td>
             <td><%= item.created_at %></td>
             <td><%= link_to '編集', edit_item_path(id: item.id, kanzume_id: item.kanzume_id), class: 'btn btn-primary' %></td>
