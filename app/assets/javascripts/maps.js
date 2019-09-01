@@ -1,134 +1,19 @@
 function initMap() {
 
-
     var locations = $('#maplocations').data('maplocations-id');
     var kanzumes = $('#kanzumes').data('kanzumes-id');
     var myLatlng = new google.maps.LatLng(35.4478586, 139.6378361);
+
     var mapOptions = {
         canter: myLatlng,
         disableDefaultUI: true,
-        styles: [{
-                "elementType": "geometry.stroke",
-                "stylers": [{
-                    "visibility": "off"
-                }]
-            },
-            {
-                "elementType": "labels",
-                "stylers": [{
-                    "visibility": "simplified"
-                }]
-            },
-            {
-                "featureType": "landscape",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#82d7ff"
-                }]
-            },
-            {
-                "featureType": "poi.attraction",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#002573"
-                }]
-            },
-            {
-                "featureType": "poi.business",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#FFED00"
-                }]
-            },
-            {
-                "featureType": "poi.government",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#d0d47b"
-                }]
-            },
-            {
-                "featureType": "poi.medical",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#e6e7b2"
-                }]
-            },
-            {
-                "featureType": "poi.medical",
-                "elementType": "labels.icon",
-                "stylers": [{
-                    "color": "#3d9538"
-                }]
-            },
-            {
-                "featureType": "poi.medical",
-                "elementType": "labels.text",
-                "stylers": [{
-                    "color": "#3d9538"
-                }]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#e2ffb0"
-                }]
-            },
-            {
-                "featureType": "poi.place_of_worship",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#d0e711"
-                }]
-            },
-            {
-                "featureType": "poi.school",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#d0e711"
-                }]
-            },
-            {
-                "featureType": "poi.sports_complex",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#dadb81"
-                }]
-            },
-            {
-                "featureType": "road",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#FCFFF6"
-                }]
-            },
-            {
-                "featureType": "transit.line",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                        "color": "#efffbd"
-                    },
-                    {
-                        "saturation": -100
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "geometry.fill",
-                "stylers": [{
-                    "color": "#BCF2F4"
-                }]
-            }
-        ]
+        styles: mapstyle
     }
 
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
     var bounds = new google.maps.LatLngBounds();
     var infoWindow = new google.maps.InfoWindow();
     var transitLayer = new google.maps.TransitLayer();
-
 
     for (var i = 0; i < locations.length; i++) {
         transitLayer.setMap(map);
@@ -170,8 +55,8 @@ function initMap() {
                     });
                 });
                 contentinfo.appendChild(addItem_btn);
-                if (nowmarker) { //マーカーが設置されている場合は消去
-                    nowmarker.setMap(null);
+                if (c_marker) { //マーカーが設置されている場合は消去
+                    c_marker.setMap(null);
                 }
                 infoWindow.setContent(
                     contentinfo
@@ -192,18 +77,22 @@ function initMap() {
     };
     // 地図上をクリックした時情報を取得
     var clickedLatlng;
-    var nowmarker;
+    var c_marker;
+
+
     $(function addKanzume() {
 
         google.maps.event.addListener(map, 'click', (function(event) {
-            if (nowmarker) { //マーカーが設置されている場合は消去
-                nowmarker.setMap(null);
+            if (c_marker) { //マーカーが設置されている場合は消去
+                c_marker.setMap(null);
             }
+            infoWindow.close(map, marker);
             geocodeLatLng(testResults);
+
             // クリックした位置情報
             clickedLatlng = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
 
-            nowmarker = new google.maps.Marker({
+            c_marker = new google.maps.Marker({
                 icon: {
                     url: "https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com/uploads/AddKanzumeIcon2.png",
                     scaledSize: new google.maps.Size(50, 50)
@@ -212,11 +101,14 @@ function initMap() {
             });
             //marker設置
 
-            nowmarker.setPosition(clickedLatlng);
-            nowmarker.setMap(map);
+            c_marker.setPosition(clickedLatlng);
+            c_marker.setMap(map);
+
+
 
             var address_name;
             var address_latlng;
+            var nowinfoWindow;
 
             // 逆ジオコーディング
             function geocodeLatLng(callback) {
@@ -227,7 +119,9 @@ function initMap() {
                     if (status === google.maps.GeocoderStatus.OK) {
                         if (results[1]) {
                             address_name = results[0].formatted_address;
-                            kanwindowinfo(address_name, clickedLatlng, map, nowmarker);
+                            nowinfoWindow = new google.maps.InfoWindow();
+                            kanwindowinfo(address_name, clickedLatlng, map, c_marker, undefined, nowinfoWindow);
+                            nowinfoWindow.open(map, c_marker); // 吹き出しの表示
                         } else {
                             alert('No results found');
                         }
@@ -292,81 +186,114 @@ function initMap() {
         }
     });
 
-
-
-
-
     //検索ボタン
-    var searchmarker;
-    document.getElementById('search').addEventListener('click', function() {
+    var s_markers = [];
+    var current_s_infoWindow = null;
+    $(function searchMap() {
 
-        var search_name = document.getElementById('keyword').value;
-        var geocoder = new google.maps.Geocoder(); // geocoderのコンストラクタ
+        var request = {
+            location: new google.maps.LatLng(0, 0),
+            radius: 1000, // ※１ 表示する半径領域を設定(1 = 1M)
+        };
+        var service;
+        var service = new google.maps.places.PlacesService(map);
+        service.search(request, Result_Places);
 
-        geocoder.geocode({
-            address: search_name
-        }, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-
-                for (var i in results) {
-                    if (results[0].geometry) {
-                        // 緯度経度を取得
-                        var s_latlng = results[0].geometry.location;
-                        // 住所を取得
-                        var address = results[0].formatted_address;
-                        // 検索結果地が含まれるように範囲を拡大
-                        map.setZoom(16);
-                        map.setCenter(s_latlng);
-                        // マーカーのセット
-                        setMarker(s_latlng);
-                        // マーカーへの吹き出しの追加
-                        kanwindowinfo(address, s_latlng, map, searchmarker, search_name);
-                        // マーカーにクリックイベントを追加
-                        searchmarkerEvent();
-                    }
+        // 検索結果を受け取る
+        function Result_Places(results, status) {
+            if (results) {
+                for (var i = 0; i < results.length; i++) {
+                    results[i] === null;
                 }
-            } else if (status == google.maps.GeocoderStatus.ZERO_RESULTS) {
-                alert("見つかりません");
-            } else {
-                console.log(status);
-                alert("エラー発生");
             }
-        });
+            // Placesが検家に成功したかとマうかをチェック
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    // 検索結果の数だけ反復処理を変数placeに格納
+                    var place = results[i];
+                    createMarker({
+                        text: place.name,
+                        position: place.geometry.location
+                    });
 
+
+                }
+            }
+        }
+
+        // 入力キーワードと表示範囲を設定
+        $("#searchGo").click(function() {
+            for (var i = 0; i < s_markers.length; i++) {
+                s_markers[i].setMap(null);
+            }
+            // #map_canva要素にMapクラスの新しいインスタンスを作成
+            service = new google.maps.places.PlacesService(map);
+            // input要素に入力されたキーワードを検索の条件に設定
+            var myword = document.getElementById("search");
+            var request = {
+                query: myword.value,
+                radius: 5000,
+                location: map.getCenter()
+            };
+            service.textSearch(request, result_search);
+        })
+
+        // 検索の結果を表示
+        function result_search(results, status) {
+
+            var bounds = new google.maps.LatLngBounds();
+            for (var i = 0; i < results.length; i++) {
+                createMarker({
+                    position: results[i].geometry.location,
+                    text: results[i].name,
+                    map: map,
+                    icon: new google.maps.MarkerImage(
+                        'https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com/uploads/Searchedmarker.png',
+                        null,
+                        null,
+                        null,
+                        new google.maps.Size(32, 32))
+                });
+                bounds.extend(results[i].geometry.location);
+            }
+            map.fitBounds(bounds);
+        }
+
+        // 該当する位置にマーカーを表示
+        function createMarker(options) {
+
+
+            if (s_infoWindow) { s_infoWindow.close(); }
+            // マップ情報を保持しているmapオブジェクトを指定
+            options.map = map;
+
+            // Markerクラスのオブジェクトmarkerを作成
+            var s_marker = new google.maps.Marker(options);
+
+            // 各施設の吹き出し(情報ウインドウ)に表示させる処理
+            var s_infoWindow = new google.maps.InfoWindow();
+
+            kanwindowinfo(options.text, options.position, map, s_marker, options.text, s_infoWindow);
+            google.maps.event.addListener(s_marker, 'click', function() {
+                infoWindow.close(map, marker);
+                if (current_s_infoWindow) { current_s_infoWindow.close(); }
+                s_infoWindow.open(map, s_marker);
+                current_s_infoWindow = s_infoWindow;
+            });
+            s_markers.push(s_marker);
+            return s_marker;
+
+        }
     });
 
-    // マーカーのセットを実施する
-    function setMarker(setplace) {
-        // 既にあるマーカーを削除
-        deleteMakers();
 
-        var iconUrl = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
-        searchmarker = new google.maps.Marker({
-            position: setplace,
-            map: map,
-            icon: iconUrl
-        });
-    }
-
-    //マーカーを削除する
-    function deleteMakers() {
-        if (searchmarker != null) {
-            searchmarker.setMap(null);
-        }
-        searchmarker = null;
-    }
-
-    // クリックイベント
-    function searchmarkerEvent() {
-        searchmarker.addListener('click', function() {
-            infoWindow.open(map, searchmarker);
-        });
-    }
     // Window内情報（Kanzume）
-    function kanwindowinfo(address_name, Latlng, map, marker, search_name) {
+    function kanwindowinfo(address_name, Latlng, map, marker, search_name, infoWindow) {
 
         var a_btn = document.createElement("button");
-        if (search_name === undefined) { a_btn.innerText = "ここにKanzumeを追加する"; } else {
+        if (search_name === undefined) {
+            a_btn.innerText = "ここにKanzumeを追加する";
+        } else {
             a_btn.innerText = `「${search_name}」にKanzumeを追加する`;
         }
         google.maps.event.addDomListener(a_btn, "click", function() {
@@ -388,7 +315,9 @@ function initMap() {
         infoWindow.setContent(
             a_btn
         );
-        infoWindow.open(map, marker); // 吹き出しの表示
+
     }
+
+
 
 }
