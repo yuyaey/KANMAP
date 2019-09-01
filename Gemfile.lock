@@ -205,6 +205,7 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.6.0)
+    rmagick (4.0.0)
     ruby-debug-ide (0.7.0)
       rake (>= 0.8.1)
     ruby-vips (2.0.14)
@@ -292,6 +293,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails_autolink
   ransack
+  rmagick
   ruby-debug-ide
   sass-rails (~> 5.0)
   selenium-webdriver

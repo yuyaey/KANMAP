@@ -43,6 +43,7 @@ ja:
         password_confirmation: パスワード(確認)
         created_at: 登録日時
         updated_at: 更新日時
+        avatar: ユーザー画像
   date:
     abbr_day_names:
     - 日
