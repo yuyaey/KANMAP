@@ -9,6 +9,7 @@
     </style>
   </head>
   <body>
+
     <button id='currentPosition' >現在地を表示</button>
     <input type="text" size="55" id="search" value="" />
     <button id='searchGo'>検索</button>
@@ -18,5 +19,12 @@
     <script src="maps.js"></script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBwVfFPbRIzMuOHE5p01Nm1K0Y8E4IK5IA&callback=initMap&libraries=places"></script>
+        <p class="page_index_p_title" class="page_index">Find me in app/views/page/index.html.erb</p>
+<!-- Rendered by vue JS -->
+<div id='app'></div>
+<!-- // Rendered by vue JS -->
+<%= javascript_pack_tag 'application.js' %>
+<%= stylesheet_pack_tag 'application' %>
+  
   </body>
 </html>
