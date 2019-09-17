@@ -29,7 +29,7 @@
             <td><%= link_to item.name, item %></td>
             <td><%= item.created_at %></td>
             <td><%= link_to '編集', edit_item_path(id: item.id, kanzume_id: item.kanzume_id), class: 'btn btn-primary' %></td>
-            <td><%= link_to '削除', item, method: :delete, remote: true, data: {confirm: "「#{item.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger delete' %></td>
+            <td><%= link_to '削除', item, method: :delete, data: {confirm: "「#{item.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger delete' %></td>
           </tr>
         <% end %>
       </tbody>

@@ -11,6 +11,12 @@
       height: 80px;
       line-height: 80px;
       }
+      .sidenav {
+        opacity: 0.8;
+      }
+        img.bg {
+          opacity: 0.3;
+        }
         img.logo {
           position:relative;
           top: 8px;
@@ -19,6 +25,19 @@
           height: 40px;
         }
         img.menu_icon {
+          position:relative;
+          top: 12px;
+          width: 40px;
+          height: 40px;
+        }
+        img.side_menu_icon {
+          position:relative;
+          top: 12px;
+          right: 10px;
+          width: 30px;
+          height: 30px;
+        }
+        img.profile_icon {
           position:relative;
           top: 12px;
           width: 40px;
@@ -36,53 +55,89 @@
           <% if current_user %>
             <li><a href="/kanzumes" class="tooltipped" data-position="bottom" data-tooltip="KANZUME"><%= image_tag 'kanzume_icon.png', class: "menu_icon" %></a></li>
             <li><a href="/items" class="tooltipped" data-position="bottom" data-tooltip="ITEM"><%= image_tag 'item_icon.png', class: "menu_icon" %></a></li>
-            <li><a href="/users/<%= current_user.id%>" class="tooltipped" data-position="bottom" data-tooltip="PROFILE"><%= image_tag 'profile_icon.png', class: "menu_icon" %></a></li>
+            <li><a href="/users/<%= current_user.id%>" class="tooltipped" data-position="bottom" data-tooltip="PROFILE"><img class="circle profile_icon " src="<%= current_user.avatar_url(:thumb)%>"></a></li>
             <% if current_user.admin? %>
               <li><a href="/kanzume_icons">KANZUMEICON</a></li>
               <li><a href="/item_icons">ITEMICON</a></li>
             <% end %>
-            <li><a href="/logout" class="tooltipped" data-position="bottom" data-tooltip="LOGOUT" data-method="delete" ><%= image_tag 'logout_icon.png', class: "menu_icon" %></a></li>
+            <li><a href="/logout" class="tooltipped" data-position="bottom" data-tooltip="SIGN OUT" data-method="delete" ><%= image_tag 'logout_icon.png', class: "menu_icon" %></a></li>
           <% else %>
-          <li><a href="/login" class="tooltipped" data-position="bottom" data-tooltip="LOGIN" ><%= image_tag 'login_icon.png', class: "menu_icon" %></a></li>
+            <li>
+              <a href="/login" class="tooltipped" data-position="bottom" data-tooltip="SIGN IN"><%= image_tag 'login_icon.png', class: "menu_icon" %></a>
+            </li>
+            <li>
+              <a href="/users/new" class="waves-effect waves-light btn white "><i class="material-icons left teal-text text-lighten-1">person_add</i><span class="teal-text text-lighten-1">JOIN</span></a>
+            </li>
           <%end%>
         </ul>
-      </div>
-    </nav>
-    <ul class="sidenav" id="mobile-demo">
-      <li><a href="/">MAP</a></li>
-      <% if current_user %>
-        <li><a href="/kanzumes">KANZUME</a></li>
-        <li><a href="/items">ITEM</a></li>
-        <li><a href="/users/<%= current_user.id%>">PROFILE</a></li>
-        <% if current_user.admin? %>
-          <li><a href="/kanzume_icons">KANZUMEICON</a></li>
-          <li><a href="/item_icons">ITEMICON</a></li>
-        <% end %>
-        <li><a href="/logout" data-method="delete" >LOGOUT</a></li>
-      <%end%>
-    </ul>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-         var elems = document.querySelectorAll('.sidenav');
-         var instances = M.Sidenav.init(elems);
-       });
-      
-               $(document).ready(function(){
-             $('.tooltipped').tooltip();
-                 });
-    </script>
-    <div class="container">
-      <% unless flash.empty? %>
-        <script>
-          <% flash.each do |type,message| %>
-            <% color = 'green lighten-5 green-text' if type == 'notice' %>
-            <% color = 'red lighten-5 red-text' if type == 'alert' %>
-            <% color = 'yellow lighten-5 orange-text' if type == 'danger' %>
-            M.toast({html:'<%= message %>',classes:'<%= color %>'})
-          <% end %>
-        </script>
+      </nav>
+      <ul class="sidenav teal lighten-1" id="mobile-demo">
+        <% if current_user %>
+          <li>
+            <div class="user-view">
+              <div class="background">
+                <img src="/assets/bg-sea.jpg" class="bg">
+              </div>
+              <div class="row">
+                <div class="col s4">
+                  <a href="/users/<%= current_user.id%>"><img class="circle" src="<%= current_user.avatar_url(:thumb) %>"></a>
+                </div>
+                <div class="col s8">
+                  <a href="/users/<%= current_user.id%>"><span class="white-text name"><%= current_user.name %></span></a>
+                </div>
+              </div>
+              <a href="/users/<%= current_user.id%>"><a class="white-text email"><%= current_user.email %></a></a>
+            </div>
+          </li>
+        </div>
+      </li>
+      <li><a href="/"><%= image_tag 'map_icon.png', class: "side_menu_icon" %> <span class="white-text">MAP</span></a></li>
+      <li><a href="/kanzumes"><%= image_tag 'kanzume_icon.png', class: "side_menu_icon" %> <span class="white-text">KANZUME</span></a></li>
+      <li><a href="/items"><%= image_tag 'item_icon.png', class: "side_menu_icon" %> <span class="white-text">ITEM</span></a></li>
+      <li><a href="/users/<%= current_user.id%>"><%= image_tag 'profile_icon.png', class: "side_menu_icon" %> <span class="white-text">PROFILE</span></a></li>
+      <% if current_user.admin? %>
+        <li><a href="/kanzume_icons"><span class="white-text">KANZUMEICON</span></a></li>
+        <li><a href="/item_icons"><span class="white-text">ITEMICON</span></a></li>
       <% end %>
-    </div>
-    <%= yield %>
-  </body>
+      <li>
+        <div class="divider"></div>
+      </li>
+      <li><a href="/logout" data-method="delete" ><%= image_tag 'logout_icon.png', class: "side_menu_icon" %><span class="white-text">SIGN OUT</span></a></li>
+    <% else %>
+      <li>
+        <div class="divider"></div>
+      </li>
+      <li><a href="/"><%= image_tag 'map_icon.png', class: "side_menu_icon" %> <span class="white-text">MAP</span></a></li>
+      <li>
+        <a href="/login"><%= image_tag 'login_icon.png', class: "side_menu_icon" %><span class="white-text">SIGN IN</span></a>
+      </li>
+      <li>
+        <a href="/users/new" class="waves-effect waves-light btn white "><i class="material-icons left teal-text text-lighten-1">person_add</i><span class="teal-text text-lighten-1">JOIN</span></a>
+      </li>
+    <%end%>
+  </ul>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+       var elems = document.querySelectorAll('.sidenav');
+       var instances = M.Sidenav.init(elems);
+     });
+    
+    $(document).ready(function(){
+        $('.tooltipped').tooltip();
+      });
+  </script>
+  <div class="container">
+    <% unless flash.empty? %>
+      <script>
+        <% flash.each do |type,message| %>
+          <% color = 'green lighten-5 green-text' if type == 'notice' %>
+          <% color = 'red lighten-5 red-text' if type == 'alert' %>
+          <% color = 'yellow lighten-5 orange-text' if type == 'danger' %>
+          M.toast({html:'<%= message %>',classes:'<%= color %>'})
+        <% end %>
+      </script>
+    <% end %>
+  </div>
+  <%= yield %>
+</body>
 </html>

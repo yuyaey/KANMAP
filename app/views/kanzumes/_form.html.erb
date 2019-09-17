@@ -12,7 +12,7 @@
   </div>
   <div class="form-group">
     <%= f.label 'Kanzumeを選択' %>
-    <%= f.collection_select :kanzume_icon_id, KanzumeIcon.all, :id, :name, {include_blank: true}, {required: true} %>
+    <%= f.collection_select :kanzume_icon_id, KanzumeIcon.all, :id, :name, { prompt: "Choose an ICON" }, {class: "browser-default"} %>
   </div>
   <% if local_assigns.has_key? :new_flag %>
     <%= f.fields_for :maps do |m| %>
@@ -24,5 +24,5 @@
       </div>
     <% end %>
   <% end %>
-  <%= f.submit nil, class: 'btn btn-primary' %>
+  <%= f.submit nil, class: 'btn waves-effect waves-light' %>
 <% end %>

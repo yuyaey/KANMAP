@@ -39,11 +39,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    if action_name == index
-      head :no_content
-    else
-      redirect_to items_url, notice: "「#{@item.name}」を削除しました。"
-    end
+    redirect_to items_url, notice: "「#{@item.name}」を削除しました。"
   end
 
   private
