@@ -1,3 +1,10 @@
+$(document).ready(function() {
+    $('.modal').modal();
+    $('.tooltipped').tooltip();
+});
+
+
+
 function initMap() {
 
     var locations = $('#maplocations').data('maplocations-id');
@@ -189,7 +196,7 @@ function initMap() {
                             null,
                             null,
                             null,
-                            new google.maps.Size(64, 64))
+                            new google.maps.Size(48, 48))
                     });
 
                 },

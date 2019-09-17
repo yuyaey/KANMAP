@@ -1,1 +1,5 @@
-@import "bootstrap";
+@import "materialize/components/color-variables";
+$primary-color: color("teal", "lighten-1") !default;
+$secondary-color: color("teal", "lighten-1") !default;
+@import "materialize";
+@import "material_icons";

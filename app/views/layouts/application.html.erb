@@ -4,52 +4,83 @@
     <title>KANMAP</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <%= javascript_include_tag 'application' %>
+    <style type="text/css">
+      nav {
+      height: 80px;
+      line-height: 80px;
+      }
+        img.logo {
+          position:relative;
+          top: 8px;
+          left: 8px;
+          width: 40px;
+          height: 40px;
+        }
+        img.menu_icon {
+          position:relative;
+          top: 12px;
+          width: 40px;
+          height: 40px;
+        }
+    </style>
   </head>
   <body>
-    <nav class="app-title navbar navbar-expand-md navbar-light bg-light">
-      <div class="navbar-brand"><a href= "/">KANMAP</a></div>
-        <ul class="navbar-nav ml-auto">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo"><%= image_tag 'logo.png', class: "logo" %> KANMAP</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/" class="tooltipped" data-position="bottom" data-tooltip="MAP"><%= image_tag 'map_icon.png', class: "menu_icon" %></a></li>
           <% if current_user %>
-            <li class="nav-item">
-              <%= link_to 'Kanzume', kanzumes_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'アイテム', items_path, class: 'nav-link' %>
-            </li>
+            <li><a href="/kanzumes" class="tooltipped" data-position="bottom" data-tooltip="KANZUME"><%= image_tag 'kanzume_icon.png', class: "menu_icon" %></a></li>
+            <li><a href="/items" class="tooltipped" data-position="bottom" data-tooltip="ITEM"><%= image_tag 'item_icon.png', class: "menu_icon" %></a></li>
+            <li><a href="/users/<%= current_user.id%>" class="tooltipped" data-position="bottom" data-tooltip="PROFILE"><%= image_tag 'profile_icon.png', class: "menu_icon" %></a></li>
             <% if current_user.admin? %>
-              <li class="nav-item">
-                <%= link_to 'ユーザー一覧', users_path, class: 'nav-link' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to '🥫', kanzume_icons_path, class: 'nav-link' %>
-              </li>
-              </li>
-              <li class="nav-item">
-                <%= link_to '🥝', item_icons_path, class: 'nav-link' %>
-              </li>
+              <li><a href="/kanzume_icons">KANZUMEICON</a></li>
+              <li><a href="/item_icons">ITEMICON</a></li>
             <% end %>
-            <li class="nav-item">
-              <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to 'ログイン', login_path, class: 'nav-link' %>
-            </li>
-          <% end %>
+            <li><a href="/logout" class="tooltipped" data-position="bottom" data-tooltip="LOGOUT" data-method="delete" ><%= image_tag 'logout_icon.png', class: "menu_icon" %></a></li>
+          <%end%>
         </ul>
       </div>
     </nav>
-  <div class="container">
-    <% if flash[:notice] %>
-      <div class="alert alert-success"><%= flash[:notice] %></div>
-    <% elsif flash[:alert] %>
-    <div class="alert alert-warning"><%= flash[:alert] %></div>
-    <% elsif flash[:danger] %>
-    <div class="alert alert-danger"><%= flash[:danger] %></div>
-    <% end %>
-  </div>
-  <%= yield %>
-</body>
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="/">MAP</a></li>
+      <% if current_user %>
+        <li><a href="/kanzumes">KANZUME</a></li>
+        <li><a href="/items">ITEM</a></li>
+        <li><a href="/users/<%= current_user.id%>">PROFILE</a></li>
+        <% if current_user.admin? %>
+          <li><a href="/kanzume_icons">KANZUMEICON</a></li>
+          <li><a href="/item_icons">ITEMICON</a></li>
+        <% end %>
+        <li><a href="/logout" data-method="delete" >LOGOUT</a></li>
+      <%end%>
+    </ul>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+         var elems = document.querySelectorAll('.sidenav');
+         var instances = M.Sidenav.init(elems);
+       });
+      
+               $(document).ready(function(){
+             $('.tooltipped').tooltip();
+                 });
+    </script>
+    <div class="container">
+      <% unless flash.empty? %>
+        <script>
+          <% flash.each do |type,message| %>
+            <% color = 'green lighten-5 green-text' if type == 'notice' %>
+            <% color = 'red lighten-5 red-text' if type == 'alert' %>
+            <% color = 'yellow lighten-5 orange-text' if type == 'danger' %>
+            M.toast({html:'<%= message %>',classes:'<%= color %>'})
+          <% end %>
+        </script>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
 </html>
