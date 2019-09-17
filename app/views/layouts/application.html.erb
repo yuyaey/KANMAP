@@ -42,6 +42,8 @@
               <li><a href="/item_icons">ITEMICON</a></li>
             <% end %>
             <li><a href="/logout" class="tooltipped" data-position="bottom" data-tooltip="LOGOUT" data-method="delete" ><%= image_tag 'logout_icon.png', class: "menu_icon" %></a></li>
+          <% else %>
+          <li><a href="/login" class="tooltipped" data-position="bottom" data-tooltip="LOGIN" ><%= image_tag 'login_icon.png', class: "menu_icon" %></a></li>
           <%end%>
         </ul>
       </div>

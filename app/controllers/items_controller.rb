@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   helper_method :correct_user
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_item, only: [:edit, :update, :destroy]
+  skip_before_action :login_required, only: [:show]
   
   
   def index

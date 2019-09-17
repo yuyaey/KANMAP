@@ -1,6 +1,7 @@
 class MapsController < ApplicationController
   before_action :set_map, only: [:show, :edit, :update, :destroy]
   before_action :set_kanzume, only: [:new, :edit, :create, :destroy]
+  skip_before_action :login_required, only: [:index]
   
   # GET /maps
   # GET /maps.json
