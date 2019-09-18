@@ -1,4 +1,4 @@
-<h1>🥫一覧</h1>
+<h1>🥫</h1>
 <%= search_form_for @q, class: 'mb-5' do |f| %>
   <div class="form-group row">
     <%= f.label :name_cont, '名称', class: 'col-sm-2 col-form-label'%>
@@ -30,7 +30,7 @@
             <td><%= link_to kanzume_icon.name, kanzume_icon %></td>
             <td><%= kanzume_icon.created_at %></td>
             <td><%= link_to '編集', edit_kanzume_icon_path(kanzume_icon), class: 'btn btn-primary mr-3' %></td>
-            <td><%= link_to '削除', kanzume_icon, method: :delete, remote: true, data: {confirm: "「#{kanzume_icon.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger delete' %></td>
+            <td><%= link_to '×', kanzume_icon, method: :delete, remote: true, data: {confirm: "「#{kanzume_icon.name}」を削除します。よろしいですか？"}, class: 'btn-floating btn-small grey lighten-1' %></td>
           </tr>
         <% end %>
       </tbody>

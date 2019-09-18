@@ -15,3 +15,12 @@
 //= require jquery_ujs
 //= require materialize
 //= require_tree .
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+});
+
+$(document).ready(function() {
+    $('.tooltipped').tooltip();
+});

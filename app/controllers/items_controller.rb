@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
   def new
     @item = current_user.items.new
     @kanzume = Kanzume.find_by(id: params[:kanzume_id])
+    @item_icons = ItemIcon.all
   end
 
   def create
@@ -30,6 +31,7 @@ class ItemsController < ApplicationController
 
   def edit 
     @kanzume = Kanzume.find_by(id: params[:kanzume_id])
+    @item_icons = ItemIcon.all
   end
 
   def update

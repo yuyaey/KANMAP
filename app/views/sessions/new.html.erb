@@ -1,17 +1,18 @@
 <h1>ログイン</h1>
-  <%= form_with scope: :session, local: true do |f| %>
-    <div class='form-group'>
-      <%= f.label :email, 'メールアドレス' %>
-      <%= f.email_field :email, class: 'form-control', id: 'session_email' %>
-    </div>
-    <div class='form-group'>
-      <%= f.label :password, 'パスワード'%>
-      <%= f.password_field :password, class: 'form-control', id: 'session_password' %>
-    </div>
-    <div>
-      <%= f.submit 'ログインする', class: 'btn btn-primary' %>
-    </div>
-    <div>
-    <%= link_to 'ユーザーを登録', new_user_path, class: 'btn btn-info' %>
-    </div>
-  <% end %>
+<%= form_with scope: :session, local: true do |f| %>
+  <div class='form-group'>
+    <%= f.label :email, 'メールアドレス' %>
+    <%= f.email_field :email, class: 'form-control', id: 'session_email' %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :password, 'パスワード'%>
+    <%= f.password_field :password, class: 'form-control', id: 'session_password' %>
+  </div>
+  <div>
+    <%= f.submit 'ログインする', class: 'btn btn-primary' %>
+  </div>
+  <br>
+  <div>
+    <a href="/users/new" class="waves-effect waves-light btn white "><i class="material-icons left teal-text text-lighten-1">person_add</i><span class="teal-text text-lighten-1">ユーザーを登録</span></a>
+  </div>
+<% end %>

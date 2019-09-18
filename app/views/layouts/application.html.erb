@@ -6,44 +6,6 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application' %>
-    <style type="text/css">
-      nav {
-      height: 80px;
-      line-height: 80px;
-      }
-      .sidenav {
-        opacity: 0.8;
-      }
-        img.bg {
-          opacity: 0.3;
-        }
-        img.logo {
-          position:relative;
-          top: 8px;
-          left: 8px;
-          width: 40px;
-          height: 40px;
-        }
-        img.menu_icon {
-          position:relative;
-          top: 12px;
-          width: 40px;
-          height: 40px;
-        }
-        img.side_menu_icon {
-          position:relative;
-          top: 12px;
-          right: 10px;
-          width: 30px;
-          height: 30px;
-        }
-        img.profile_icon {
-          position:relative;
-          top: 12px;
-          width: 40px;
-          height: 40px;
-        }
-    </style>
   </head>
   <body>
     <nav>
@@ -116,16 +78,7 @@
       </li>
     <%end%>
   </ul>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-       var elems = document.querySelectorAll('.sidenav');
-       var instances = M.Sidenav.init(elems);
-     });
-    
-    $(document).ready(function(){
-        $('.tooltipped').tooltip();
-      });
-  </script>
+
   <div class="container">
     <% unless flash.empty? %>
       <script>

@@ -16,11 +16,11 @@ class KanzumesController < ApplicationController
   def new
     @kanzume = current_user.kanzumes.new
     @kanzume.maps.build
-  end
+    @kanzume_icons = KanzumeIcon.all
+    end
 
   def create
     @kanzume = current_user.kanzumes.new(kanzume_params)
-    
     if @kanzume.save
       redirect_to @kanzume, notice: "「#{@kanzume.name}」を追加しました。"
     else
@@ -29,6 +29,7 @@ class KanzumesController < ApplicationController
   end
 
   def edit
+    @kanzume_icons = KanzumeIcon.all
   end
 
   def update
@@ -38,14 +39,9 @@ class KanzumesController < ApplicationController
 
   def destroy
     if @kanzume.destroy
-      if action_name == index
-      head :no_content
-      else
       redirect_to kanzumes_url, notice: "「#{@kanzume.name}」を削除しました。"
-      end
     else
-      redirect_to kanzume_url, alert: "「#{@kanzume.name}」にはアイテムが含まれるため削除できません。"
-      
+      redirect_to kanzumes_url, alert: "「#{@kanzume.name}」にはアイテムが含まれるため削除できません。"
     end
   end
 
@@ -68,7 +64,6 @@ class KanzumesController < ApplicationController
     if @kanzume.nil?
     redirect_to root_url, alert: "他のユーザーのKanzumeのデータは編集できません。"
     end
-
   end
 
 
