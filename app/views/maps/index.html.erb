@@ -2,6 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
+    <%= stylesheet_link_tag 'maps', media: 'all'%>
   </head>
   <body>
     <div id= "mapbox">
@@ -21,8 +22,9 @@
       <div id="maplocations" data-maplocations-id="<%= @maps.to_json %>"></div>
       <div id="kanzumes" data-kanzumes-id="<%= @kanzumes.to_json %>"></div>
       <div id="map"></div>
-      <%= render 'window' %>
       <script src="maps.js"></script>
+      <%= render 'window' %>
+      <script>document.getElementById("infowindows").style.display = "none";</script>
       <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBwVfFPbRIzMuOHE5p01Nm1K0Y8E4IK5IA&callback=initMap&libraries=places"></script>
     </div>

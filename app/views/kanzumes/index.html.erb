@@ -1,33 +1,24 @@
-<h1>Kanzume</h1>
-
-<div id="k_window" class="row">
-    <div class="col s12 m6">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span id="k_name" class="card-title">Kanzume Title</span>
-          <p id="k_address">address</p>
-        </div>
-        <div class="card-action">
-          <button class="windowbtn_s">見てみる</button>
-          <button class="windowbtn_a">アイテムを入れる</button>
-        </div>
+<%= stylesheet_link_tag 'kanzumes', media: 'all'%>
+<h3>KANZUME</h3>
+<div class="row">
+  <div class="col s4 m3">
+    <div class="card">
+      <div class="card-image">
+        <img src="/assets/kb_blue.png" id="kanzume_img">
+      </div>
+      <div class="card-content" id="kanzume_content">
+        <span class="card-title">TOKYO KANZUME</span>
+        <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons teal-text right">more_vert</i></span></a>
+        <p class="date">CREATED : 2018/09/12</p>
+         <p class="date">UPDATED : 2018/09/12</p>
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="#!"><i class="material-icons">edit</i>EDIT</a></li>
+        <li><a href="#!"><i class="material-icons text-grey">clear</i>DELETE</a></li> </ul>
       </div>
     </div>
-  </div>
-
-<div id="c_window" class="row">
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-content">
-          <p id="c_address">address</p>
-        </div>
-        <div class="card-action">
-          <button class="windowbtn_a">ここにKanzumeを置く</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
+ 
+</div>
+</div>
 <%= search_form_for @q, class: 'mb-5' do |f| %>
   <div class="form-group row">
     <%= f.label :name_cont, '名称', class: 'col-sm-2 col-form-label'%>
@@ -69,3 +60,6 @@
     </thead>
   </table>
 </div>
+<script>
+  $('.dropdown-trigger').dropdown();
+</script>
