@@ -21,7 +21,7 @@ function initMap() {
 
     var locations = $('#maplocations').data('maplocations-id');
     var kanzumes = $('#kanzumes').data('kanzumes-id');
-    var myLatlng = new google.maps.LatLng(35.4478586, 139.6378361);
+    var myLatlng = new google.maps.LatLng(35.681236, 139.767125);
 
 
     var mapOptions = {
@@ -99,7 +99,10 @@ function initMap() {
             bounds.extend(marker.position);
         }
     };
-
+    marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map
+    });
     transitLayer.setMap(map);
     map.fitBounds(bounds);
     // bounds.extend(marker.position);

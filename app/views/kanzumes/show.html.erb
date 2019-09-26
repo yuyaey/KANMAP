@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= stylesheet_link_tag 'kanzumes', media: 'all'%>
 <div class="large-container">
   <div class="row">
@@ -92,3 +93,46 @@
      title: 'a'
            });}
   </script>
+=======
+<h1><%= image_tag(@kanzume.kanzume_icon.picture_url(:thumb)) %></h1>
+<ul class='nav justify-content-end'>
+  <%= link_to '一覧', kanzumes_path, class: 'nav-link' %>
+</ul>
+<table class= 'table table-hover'>
+  <tbody>
+    <tr>
+      <th><%= Kanzume.human_attribute_name(:name) %></th>
+      <td><%= @kanzume.name %></td>
+    </tr>
+    <% if @kanzume.items.present? %>
+      <tr>
+        <th>Contents</th>
+        <td>
+          <% @kanzume.items.each do |item| %>
+            <div class='item_name'><%= link_to item.name, item %></div>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <th>Kaznumeの場所</th>
+      <td><% @kanzume.maps.each do |map| %>
+          <%= map.address %></div>
+      <% end %></td>
+  </tr>
+  <tr>
+    <th>置いた人</th>
+    <td><%= image_tag @kanzume.user.avatar_url(:thumb) %><%= @kanzume.user.name %></td>
+  </tr>
+  <tr>
+    <th><%= Kanzume.human_attribute_name(:created_at) %></th>
+    <td><%= @kanzume.created_at %></td>
+  </tr>
+  <tr>
+    <th><%= Kanzume.human_attribute_name(:updated_at) %></th>
+    <td><%= @kanzume.updated_at %></td>
+  </tr>
+</tbody>
+</table>
+<%= link_to 'アイテムを追加', { controller: 'items', action: 'new', kanzume_id: @kanzume.id }, class: 'btn btn-primary btn-info' %>
+>>>>>>> 536176a03660d92576af29d4665ec82677c39901

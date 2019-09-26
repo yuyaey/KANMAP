@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <th><%= KanzumeIcon.human_attribute_name(:picture) %></th>
-      <td><%= image_tag(@kanzume_icon.picture_url) if @kanzume_icon.picture.present? %></td>
+      <td><%= image_tag @kanzume_icon.picture_url(:thumb) if @kanzume_icon.picture.present? %></td>
     </tr>
     <tr>
       <th><%= KanzumeIcon.human_attribute_name(:created_at) %></th>

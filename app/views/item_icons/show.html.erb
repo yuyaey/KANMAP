@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <th><%= ItemIcon.human_attribute_name(:picture) %></th>
-      <td><%= image_tag(@item_icon.picture_url) if @item_icon.picture.present? %></td>
+      <td><%= image_tag @item_icon.picture_url(:thumb) if @item_icon.picture.present? %></td>
     </tr>
     <tr>
       <th><%= ItemIcon.human_attribute_name(:created_at) %></th>

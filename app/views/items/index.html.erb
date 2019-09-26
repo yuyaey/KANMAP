@@ -38,6 +38,7 @@
   <div id="page-entries-info">
     <%= page_entries_info @items, entry_name: 'ITEM' %>
   </div>
+<<<<<<< HEAD
 </div>
 <% @items.each do |item| %>
   <div class="col s12 m7">
@@ -47,6 +48,26 @@
           <%=link_to image_tag(item.image_url), "/items/#{item.id}" %>
         <% else %>
           <%=link_to image_tag("sampleimages/#{rand(8)}.png"), "/items/#{item.id}" %>
+=======
+<% end %>
+<div class='mb-3'>
+  <table class='table table-hover'>
+    <thead class='thead thead-default'>
+      <tr>
+      <th></th>
+        <th><%= sort_link(@q, :name) %></th>
+        <th><%= sort_link(@q, :created_at) %></th>
+      </tr>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+          <td><%= image_tag item.item_icon.picture_url(:thumb) if item.item_icon.picture.present? %></td>
+            <td><%= link_to item.name, item %></td>
+            <td><%= item.created_at %></td>
+            <td><%= link_to '編集', edit_item_path(id: item.id, kanzume_id: item.kanzume_id), class: 'btn btn-primary' %></td>
+            <td><%= link_to '削除', item, method: :delete, remote: true, data: {confirm: "「#{item.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger delete' %></td>
+          </tr>
+>>>>>>> 536176a03660d92576af29d4665ec82677c39901
         <% end %>
       </div>
       <div class="card-stacked">

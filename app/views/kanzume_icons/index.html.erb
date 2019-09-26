@@ -21,12 +21,15 @@
   <table class='table table-hover'>
     <thead class='thead thead-default'>
       <tr>
+      <th></th>
         <th><%= sort_link(@q, :name) %></th>
         <th><%= sort_link(@q, :created_at) %></th>
+        
       </tr>
       <tbody>
         <% @kanzume_icons.each do |kanzume_icon| %>
           <tr>
+            <td><%= image_tag kanzume_icon.picture_url(:thumb) if kanzume_icon.picture.present? %></td>
             <td><%= link_to kanzume_icon.name, kanzume_icon %></td>
             <td><%= kanzume_icon.created_at %></td>
             <td><%= link_to '編集', edit_kanzume_icon_path(kanzume_icon), class: 'btn btn-primary mr-3' %></td>
