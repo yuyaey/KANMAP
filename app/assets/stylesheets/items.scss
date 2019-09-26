@@ -1,3 +1,106 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+    // Place all the styles related to the items controller here.
+    // They will automatically be included in application.css.
+    // You can use Sass (SCSS) here: http://sass-lang.com/
+    //index
+    .small-header {
+        margin-bottom: 0px;
+    }
+    
+    #page-entries-info {
+        float: left;
+        position: relative;
+        top: 17px;
+    }
+    
+    .contenteiner-searchsort {
+        padding-right: 20px;
+        position: relative;
+        top: -3px;
+    }
+    
+    #search-modal {
+        padding: 30px;
+    }
+    
+    div.card.horizontal.row {
+        margin-left: 1.25rem;
+        margin-right: 1.25rem;
+        margin-bottom: 2.25rem;
+    }
+    
+    .card.horizontal .card-image img {
+        width: 200px;
+        height: 332px;
+        border-radius: 6px 0 0 6px;
+    }
+    
+    #item-date {
+        position: absolute;
+        top: 5px;
+        right: 21px;
+    }
+    
+    #item-icon img {
+        width: 50px;
+        float: left;
+        position: absolute;
+        top: 42px;
+        left: 54px;
+    }
+    
+    #item-name-i {
+        font-size: x-large;
+        position: absolute;
+        left: 157px;
+        top: 45px;
+        width: 416px;
+    }
+    
+    #item-memo-i {
+        position: absolute;
+        top: 151px;
+        left: 50px;
+        width: 80%;
+    }
+    
+    #edit_btn {
+        float: right;
+        position: absolute;
+        top: 262px;
+        right: 30px;
+    }
+    
+    //show
+    #item_img {
+        position: relative;
+        top: 15px;
+        margin-right: 10px;
+    }
+    
+    #item_user_img {
+        width: 25px
+    }
+    
+    #item_user_name {
+        position: relative;
+        top: -6px;
+        left: 5px;
+    }
+    
+    #kanzume_img {
+        width: 25px
+    }
+    
+    #kanzume_name {
+        position: relative;
+        top: -6px;
+        left: 5px;
+    }
+
+      //form
+
+      #delete_btn {
+        float: right;
+        position: relative;
+        bottom: 36px;
+    }

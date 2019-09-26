@@ -6,7 +6,7 @@ class KanzumesController < ApplicationController
   
   def index
     @q = current_user.kanzumes.ransack(params[:q])
-    @kanzumes = @q.result(distinct: true).recent
+    @kanzumes = @q.result(distinct: true).page(params[:page])
   end
 
   def show
@@ -17,7 +17,7 @@ class KanzumesController < ApplicationController
     @kanzume = current_user.kanzumes.new
     @kanzume.maps.build
     @kanzume_icons = KanzumeIcon.all
-    end
+  end
 
   def create
     @kanzume = current_user.kanzumes.new(kanzume_params)

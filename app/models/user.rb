@@ -3,7 +3,9 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true
-  validates :email, presence: true, uniqueness: true
+  before_save { self.email = email.downcase }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true,format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
 
   has_many :items, dependent: :destroy
   has_many :kanzumes, dependent: :destroy

@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag 'items', media: 'all'%>
 <% if item.errors.present? %>
   <ul id="error_explanation">
     <% item.errors.full_messages.each do |message| %>
@@ -5,34 +6,50 @@
     <% end %>
   </ul>
 <% end %>
-<%= form_with(model: item, local: true) do |f| %>
-  <%= f.hidden_field :kanzume_id, value: @kanzume.id %>
-  <div class="input-field">
-    <%= f.label :name %>
-    <%= f.text_field :name, required: true, class: 'validate', id: 'item_name', autofocus: true %>
-  </div>
-  <div class="input-field">
-    <%= f.label :memo %>
-    <%= f.text_area :memo, rows: 5, class: 'materialize-textarea', id: 'item_memo' %>
-  </div>
-  <div class='file-field input-field'>
-    <div class="btn">
-      <span>画像</span>
-      <%= f.file_field :image%>
+<div class="form-box">
+  <%= form_with(model: item, local: true) do |f| %>
+    <%= f.hidden_field :kanzume_id, value: @kanzume.id %>
+    <div class="row">
+      <div class="input-field col s8 m8">
+        <%= f.label "ITEMの名前 (最大30文字)" %>
+        <%= f.text_field :name, required: true, class: 'validate', id: 'item-name', autofocus: true, maxlength: '30' %>
+      </div>
+      <div class="input-field col s8 m8">
+        <%= f.label "メモ (最大255文字)" %>
+        <%= f.text_area :memo, rows: 5, class: 'materialize-textarea', id: 'item_memo', maxlength: '255'  %>
+      </div>
+      <div class='file-field input-field col s8 m8'>
+        <div class="btn">
+          <span>画像</span>
+          <%= f.file_field :image%>
+        </div>
+        <div class="file-path-wrapper col s8 m8">
+          <input class="file-path" type="text">
+        </div>
+      </div>
+      <div class="input-field col s8 m8">
+        <select class="icons validate" name="item[item_icon_id]" required="required">
+          <option value="" disabled selected>
+            <% if @item.item_icon.present?%>
+              <%= @item.item_icon.name %>
+            <% end %>
+          </option>
+          <%= @item_icons.each do |i|%>
+            <option value="<%= i.id %>" data-icon="<%= i.picture %>" >
+              <%= i.name %></option>
+          <% end %>
+        </select>
+        <label>アイコンを選択</label>
+      </div>
     </div>
-    <div class="file-path-wrapper">
-      <input class="file-path validate" type="text">
+    <div>
+      <%= f.submit nil, class: 'btn' %>
     </div>
-  </div>
-  <div class="input-field col s12 m6">
-    <select class="icons" name="item[item_icon_id]">
-      <option value="" disabled selected>Choose your option</option>
-      <%= @item_icons.each do |i|%>
-        <option value="<%= i.id %>" data-icon="<%= i.picture %>" >
-          <%= i.name %></option>
+    <div id="delete_btn">
+      <%= link_to '削除する', @item, method: :delete, data: {confirm: "#{@item.name}　を削除します。よろしいですか？"}, class: 'btn grey'%>
+      <div>
       <% end %>
-    </select>
-    <label>アイコンを選択</label>
-  </div>
-  <%= f.submit nil, class: 'btn' %>
-<% end %>
+    </div>
+    <script>
+      $("select[required]").css({display: "block", height: 0, padding: 0, width: 0, position: 'absolute'});
+    </script>

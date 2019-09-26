@@ -1,36 +1,94 @@
-<h1><%= image_tag(@kanzume.kanzume_icon.picture_url) %></h1>
-
-<table class= 'table table-hover'>
-  <tbody>
-    <tr>
-      <th><%= Kanzume.human_attribute_name(:name) %></th>
-      <td><%= @kanzume.name %></td>
-    </tr>
-    <% if @kanzume.items.present? %>
-      <tr>
-        <th>Contents</th>
-        <td>
-          <% @kanzume.items.each do |item| %>
-            <div class='item_name'><%= link_to item.name, item %></div>
+<%= stylesheet_link_tag 'kanzumes', media: 'all'%>
+<div class="large-container">
+  <div class="row">
+    <img src="<%= @kanzume.kanzume_icon.picture_url(:thumb) %>" id="kanzume_img">
+    <h3><%= @kanzume.name %>
+      <h3>
+      </div>
+      <div class="row">
+        <table class="col s12 m12">
+          <tr>
+            <th>作ったユーザー</th>
+            <td><a href="/users/<%= @kanzume.user.id%>"><img class="circle" src="<%= @kanzume.user.avatar_url(:thumb) %>" id="kanzume_user_img"></a>
+              <%=link_to @kanzume.user.name, "/users/#{@kanzume.user.id}", id: "kanzume_user_name" %>
+            </td>
+          </tr>
+          <tr>
+            <th><%= Kanzume.human_attribute_name(:created_at) %></th>
+            <td><%= @kanzume.created_at %></td>
+          </tr>
+          <tr>
+            <th><%= Kanzume.human_attribute_name(:updated_at) %></th>
+            <td><%= @kanzume.updated_at %></td>
+          </tr>
+          <tr>
+            <th>Kaznumeの場所</th>
+            <td><% @kanzume.maps.each do |map| %>
+                <%= map.address %>
+                <div id="kanzumes_lat" data-kanzumes-lat-id="<%= map.latitude.to_json %>"></div>
+                <div id="kanzumes_lng" data-kanzumes-lng-id="<%= map.longitude.to_json %>"></div>
+                <div id="map"></div>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="item_add_btn">
+        <%= link_to 'アイテムを追加', { controller: 'items', action: 'new', kanzume_id: @kanzume.id }, class: 'btn btn-primary btn-info' %>
+      </div>
+      <% if @kanzume.items.present? %>
+        <% @kanzume.items.each do |item| %>
+          <div class="row">
+            <div class="card col s12 m12">
+              <div class="card-title">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td id="item_img">
+                        <a href="/items/<%= item.id%>"><img src="<%= item.item_icon.picture_url(:thumb) %>" ></a>
+                      </td>
+                      <td>
+                        <div class='item_name'><%= link_to item.name, item %></div>
+                      </td>
+                      <td id="item_user_img">
+                        <a href="/users/<%= item.user.id%>"><img class="circle" src="<%= item.user.avatar_url(:thumb) %>" ></a>
+                      </td>
+                      <td>
+                        <div class='item_user_name'><%=link_to item.user.name, "/users/#{item.user.id}" %></div>
+                      </td>
+                      <td id="item_date">CREATED: <%= item.updated_at.to_s(:db) %> <br>
+                        UPDTAED: <%= item.created_at.to_s(:db) %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-action" id="show_card_memo">
+                <div class='item_memo'><%= item.memo %></div>
+              </div>
+            </div>
           <% end %>
-        </td>
-      </tr>
-    <% end %>
-      <tr>
-        <th>Kaznumeの場所</th>
-        <td><% @kanzume.maps.each do |map| %>
-            <%= map.address %></div>
-          <% end %></td>
-      </tr>
-    <tr>
-      <th><%= Kanzume.human_attribute_name(:created_at) %></th>
-      <td><%= @kanzume.created_at %></td>
-    </tr>
-    <tr>
-      <th><%= Kanzume.human_attribute_name(:updated_at) %></th>
-      <td><%= @kanzume.updated_at %></td>
-    </tr>
-  </tbody>
-</table>
-
-<%= link_to 'アイテムを追加', { controller: 'items', action: 'new', kanzume_id: @kanzume.id }, class: 'btn btn-primary btn-info' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBwVfFPbRIzMuOHE5p01Nm1K0Y8E4IK5IA&callback=initMap"></script>
+  <script>
+    function initMap() {
+           var kanzume_lat = $('#kanzumes_lat').data('kanzumes-lat-id');
+           var kanzume_lng = $('#kanzumes_lng').data('kanzumes-lng-id');
+           var latlng = {lat: kanzume_lat, lng: kanzume_lng };
+           var map = new google.maps.Map(document.getElementById('map'), {
+     center: latlng,
+     zoom: 15
+           });
+    
+           var transitLayer = new google.maps.TransitLayer();
+           transitLayer.setMap(map);
+    
+           var marker = new google.maps.Marker({
+     position:latlng,
+     map: map,
+     title: 'a'
+           });}
+  </script>

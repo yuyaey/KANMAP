@@ -1,14 +1,168 @@
-// Place all the styles related to the kanzumes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.date {
-    font-size: 10px;
-}
+    // Place all the styles related to the kanzumes controller here.
+    // They will automatically be included in application.css.
+    // You can use Sass (SCSS) here: http://sass-lang.com/
+    // index
+    html {
+        height: 100%;
+    }
+    
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .small-header {
+        margin-bottom: 0px;
+    }
+    
+    .pagenate {
+        float: left
+    }
+    
+    #page-entries-info {
+        float: left;
+        padding-top: 18px;
+    }
+    
+    .contenteiner-searchsort {
+        padding-top: 18px;
+        padding-right: 20px;
+        float: right;
+    }
+    
+    #search-modal {
+        padding: 30px;
+    }
+    
+    .flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    @media (min-width: 0px) {
+        .card {
+            height: 130px;
+        }
+    }
+    
+    @media (min-width: 1079px) {
+        .card {
+            height: 160px;
+        }
+    }
+    
+    .card {
+        position: relative;
+        height: 150px;
+        padding: 10px;
+    }
+    
+    .card .card-image img {
+        width: 65px;
+        position: absolute;
+        left: 20px;
+        top: 10px;
+    }
+    
+    .card-name {
+        display: table-cell;
+        position: absolute;
+        left: 95px;
+        top: 40px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    
+    .card-name p {
+        font-size: 11px;
+        font-weight: bold;
+        display: inline-block;
+        text-align: left;
+        margin-top: 0px;
+        padding-right: 6px;
+    }
+    
+    .card .card-content {
+        position: relative;
+        bottom: -68px;
+    }
+    
+    .card-date {
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+    }
+    
+    .date {
+        padding: 0px;
+        font-size: 9px;
+    }
+    
+    #edit_btn {
+        float: right;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+    
+    // show
+    #kanzume_img {
+        position: relative;
+        top: 15px;
+        margin-right: 10px;
+    }
+    
+    #kanzume_user_img {
+        width: 25px
+    }
+    
+    #kanzume_user_name {
+        position: relative;
+        top: -6px;
+        left: 5px;
+    }
+    
+    #map {
+        height: 150px;
+        width: 300px;
+    }
+    
+    .item_add_btn {
+        margin-bottom: 15px;
+    }
+    
+    #item_img {
+        width: 50px;
+    }
+    
+    .card .card-title {
+        font-size: 0.8rem;
+    }
+    
+    #item_user_img {
+        width: 50px;
+    }
+    
+    #item_date {
+        font-size: 10px;
+        float: right;
+    }
+    
+    #show_card_memo {
+        padding: 5px 5px;
+    }
+    
+    .item_memo {
+        font-size: 1px;
+        font-weight: lighter;
+        line-height: 12px;
+    }
 
-#kanzume_img {
-    padding: 20px;
-}
+    //form
 
-#kanzume_content {
-    padding-top: 0px;
-}
+    #delete_btn {
+        float: right;
+        position: relative;
+        bottom: 36px;
+    }

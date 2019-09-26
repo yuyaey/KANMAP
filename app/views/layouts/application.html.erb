@@ -6,8 +6,6 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all'%>
     <%= javascript_include_tag 'application' %>
-  </head>
-  <body>
     <nav>
       <div class="nav-wrapper">
         <a href="/" class="brand-logo"><%= image_tag 'logo.png', class: "logo" %> KANMAP</a>
@@ -78,7 +76,8 @@
       </li>
     <%end%>
   </ul>
-
+  </head>
+  <body>
   <div class="container">
     <% unless flash.empty? %>
       <script>

@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   
   def index
     @q = current_user.items.ransack(params[:q])
-    @items = @q.result(distinct: true).recent
+    @items = @q.result(distinct: true).page(params[:page])
   end
 
   def show

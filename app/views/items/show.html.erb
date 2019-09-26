@@ -1,36 +1,41 @@
-<h1><%= image_tag(@item.item_icon.picture_url) %></h1>
-
-<table class= 'table table-hover'>
-  <tbody>
-    <tr>
-      <th><%= Item.human_attribute_name(:id) %></th>
-      <td><%= @item.id %></td>
-    </tr>
-    <tr>
-      <th><%= Item.human_attribute_name(:name) %></th>
-      <td><%= @item.name %></td>
-    </tr>
-    <tr>
-      <th><%= Item.human_attribute_name(:memo) %></th>
-      <td><%= auto_link(simple_format(h(@item.memo), {}, sanitize: false, wrapper_tag: "div")) %></td>
-    <tr>
-    <% if @item.image.present? %> 
-    <tr>
-      <th><%= Item.human_attribute_name(:image) %></th>
-      <td><%= image_tag(@item.image_url)%></td>
-    </tr>
-    <% end %>
-    <tr>
-      <th><%= Kanzume.human_attribute_name(:name) %></th>
-      <td><%= @item.kanzume.name %></td>
-    </tr>
-    <tr>
-      <th><%= Item.human_attribute_name(:created_at) %></th>
-      <td><%= @item.created_at %></td>
-    </tr>
-    <tr>
-      <th><%= Item.human_attribute_name(:updated_at) %></th>
-      <td><%= @item.updated_at %></td>
-    </tr>
-  </tbody>
-</table>
+<%= stylesheet_link_tag 'items', media: 'all'%>
+<div class="large-container">
+  <div class="row">
+    <img src="<%= @item.item_icon.picture_url(:thumb) %>" id="item_img">
+    <h3><%= @item.name %>
+      <h3>
+      </div>
+      <div class="row">
+        <table class="col s12 m12">
+          <tr>
+            <th>作ったユーザー</th>
+            <td><a href="/users/<%= @item.user.id%>"><img class="circle" src="<%= @item.user.avatar_url(:thumb) %>" id="item_user_img"></a>
+              <%=link_to @item.user.name, "/users/#{@item.user.id}", id: "item_user_name" %>
+            </td>
+          </tr>
+          <tr>
+            <th><%= Item.human_attribute_name(:created_at) %></th>
+            <td><%= @item.created_at %></td>
+          </tr>
+          <tr>
+            <th><%= Item.human_attribute_name(:updated_at) %></th>
+            <td><%= @item.updated_at %></td>
+          </tr>
+          <% if @item.image.present? %>
+            <tr>
+              <th><%= Item.human_attribute_name(:image) %></th>
+              <td><%= image_tag(@item.image_url)%></td>
+            </tr>
+          <% end %>
+          <tr>
+            <th><%= Item.human_attribute_name(:memo) %></th>
+            <td><%= @item.memo %></td>
+          </tr>
+          <tr>
+            <th>入っているKanzume</th>
+            <td><a href="/kanzumes/<%= @item.kanzume.id%>"><img src="<%= @item.kanzume.kanzume_icon.picture_url(:thumb) %>" id="kanzume_img"></a>
+              <%=link_to @item.kanzume.name, "/kanzumes/#{@item.kanzume.id}", id: "kanzume_name" %></td>
+          </tr>
+        </table>
+      </div>
+    </div>

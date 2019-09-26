@@ -1,3 +1,4 @@
-<h1>Kanzumeの編集</h1>
-
-<%= render partial: 'form', locals: { kanzume: @kanzume } %>
+<div class="large-container">
+  <h3><%= @kanzume.name%>の編集</h3>
+  <%= render partial: 'form', locals: { kanzume: @kanzume } %>
+</div>

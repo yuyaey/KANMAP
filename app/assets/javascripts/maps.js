@@ -3,7 +3,21 @@ $(document).ready(function() {
     $('.tooltipped').tooltip();
 });
 
+
 function initMap() {
+
+    (function fixInfoWindow() {
+        var set = google.maps.InfoWindow.prototype.set;
+        google.maps.InfoWindow.prototype.set = function(key, val) {
+            if (key === "map") {
+                if (!this.get("noSuppress")) {
+                    return;
+                }
+            }
+            set.apply(this, arguments);
+        }
+    })();
+
 
     var locations = $('#maplocations').data('maplocations-id');
     var kanzumes = $('#kanzumes').data('kanzumes-id');
@@ -16,7 +30,9 @@ function initMap() {
         styles: mapstyle
     }
 
-    var iwOptions = {}
+    var iwOptions = {
+        noSuppress: true
+    }
 
 
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -86,7 +102,7 @@ function initMap() {
 
     transitLayer.setMap(map);
     map.fitBounds(bounds);
-    bounds.extend(marker.position);
+    // bounds.extend(marker.position);
 
     // 地図上をクリックした時情報を取得
     var clickedLatlng;
@@ -344,6 +360,7 @@ function initMap() {
             scc_content
         );
     };
+
 
 
 

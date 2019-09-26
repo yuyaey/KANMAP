@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :maps  
   root to: 'maps#index'
 
+  resources :testsessions, only: :create
+
 end

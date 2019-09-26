@@ -1,3 +1,5 @@
-<h1>アイテムの編集</h1>
-
-<%= render partial: 'form', locals: { item: @item } %>
+<div class="large-container">
+  <h3><%= @item.name%>の編集</h3>
+  <br>
+  <%= render partial: 'form', locals: { item: @item } %>
+</div>

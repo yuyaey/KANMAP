@@ -1,4 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
+  include CarrierWave::RMagick
+
   # Choose what kind of storage to use for this uploader:
   storage :fog
   # storage :fog
@@ -26,10 +28,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  process :resize_to_limit => [640, 640]
+
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
+  version :thumb do
+    process :resize_to_limit => [50, 50]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

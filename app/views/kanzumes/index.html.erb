@@ -1,65 +1,73 @@
 <%= stylesheet_link_tag 'kanzumes', media: 'all'%>
-<h3>KANZUME</h3>
-<div class="row">
-  <div class="col s4 m3">
-    <div class="card">
-      <div class="card-image">
-        <img src="/assets/kb_blue.png" id="kanzume_img">
+<div class="large-container">
+  <h3>KANZUME</h3>
+  <div class="small-header row">
+    <div class="pagenate">
+      <%= paginate @kanzumes %>
+    </div>
+    <div id="page-entries-info">
+      <%= page_entries_info @kanzumes, entry_name: 'KANZUME' %>
+    </div>
+    <div class="contenteiner-searchsort">
+      <a class="waves-effect waves-light modal-trigger" href="#search-modal"><i class="material-icons">search</i></a>
+      <div id="search-modal" class="modal">
+        <div class="search-modal-content">
+          <p>KANZUMEを探す</p>
+          <%= search_form_for @q, class: 'mb-5' do |f| %>
+            <div class="input-field">
+              <%= f.label :name_cont, 'NAME'%>
+              <%= f.search_field :name_cont%>
+            </div>
+            <div class="input-field">
+              <%= f.label :updated_at_gteq, 'UPDATED' %>
+              <%= f.search_field :updated_at_gteq%>
+            </div>
+            <div class="input-field">
+              <%= f.label :created_at_gteq, 'CREATED' %>
+              <%= f.search_field :created_at_gteq%>
+            </div>
+            <%= button_tag type: "submit", class: "btn right" do%>
+              <i class="material-icons ">search</i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-      <div class="card-content" id="kanzume_content">
-        <span class="card-title">TOKYO KANZUME</span>
-        <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons teal-text right">more_vert</i></span></a>
-        <p class="date">CREATED : 2018/09/12</p>
-         <p class="date">UPDATED : 2018/09/12</p>
-      <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="#!"><i class="material-icons">edit</i>EDIT</a></li>
-        <li><a href="#!"><i class="material-icons text-grey">clear</i>DELETE</a></li> </ul>
-      </div>
-    </div>
- 
-</div>
-</div>
-<%= search_form_for @q, class: 'mb-5' do |f| %>
-  <div class="form-group row">
-    <%= f.label :name_cont, '名称', class: 'col-sm-2 col-form-label'%>
-    <div class="col-sm-10">
-      <%= f.search_field :name_cont, class: 'form-control'%>
-    </div>
+      <a class='dropdown-trigger right' data-target='dropdown-sort'><i class="material-icons small teal-white right">sort</i></span></a>
+    <ul id='dropdown-sort' class='dropdown-content right'>
+      <li><%= sort_link(@q, :name) %></li>
+      <li><%= sort_link(@q, :updated_at) %></li>
+      <li><%= sort_link(@q, :created_at) %></li>
+    </ul>
   </div>
-  <div class="form-group row">
-    <%= f.label :created_at_gteq, '登録日時', class: 'col-sm-2 col-form-label' %>
-    <div class="col-sm-10">
-      <%= f.search_field :created_at_gteq, class: 'form-control'%>
-    </div>
-  </div>
-  <%= button_tag type: "submit", class: "btn" do%>
-    <i class="material-icons">search</i>
-  <% end %>
-<% end %>
-<div class='mb-3'>
-  <table class='table table-hover'>
-    <thead class='thead thead-default'>
-      <tr>
-        <th><%= sort_link(@q, :name) %></th>
-        <th><%= sort_link(@q, :created_at) %></th>
-      </tr>
-      <tbody>
-        <% @kanzumes.each do |kanzume| %>
-          <tr>
-            <td><%= link_to kanzume.name, kanzume %></td>
-            <td><%= kanzume.created_at %></td>
-            <td><%= link_to edit_kanzume_path(kanzume) do%>
-                <i class="material-icons">edit</i>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to '×', kanzume, method: :delete, data: {confirm: "「#{kanzume.name}」を削除します。よろしいですか？"}, class: 'btn-floating btn-small grey lighten-1' %></td>
-          </tr>
+</div>
+<div class="row flex">
+  <% @kanzumes.each do |kanzume| %>
+    <div class="col s4 m3">
+      <div class="card">
+        <div class="card-top row">
+          <div class="card-image">    <%=link_to image_tag(kanzume.kanzume_icon.picture_url), "/kanzumes/#{kanzume.id}" %></div>
+          <span id="card-name" class="card-name">
+            <p><%= link_to kanzume.name, kanzume %></p>
+          </span>
+        </div>
+        <div class="card-content row">
+          <div class="card-date">
+            <p class="date">CREATED: <%= kanzume.updated_at.to_s(:db) %></p>
+            <p class="date">UPDTAED: <%= kanzume.created_at.to_s(:db) %></p>
+          </div>
+        </div>
+        <%= link_to edit_kanzume_path(kanzume) do%>
+          <div class="btn-floating btn-small" id="edit_btn"><i class="material-icons">edit</i></div>
         <% end %>
-      </tbody>
-    </thead>
-  </table>
+      </ul>
+    </div>
+  </div>
+<% end %>
+</div>
 </div>
 <script>
-  $('.dropdown-trigger').dropdown();
+  $(document).ready(function() {
+    $('.modal').modal();
+    $('.dropdown-trigger').dropdown();
+    });
 </script>

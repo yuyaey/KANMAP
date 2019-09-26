@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag 'kanzumes', media: 'all'%>
 <% if kanzume.errors.present? %>
   <ul id="error_explanation">
     <% kanzume.errors.full_messages.each do |message| %>
@@ -5,33 +6,47 @@
     <% end %>
   </ul>
 <% end %>
-<%= form_with(model: kanzume, local: true) do |f| %>
-  <div class="input-field">
-    <%= f.label :name %>
-    <%= f.text_field :name, required: true, class: 'validate', id: 'kanzume_name', autofocus: true %>
-  </div>
-  <div class="input-field col s12 m6">
-    <select class="icons" name="kanzume[kanzume_icon_id]">
-      <option value="" disabled selected>Choose your option</option>
-      <%= @kanzume_icons.each do |i|%>
-        <option value="<%= i.id %>" data-icon="<%= i.picture %>" >
-        <%= i.name %></option>
-      <% end %>
-    </select>
-    <label>アイコンを選択</label>
-  </div>
-  <% if local_assigns.has_key? :new_flag %>
-    <%= f.fields_for :maps do |m| %>
-      <div>
-        <br>
-        <%= "位置情報: #{params[:address_name]}" %>
-        <%= m.hidden_field :address, value: params[:address_name], required: true%>
-        <%= m.hidden_field :latitude, value: params[:address_latitude], required: true%>
-        <%= m.hidden_field :longitude, value: params[:address_longitude], required: true%>
+<div class="form-box">
+  <%= form_with(model: kanzume, local: true) do |f| %>
+    <div class="row">
+      <div class="input-field col s8 m8">
+        <%= f.label "KANZUMEの名前(最大30文字)" %>
+        <%= f.text_field :name, required: true, class: 'validate', id: 'kanzume_name', autofocus: true, maxlength: '30' %>
       </div>
-      <br>
-    <% end %>
-  <% end %>
-  <%= f.submit nil, class: 'btn'%>
-<% end %>
-
+    </div>
+    <div class="row">
+      <div class="input-field col s8 m8">
+        <select class="icons validate" name="kanzume[kanzume_icon_id]" required="required">
+          <option value="" disabled selected required>
+            <%= @kanzume.kanzume_icon.name if @kanzume.kanzume_icon.present? %>
+          </option>
+          <%= @kanzume_icons.each do |i|%>
+            <option value="<%= i.id %>" data-icon="<%= i.picture %>" >
+              <%= i.name %></option>
+          <% end %>
+        </select>
+        <label>アイコンを選択</label>
+      </div>
+      <div class="input-field col s8 m8">
+        <% if local_assigns.has_key? :new_flag %>
+          <%= f.fields_for :maps do |m| %>
+            <%= "位置情報: #{params[:address_name]}" %>
+            <%= m.hidden_field :address, value: params[:address_name], required: true%>
+            <%= m.hidden_field :latitude, value: params[:address_latitude], required: true%>
+            <%= m.hidden_field :longitude, value: params[:address_longitude], required: true%>
+            <br>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div>
+      <%= f.submit nil, class: 'btn'%>
+    </div>
+    <div id="delete_btn">
+      <%= link_to '削除する', @kanzume, method: :delete, data: {confirm: "#{@kanzume.name}　を削除します。よろしいですか？"}, class: 'btn grey'%>
+      <div>
+      <% end %>
+    </div>
+    <script>
+      $("select[required]").css({display: "block", height: 0, padding: 0, width: 0, position: 'absolute'});
+    </script>

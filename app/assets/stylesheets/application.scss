@@ -19,6 +19,12 @@ $primary-color: color("teal",
 "lighten-1") !default;
 $secondary-color: color("teal",
 "lighten-1") !default;
+$success-color: color("green",
+"base") !default;
+$error-color: color("red",
+"base") !default;
+$link-color: color("light-blue",
+"darken-1") !default;
 @import "materialize";
 @import "material_icons";
 head {
@@ -28,6 +34,25 @@ head {
 body {
     font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
     color: rgb(77, 77, 77);
+}
+
+.large-container {
+    padding: 20px;
+}
+
+h3 {  display: inline-block;
+    position: relative;
+    border-bottom: solid 3px #26a69a;
+  font-size: 30px;
+  }
+
+h3:after {
+    display: block;
+    position: absolute;
+  content: " ";
+  border-bottom: solid 3px #b2dfdb;
+  bottom: -3px;
+  width: 30%;
 }
 
 nav {
@@ -45,6 +70,20 @@ nav .sidenav-trigger i {
 
 .sidenav {
     opacity: 0.9;
+}
+
+.form-box {
+    width: 85%;
+    padding: 2.5em 1.5em;
+    margin: 2em 0;
+    color: #b2dfdb;
+    background: white;
+    border-top: solid 5px #b2dfdb;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+.card {
+    border-radius: 6px;
 }
 
 img.bg {

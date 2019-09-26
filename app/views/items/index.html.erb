@@ -1,38 +1,83 @@
-<h1>アイテム</h1>
-<%= search_form_for @q, class: 'mb-5' do |f| %>
-  <div class="form-group row">
-    <%= f.label :name_cont, '名称', class: 'col-sm-2 col-form-label'%>
-    <div class="col-sm-10">
-      <%= f.search_field :name_cont, class: 'form-control'%>
+<%= stylesheet_link_tag 'items', media: 'all'%>
+<div class="large-container" >
+  <h3>ITEM</h3>
+  <div class="small-header row">
+    <div class="contenteiner-searchsort">
+      <div style="float:right">
+        <a class="waves-effect waves-light modal-trigger" href="#search-modal"><i class="material-icons">search</i></a>
+        <div id="search-modal" class="modal">
+          <div class="search-modal-content">
+            <p>ITEMを探す</p>
+            <%= search_form_for @q, class: 'mb-5' do |f| %>
+              <div class="input-field">
+                <%= f.label :name_cont, 'NAME'%>
+                <%= f.search_field :name_cont%>
+              </div>
+              <div class="input-field">
+                <%= f.label :created_at_gteq, 'CREATED' %>
+                <%= f.search_field :created_at_gteq%>
+              </div>
+              <%= button_tag type: "submit", class: "btn right" do%>
+                <i class="material-icons ">search</i>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div style="float:right">
+        <a class='dropdown-trigger right' data-target='dropdown-sort'><i class="material-icons small teal-white right">sort</i></span></a>
+      <ul id='dropdown-sort' class='dropdown-content right'>
+        <li><%= sort_link(@q, :name) %></li>
+        <li><%= sort_link(@q, :created_at) %></li>
+      </ul>
     </div>
   </div>
-  <div class="form-group row">
-    <%= f.label :created_at_gteq, '登録日時', class: 'col-sm-2 col-form-label' %>
-    <div class="col-sm-10">
-      <%= f.search_field :created_at_gteq, class: 'form-control'%>
-    </div>
+  <div style="float:left">
+    <%= paginate @items %>
   </div>
-  <div class="form-group">
-    <%= f.submit class: 'btn btn-outline-primary' %>
+  <div id="page-entries-info">
+    <%= page_entries_info @items, entry_name: 'ITEM' %>
+  </div>
+</div>
+<% @items.each do |item| %>
+  <div class="col s12 m7">
+    <div class="card horizontal row">
+      <div class="card-image">
+        <% if item.image.present?%>
+          <%=link_to image_tag(item.image_url), "/items/#{item.id}" %>
+        <% else %>
+          <%=link_to image_tag("sampleimages/#{rand(8)}.png"), "/items/#{item.id}" %>
+        <% end %>
+      </div>
+      <div class="card-stacked">
+        <p id="item-date"><%= item.created_at.to_s(:db) %></p>
+        <%=link_to image_tag(item.item_icon.picture_url), "/items/#{item.id}", id: "item-icon" %>
+        <div class="card-content">
+          <p id="item-name-i"><%= link_to item.name, item %></p>
+          <br>
+          <br>
+          <p id="item-memo-i"><%= item.memo %></p>
+        </div>
+      </div>
+      <%= link_to edit_item_path(id: item.id, kanzume_id: item.kanzume_id) do %>
+        <div class="waves-effect waves-light btn-floating" id='edit_btn'><i class="material-icons">edit</i>EDIT
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div style="float:left">
+  <%= paginate @items %>
+</div>
+<% if @items.present?%>
+  <div id="page-entries-info">
+    <%= page_entries_info @items, entry_name: 'ITEM' %>
   </div>
 <% end %>
-<div class='mb-3'>
-  <table class='table table-hover'>
-    <thead class='thead thead-default'>
-      <tr>
-        <th><%= sort_link(@q, :name) %></th>
-        <th><%= sort_link(@q, :created_at) %></th>
-      </tr>
-      <tbody>
-        <% @items.each do |item| %>
-          <tr>
-            <td><%= link_to item.name, item %></td>
-            <td><%= item.created_at %></td>
-            <td><%= link_to '編集', edit_item_path(id: item.id, kanzume_id: item.kanzume_id), class: 'btn btn-primary' %></td>
-            <td><%= link_to '×', item, method: :delete, data: {confirm: "「#{item.name}」を削除します。よろしいですか？"}, class: 'btn-floating btn-small grey lighten-1' %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </thead>
-  </table>
 </div>
+<script>
+  $(document).ready(function() {
+    $('.modal').modal();
+    $('.dropdown-trigger').dropdown();
+    });
+</script>

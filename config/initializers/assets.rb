@@ -15,3 +15,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( *.scss)
 Rails.application.config.assets.precompile += %w( maps.css )
 Rails.application.config.assets.precompile += %w( kanzumes.css )
+Rails.application.config.assets.precompile += %w( items.css )
+Rails.application.config.assets.precompile += %w( users.css )
+
