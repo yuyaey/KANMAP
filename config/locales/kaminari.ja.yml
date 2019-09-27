@@ -1,0 +1,17 @@
+ja:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "<b>%{first} - %{last}</b> out of <b>%{total}</b>"
+      one_page:
+        display_entries:
+          one: ""
+          other: ""
+          zero: "%{entry_name}はまだありません"
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      next: "次 &rsaquo;"
+      previous: "&lsaquo; 前"
+      truncate: "&hellip;"

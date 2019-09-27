@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag 'users', media: 'all'%>
+<div class="large-container">
+  <div class="form-box">
+    <img class="circle" src="<%= @user.avatar_url(:thumb) %>">
+    <table>
+      <thead>
+        <tr>
+          <th><%= User.human_attribute_name(:name) %></th>
+          <th><%= User.human_attribute_name(:email) %></th>
+          　<% if @user.admin %>
+            <th><%= User.human_attribute_name(:admin) %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @user.name %></td>
+          <td><%= @user.email %></td>
+          <% if @user.admin %>
+            <td><%= @user.admin? ? 'あり' : 'なし'%></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <%= link_to edit_user_path(@user) do %>
+      <div class="waves-effect waves-light btn"><i class="material-icons right">edit</i>EDIT</div>
+    <% end %>
+  </div>
+</div>

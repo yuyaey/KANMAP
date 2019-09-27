@@ -1,0 +1,52 @@
+  <% if user.errors.present? %>
+  <ul id="error_explanation">
+    <% user.errors.full_messages.each do |message| %>
+      <li> <%= message %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="form-box">
+
+<%= form_with(model: user, local: true) do |f| %>
+  <div class="row">
+  <div class='input-field col s8 m8'>
+    <%= f.label :name, '名前(最大30文字)' %>
+    <%= f.text_field :name, required: true, class: 'validate', class: 'form-control', maxlength: '30' %>
+  </div>
+  <div class='input-field col s8 m8'>
+    <%= f.label :email, 'メールアドレス' %>
+    <%= f.text_field :email, required: true, class: 'validate'%>
+  </div>
+  <div class='input-field col s8 m8'>
+    <%= f.label :password, 'パスワード' %>
+    <%= f.password_field :password, required: true%>
+  </div>
+  <div class='input-field col s8 m8'>
+    <%= f.label :password_confirmation, 'パスワード(確認)' %>
+    <%= f.password_field :password_confirmation, required: true %>
+  </div>
+  <% if local_assigns.has_key? :edit_flag %>
+<div class='file-field input-field col s8 m8'>
+      <div class="btn">
+        <span>ユーザー画像</span>
+        <%= f.file_field :avatar%>
+      </div>
+            <div class="file-path-wrapper col s8 m8">
+        <input class="file-path validate" type="text">
+      </div>
+   
+    </div>
+
+  </div>
+  <div>
+    <%= f.submit '更新する', class: 'btn btn-primary' %>
+  <% else %>
+    </div>
+   <div>
+    <%= f.submit '登録する', class: 'btn btn-primary' %>
+  <% end %>
+  </div>
+<% end %>
+
+</div>
