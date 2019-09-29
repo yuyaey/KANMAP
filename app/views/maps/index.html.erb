@@ -1,39 +1,32 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <%= stylesheet_link_tag 'maps', media: 'all'%>
-  </head>
-  <body>
-    <div id= "mapbox">
-      <% unless current_user %>
-        <%= link_to 'テストユーザーでかんたんログイン', testsessions_path, method: :post, id: "test_login_btn", class: "waves-effect waves-light btn grey darken-4"%>
-      <% end %>
-      <button id="currentPosition" class="btn-floating btn-large waves-effect waves-light teal lighten-1 tooltipped" data-position="left" data-tooltip="現在地を表示"><i class="material-icons">my_location</i></button>
-      <button id="searchWindowBtn" data-target="searchBox" class="btn modal-trigger btn-floating btn-large waves-effect waves-light teal lighten-1 tooltipped" data-position="left" data-tooltip="地名を検索"><i class="material-icons">search</i></button>
-      <div id="searchBox" class="modal">
-        <div class="modal-content">
-          <a>探したい地名を入力</a>
-          <div style="float:left;">
-            <input type="text" size="70" id="search" value=""></div>
-          <div style="float:right;">
-            <button id="searchGo" class="modal-close waves-effect waves-dark btn"><i class="material-icons">search</i></button></div>
-        </div>
-        <div class="modal-footer">
-        </div>
+<body>
+  <div id= "mapbox">
+    <% unless current_user %>
+      <%= link_to 'テストユーザーでかんたんログイン', testsessions_path, method: :post, id: "test_login_btn", class: "waves-effect waves-light btn grey darken-4"%>
+    <% end %>
+    <button id="currentPosition" class="btn-floating btn-large waves-effect waves-light teal lighten-1 tooltipped" data-position="left" data-tooltip="現在地を表示"><i class="material-icons">my_location</i></button>
+    <button id="searchWindowBtn" data-target="searchBox" class="btn modal-trigger btn-floating btn-large waves-effect waves-light teal lighten-1 tooltipped" data-position="left" data-tooltip="地名を検索"><i class="material-icons">search</i></button>
+    <div id="searchBox" class="modal">
+      <div class="modal-content">
+        <a>探したい地名を入力</a>
+        <div style="float:left;">
+          <input type="text" size="70" id="search" value=""></div>
+        <div style="float:right;">
+          <button id="searchGo" class="modal-close waves-effect waves-dark btn"><i class="material-icons">search</i></button></div>
       </div>
-      <div id="maplocations" data-maplocations-id="<%= @maps.to_json %>"></div>
-      <div id="kanzumes" data-kanzumes-id="<%= @kanzumes.to_json %>"></div>
-      <div id="map"></div>
-      <script src="maps.js"></script>
-      <%= render 'window' %>
-      <script>
-        document.getElementById("infowindows").style.display = "none";
-      </script>
-      <script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBwVfFPbRIzMuOHE5p01Nm1K0Y8E4IK5IA&callback=initMap&libraries=places"></script>
+      <div class="modal-footer">
+      </div>
     </div>
-    <%= javascript_tag 'application.js' %>
-    <%= stylesheet_link_tag 'application' %>
-  </body>
+    <div id="maplocations" data-maplocations-id="<%= @maps.to_json %>"></div>
+    <div id="kanzumes" data-kanzumes-id="<%= @kanzumes.to_json %>"></div>
+    <div id="map"></div>
+    <script src="maps.js" type="text/javascript"></script>
+    <%= render 'window' %>
+    <script>
+      document.getElementById("infowindows").style.display = "none";
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBwVfFPbRIzMuOHE5p01Nm1K0Y8E4IK5IA&callback=initMap&libraries=places" type="text/javascript"></script>
+  </div>
+  <%= stylesheet_link_tag 'maps', media: 'all'%>
+</body>
 </html>

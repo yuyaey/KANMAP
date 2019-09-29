@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%= stylesheet_link_tag 'items', media: 'all'%>
 <div class="large-container">
   <div class="row">
@@ -40,45 +39,3 @@
         </table>
       </div>
     </div>
-=======
-<h1><%= image_tag(@item.item_icon.picture_url(:thumb)) %></h1>
-
-<ul class='nav justify-content-end'>
-  <%= link_to '一覧', items_path, class: 'nav-link' %>
-</ul>
-
-<table class= 'table table-hover'>
-  <tbody>
-    <tr>
-      <th><%= Item.human_attribute_name(:name) %></th>
-      <td><%= @item.name %></td>
-    </tr>
-    <tr>
-      <th><%= Item.human_attribute_name(:memo) %></th>
-      <td><%= auto_link(simple_format(h(@item.memo), {}, sanitize: false, wrapper_tag: "div")) %></td>
-    <tr>
-    <% if @item.image.present? %> 
-    <tr>
-      <th><%= Item.human_attribute_name(:image) %></th>
-      <td><%= image_tag(@item.image_url)%></td>
-    </tr>
-    <% end %>
-    <tr>
-      <th> 入っているKanzume </th>
-      <td><%= link_to @item.kanzume.name, @item.kanzume %></td>
-    </tr>
-    <tr>
-    <th>このアイテムを入れた人</th>
-    <td><%= image_tag @item.user.avatar_url(:thumb) %><%= @item.user.name %></td>
-  </tr>
-    <tr>
-      <th><%= Item.human_attribute_name(:created_at) %></th>
-      <td><%= @item.created_at %></td>
-    </tr>
-    <tr>
-      <th><%= Item.human_attribute_name(:updated_at) %></th>
-      <td><%= @item.updated_at %></td>
-    </tr>
-  </tbody>
-</table>
->>>>>>> 536176a03660d92576af29d4665ec82677c39901
