@@ -28,7 +28,7 @@
         margin-bottom: 2.25rem;
     }
     
-    .card.horizontal .card-image img {
+    .card-image {
         width: 200px;
         height: 332px;
         border-radius: 6px 0 0 6px;
@@ -96,10 +96,9 @@
         top: -6px;
         left: 5px;
     }
-
-      //form
-
-      #delete_btn {
+    
+    //form
+    #delete_btn {
         float: right;
         position: relative;
         bottom: 36px;
