@@ -57,6 +57,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'capistrano-nodenv', '~> 1.0'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
 end

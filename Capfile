@@ -7,7 +7,8 @@ require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets' 
 require 'capistrano/rails/migrations' 
-
+require 'capistrano/nodenv'
+set :nodenv_map_bins, 'bin/yarn'
 # Load the SCM plugin appropriate to your project:
 #
 # require "capistrano/scm/hg"
