@@ -1,5 +1,5 @@
 server '00.00.000.000', user: 'yuya', roles: %w{app db web} 
-set :ssh_options, keys: '~/.ssh/kanmap_aws_rsa' 
+set :ssh_options, keys: '~/.ssh/kanmap_key_rsa' 
 
 # server-based syntax
 # ======================
