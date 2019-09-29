@@ -47,6 +47,10 @@ gem 'jquery-rails'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
 gem 'kaminari'
+<<<<<<< HEAD
+=======
+gem 'webpacker', github: 'rails/webpacker'
+>>>>>>> origin/master
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

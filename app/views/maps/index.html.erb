@@ -5,7 +5,6 @@
     <%= stylesheet_link_tag 'maps', media: 'all'%>
   </head>
   <body>
-<<<<<<< HEAD
     <div id= "mapbox">
       <% unless current_user %>
         <%= link_to 'テストユーザーでかんたんログイン', testsessions_path, method: :post, id: "test_login_btn", class: "waves-effect waves-light btn grey darken-4"%>
@@ -34,24 +33,7 @@
       <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBwVfFPbRIzMuOHE5p01Nm1K0Y8E4IK5IA&callback=initMap&libraries=places"></script>
     </div>
-=======
-
-    <button id='currentPosition' >現在地を表示</button>
-    <input type="text" size="55" id="search" value="" />
-    <button id='searchGo'>検索</button>
-    <div id="maplocations" data-maplocations-id="<%= @maps.to_json %>"></div>
-    <div id="kanzumes" data-kanzumes-id="<%= @kanzumes.to_json %>"></div>
-    <div id="map"></div>
-    <script src="maps.js"></script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBwVfFPbRIzMuOHE5p01Nm1K0Y8E4IK5IA&callback=initMap&libraries=places"></script>
-        <p class="page_index_p_title" class="page_index">Find me in app/views/page/index.html.erb</p>
-<!-- Rendered by vue JS -->
-<div id='app'></div>
-<!-- // Rendered by vue JS -->
-<%= javascript_pack_tag 'application.js' %>
-<%= stylesheet_pack_tag 'application' %>
-  
->>>>>>> 536176a03660d92576af29d4665ec82677c39901
+    <%= javascript_tag 'application.js' %>
+    <%= stylesheet_link_tag 'application' %>
   </body>
 </html>
