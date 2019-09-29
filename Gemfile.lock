@@ -61,6 +61,7 @@ GEM
     autoprefixer-rails (9.6.1.1)
       execjs
     bcrypt (3.1.13)
+    bcrypt_pbkdf (1.0.1)
     bindex (0.8.1)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
@@ -111,6 +112,7 @@ GEM
     debase (0.2.4)
       debase-ruby_core_source (>= 0.10.2)
     debase-ruby_core_source (0.10.5)
+    ed25519 (1.2.4)
     erubi (1.8.0)
     excon (0.66.0)
     execjs (2.7.0)
@@ -309,6 +311,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  bcrypt_pbkdf
   bootsnap (>= 1.1.0)
   byebug
   capistrano
@@ -320,6 +323,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   debase
+  ed25519
   fog-aws
   friendly_id
   geocoder
