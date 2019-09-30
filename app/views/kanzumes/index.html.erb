@@ -45,15 +45,15 @@
     <div class="col s4 m3">
       <div class="card">
         <div class="card-top row">
-          <div class="card-image">    <%=link_to image_tag(kanzume.kanzume_icon.picture_url), "/kanzumes/#{kanzume.id}" %></div>
+          <div class="card-image"> <%=link_to image_tag(kanzume.kanzume_icon.picture_url), "/kanzumes/#{kanzume.id}" %></div>
           <span id="card-name" class="card-name">
             <p><%= link_to kanzume.name, kanzume %></p>
           </span>
         </div>
         <div class="card-content row">
           <div class="card-date">
-            <p class="date">CREATED: <%= kanzume.updated_at.to_s(:db) %></p>
-            <p class="date">UPDTAED: <%= kanzume.created_at.to_s(:db) %></p>
+            <p class="date">CREATED: <%= kanzume.updated_at.to_s(:datetime) %></p>
+            <p class="date">UPDTAED: <%= kanzume.created_at.to_s(:datetime) %></p>
           </div>
         </div>
         <%= link_to edit_kanzume_path(kanzume) do%>

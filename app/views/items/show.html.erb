@@ -15,11 +15,11 @@
           </tr>
           <tr>
             <th><%= Item.human_attribute_name(:created_at) %></th>
-            <td><%= @item.created_at %></td>
+            <td><%= @item.created_at.to_s(:datetime) %></td>
           </tr>
           <tr>
             <th><%= Item.human_attribute_name(:updated_at) %></th>
-            <td><%= @item.updated_at %></td>
+            <td><%= @item.updated_at.to_s(:datetime) %></td>
           </tr>
           <% if @item.image.present? %>
             <tr>

@@ -40,19 +40,20 @@ body {
     padding: 20px;
 }
 
-h3 {  display: inline-block;
+h3 {
+    display: inline-block;
     position: relative;
     border-bottom: solid 3px #26a69a;
-  font-size: 30px;
-  }
+    font-size: 30px;
+}
 
 h3:after {
     display: block;
     position: absolute;
-  content: " ";
-  border-bottom: solid 3px #b2dfdb;
-  bottom: -3px;
-  width: 30%;
+    content: " ";
+    border-bottom: solid 3px #b2dfdb;
+    bottom: -3px;
+    width: 30%;
 }
 
 nav {

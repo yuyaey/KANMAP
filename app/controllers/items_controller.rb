@@ -25,7 +25,9 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to @item, notice: "「#{@item.name}」を追加しました。"
     else
-      render :new
+      @kanzume = Kanzume.find_by(id: item_params[:kanzume_id])
+      @item_icons = ItemIcon.all
+      render 'new'
     end
   end
 
@@ -35,8 +37,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update!(item_params)
-    redirect_to items_url, notice: "「#{@item.name}」を更新しました。"
+    if @item.update(item_params)
+      redirect_to items_url, notice: "「#{@item.name}」を更新しました。"
+    else
+      @kanzume = Kanzume.find_by(id: item_params[:kanzume_id])
+      @item_icons = ItemIcon.all
+      render 'edit'
+    end
   end
 
   def destroy

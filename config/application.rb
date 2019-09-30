@@ -15,7 +15,7 @@ module KANMAP
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    config.time_zone = 'Asia/Tokyo'
+    config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
     config.i18n.default_locale = :ja
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]

@@ -15,11 +15,11 @@
           </tr>
           <tr>
             <th><%= Kanzume.human_attribute_name(:created_at) %></th>
-            <td><%= @kanzume.created_at %></td>
+            <td><%= @kanzume.created_at.to_s(:datetime) %></td>
           </tr>
           <tr>
             <th><%= Kanzume.human_attribute_name(:updated_at) %></th>
-            <td><%= @kanzume.updated_at %></td>
+            <td><%= @kanzume.updated_at.to_s(:datetime) %></td>
           </tr>
           <tr>
             <th>Kaznumeの場所</th>
@@ -56,8 +56,8 @@
                       <td>
                         <div class='item_user_name'><%=link_to item.user.name, "/users/#{item.user.id}" %></div>
                       </td>
-                      <td id="item_date">CREATED: <%= item.updated_at.to_s(:db) %> <br>
-                        UPDTAED: <%= item.created_at.to_s(:db) %></td>
+                      <td id="item_date">CREATED: <%= item.updated_at.to_s(:datetime) %> <br>
+                        UPDTAED: <%= item.created_at.to_s(:datetime) %></td>
                     </tr>
                   </tbody>
                 </table>

@@ -29,7 +29,7 @@
       </div>
       <div class="input-field col s8 m8">
         <select class="icons validate" name="item[item_icon_id]" required="required">
-          <option value="" disabled selected>
+          <option disabled selected required>
             <% if @item.item_icon.present?%>
               <%= @item.item_icon.name %>
             <% end %>
@@ -45,9 +45,11 @@
     <div>
       <%= f.submit nil, class: 'btn' %>
     </div>
-    <div id="delete_btn">
-      <%= link_to '削除する', @item, method: :delete, data: {confirm: "#{@item.name}　を削除します。よろしいですか？"}, class: 'btn grey'%>
-      <div>
+    <%if controller.action_name == "edit"%>
+      <div id="delete_btn">
+        <%= link_to '削除する', @item, method: :delete, data: {confirm: "#{@item.name}　を削除します。よろしいですか？"}, class: 'btn grey'%>
+        <div>
+        <% end %>
       <% end %>
     </div>
     <script>

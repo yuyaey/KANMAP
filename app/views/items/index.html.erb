@@ -41,9 +41,13 @@
 </div>
 <% @items.each do |item| %>
   <div class="card horizontal row">
-    <img src="assets/trees.jpeg" class="card-image">
+    <% if item.image.present? %>
+      <%= link_to image_tag(item.image_url), "/items/#{item.id}", class: "card-image" %>
+    <% else %>
+      <%= link_to image_tag("item_bgs/#{rand(9)}.png"), "/items/#{item.id}", class: "card-image" %>
+    <% end %>
     <div class="card-stacked">
-      <p id="item-date"><%= item.created_at.to_s(:db) %></p>
+      <p id="item-date"><%= item.created_at.to_s(:datetime) %></p>
       <%=link_to image_tag(item.item_icon.picture_url), "/items/#{item.id}", id: "item-icon" %>
       <div class="card-content">
         <p id="item-name-i"><%= link_to item.name, item %></p>

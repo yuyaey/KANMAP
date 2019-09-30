@@ -24,6 +24,7 @@ class KanzumesController < ApplicationController
     if @kanzume.save
       redirect_to @kanzume, notice: "「#{@kanzume.name}」を追加しました。"
     else
+      @kanzume_icons = KanzumeIcon.all
       render :new
     end
   end
@@ -33,8 +34,13 @@ class KanzumesController < ApplicationController
   end
 
   def update
-    @kanzume.update!(kanzume_params)
-    redirect_to kanzumes_url, notice: "「#{@kanzume.name}」を更新しました。"
+    if
+      @kanzume.update(kanzume_params)
+      redirect_to kanzumes_url, notice: "「#{@kanzume.name}」を更新しました。"
+    else
+      @kanzume_icons = KanzumeIcon.all
+      render :edit
+    end
   end
 
   def destroy
