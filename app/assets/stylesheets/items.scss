@@ -1,105 +1,224 @@
-    // Place all the styles related to the items controller here.
-    // They will automatically be included in application.css.
-    // You can use Sass (SCSS) here: http://sass-lang.com/
-    //index
-    .small-header {
-        margin-bottom: 0px;
-    }
-    
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//index
+.small-header {
+    margin-bottom: 0px;
+}
+
+#page-entries-info {
+    float: left;
+    position: relative;
+    top: 17px;
+}
+
+.contenteiner-searchsort {
+    padding-right: 20px;
+    position: relative;
+    top: 15px;
+}
+
+#search-modal {
+    padding: 30px;
+}
+
+div.card.horizontal.row {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    margin-bottom: 2.25rem;
+}
+
+.card.horizontal .card-image img {
+    width: 200px;
+    height: 332px;
+    border-radius: 6px 0 0 6px;
+}
+
+#item-date {
+    position: absolute;
+    top: 5px;
+    right: 21px;
+}
+
+#item-icon img {
+    width: 50px;
+    float: left;
+    position: absolute;
+    top: 42px;
+    left: 54px;
+}
+
+#item-name-i {
+    font-size: x-large;
+    position: absolute;
+    left: 157px;
+    top: 45px;
+    width: 416px;
+}
+
+#item-memo-i {
+    position: absolute;
+    top: 151px;
+    left: 50px;
+    width: 80%;
+}
+
+#edit_btn {
+    float: right;
+    position: absolute;
+    top: 262px;
+    right: 30px;
+}
+
+@media screen and (max-width: 320px) {
     #page-entries-info {
         float: left;
         position: relative;
         top: 17px;
+        left: 30px;
     }
-    
-    .contenteiner-searchsort {
-        padding-right: 20px;
-        position: relative;
-        top: -3px;
-    }
-    
-    #search-modal {
-        padding: 30px;
-    }
-    
     div.card.horizontal.row {
-        margin-left: 1.25rem;
-        margin-right: 1.25rem;
-        margin-bottom: 2.25rem;
+        height: 200px;
+        position: relative;
+        top: 30px;
     }
-    
     .card.horizontal .card-image img {
-        width: 200px;
-        height: 332px;
-        border-radius: 6px 0 0 6px;
+        width: 80px;
+        height: 200px;
     }
-    
-    #item-date {
-        position: absolute;
-        top: 5px;
-        right: 21px;
-    }
-    
     #item-icon img {
-        width: 50px;
+        width: 50%;
         float: left;
         position: absolute;
-        top: 42px;
-        left: 54px;
+        top: 59px;
+        left: 40px;
+        opacity: 0.4;
     }
-    
     #item-name-i {
-        font-size: x-large;
+        font-size: 10px;
         position: absolute;
-        left: 157px;
-        top: 45px;
-        width: 416px;
+        left: 15px;
+        top: 15px;
+        width: 140px;
     }
-    
     #item-memo-i {
         position: absolute;
-        top: 151px;
-        left: 50px;
-        width: 80%;
+        position: absolute;
+        top: 62px;
+        left: 15px;
+        width: 88%;
+        font-size: 9px;
     }
-    
+    #item-date {
+        position: absolute;
+        top: 171px;
+        left: 15px;
+        font-size: 8px;
+    }
     #edit_btn {
         float: right;
         position: absolute;
-        top: 262px;
-        right: 30px;
+        top: 165px;
+        right: 5px;
+        height: 30px;
+        width: 30px;
     }
-    
-    //show
-    #item_img {
+    .btn-floating i {
+        width: inherit;
+        display: inline-block;
+        text-align: center;
+        color: #fff;
+        font-size: 1.6rem;
+        line-height: 40px;
         position: relative;
+        bottom: 5px;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 480px) {
+    #page-entries-info {
+        display: none;
+    }
+    div.card.horizontal.row {
+        height: 200px;
+    }
+    .card.horizontal .card-image img {
+        width: 80px;
+        height: 200px;
+    }
+    #item-icon img {
+        width: 50%;
+        float: left;
+        position: absolute;
+        top: 30px;
+        left: 66px;
+        opacity: 0.4;
+    }
+    #item-name-i {
+        font-size: small;
+        position: absolute;
+        left: 15px;
         top: 15px;
-        margin-right: 10px;
+        width: 200px;
     }
-    
-    #item_user_img {
-        width: 25px
+    #item-memo-i {
+        position: absolute;
+        position: absolute;
+        top: 62px;
+        left: 15px;
+        width: 88%;
+        font-size: 9px;
     }
-    
-    #item_user_name {
-        position: relative;
-        top: -6px;
-        left: 5px;
+    #item-date {
+        position: absolute;
+        top: 160px;
+        left: 15px;
+        font-size: 12px;
     }
-    
-    #kanzume_img {
-        width: 25px
-    }
-    
-    #kanzume_name {
-        position: relative;
-        top: -6px;
-        left: 5px;
-    }
-    
-    //form
-    #delete_btn {
+    #edit_btn {
         float: right;
-        position: relative;
-        bottom: 36px;
+        position: absolute;
+        top: 150px;
+        right: 10px;
     }
+}
+
+//show
+#item_s_icon_img {
+    position: relative;
+    top: 15px;
+    margin-right: 10px;
+}
+
+#item_user_img {
+    width: 25px
+}
+
+#item_user_name {
+    position: relative;
+    top: -6px;
+    left: 5px;
+}
+
+#kanzume_img {
+    width: 25px
+}
+
+#kanzume_name {
+    position: relative;
+    top: -6px;
+    left: 5px;
+}
+
+@media screen and (max-width: 490px) {
+    #item_s_img img {
+        width: 100%;
+    }
+}
+
+//form
+#delete_btn {
+    float: right;
+    position: relative;
+    bottom: 36px;
+}

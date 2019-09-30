@@ -42,7 +42,7 @@
 </div>
 <div class="row flex">
   <% @kanzumes.each do |kanzume| %>
-    <div class="col s4 m3">
+    <div class="col s6 m3">
       <div class="card">
         <div class="card-top row">
           <div class="card-image"> <%=link_to image_tag(kanzume.kanzume_icon.picture_url), "/kanzumes/#{kanzume.id}" %></div>

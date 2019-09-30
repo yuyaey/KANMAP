@@ -9,13 +9,13 @@
 <div class="form-box">
   <%= form_with(model: kanzume, local: true) do |f| %>
     <div class="row">
-      <div class="input-field col s8 m8">
+      <div class="input-field col s10 m8">
         <%= f.label "KANZUMEの名前(最大30文字)" %>
         <%= f.text_field :name, required: true, class: 'validate', id: 'kanzume_name', autofocus: true, maxlength: '30' %>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s8 m8">
+      <div class="input-field col s10 m8">
         <select class="icons validate" name="kanzume[kanzume_icon_id]" required="required">
           <option disabled selected required>
             <%= @kanzume.kanzume_icon.name if @kanzume.kanzume_icon.present? %>
@@ -27,7 +27,7 @@
         </select>
         <label>アイコンを選択</label>
       </div>
-      <div class="input-field col s8 m8">
+      <div class="input-field col s10 m8">
         <% if local_assigns.has_key? :new_flag %>
           <%= f.fields_for :maps do |m| %>
             <%= "位置情報: #{params[:address_name]}" %>

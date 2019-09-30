@@ -10,24 +10,24 @@
   <%= form_with(model: item, local: true) do |f| %>
     <%= f.hidden_field :kanzume_id, value: @kanzume.id %>
     <div class="row">
-      <div class="input-field col s8 m8">
+      <div class="input-field col s11 m8">
         <%= f.label "ITEMの名前 (最大30文字)" %>
         <%= f.text_field :name, required: true, class: 'validate', id: 'item-name', autofocus: true, maxlength: '30' %>
       </div>
-      <div class="input-field col s8 m8">
+      <div class="input-field col s11 m8">
         <%= f.label "メモ (最大255文字)" %>
         <%= f.text_area :memo, rows: 5, class: 'materialize-textarea', id: 'item_memo', maxlength: '255'  %>
       </div>
-      <div class='file-field input-field col s8 m8'>
+      <div class='file-field input-field col s11 m8'>
         <div class="btn">
           <span>画像</span>
           <%= f.file_field :image%>
         </div>
-        <div class="file-path-wrapper col s8 m8">
+        <div class="file-path-wrapper col s11 m8">
           <input class="file-path" type="text">
         </div>
       </div>
-      <div class="input-field col s8 m8">
+      <div class="input-field col s11 m8">
         <select class="icons validate" name="item[item_icon_id]" required="required">
           <option disabled selected required>
             <% if @item.item_icon.present?%>

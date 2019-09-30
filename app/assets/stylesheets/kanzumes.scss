@@ -106,6 +106,49 @@
         bottom: 10px;
     }
     
+    @media screen and (max-width: 416px) {
+        .card-name {
+            display: table-cell;
+            position: absolute;
+            left: 18px;
+            top: 80px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 1rem;
+            width: 136px;
+        }
+        .card .card-image img {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 20px;
+            top: 10px;
+        }
+        #edit_btn {
+            float: right;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+        }
+        .card-date {
+            display: none;
+        }
+    }
+    
+    @media screen and (min-width: 321px) and (max-width: 425px) {
+        #edit_btn {
+            float: right;
+            position: absolute;
+            right: 10px;
+            top: 8px;
+        }
+        .card-date {
+            position: absolute;
+            bottom: 0px;
+            left: 20px;
+        }
+    }
+    
     // show
     #kanzume_img {
         position: relative;
@@ -157,6 +200,30 @@
         font-size: 1px;
         font-weight: lighter;
         line-height: 12px;
+    }
+    
+    @media screen and (max-width: 340px) {
+        .item_name {
+            width: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .item_memo {
+            width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    
+    @media screen and (min-width: 341px) and (max-width: 550px) {
+        .item_memo {
+            width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
     
     //form

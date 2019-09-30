@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'items', media: 'all'%>
 <div class="large-container">
   <div class="row">
-    <img src="<%= @item.item_icon.picture_url(:thumb) %>" id="item_img">
+    <img src="<%= @item.item_icon.picture_url(:thumb) %>" id="item_s_icon_img">
     <h3><%= @item.name %>
       <h3>
       </div>
@@ -24,16 +24,16 @@
           <% if @item.image.present? %>
             <tr>
               <th><%= Item.human_attribute_name(:image) %></th>
-              <td><%= image_tag(@item.image_url)%></td>
+              <td id="item_s_img"><%= image_tag(@item.image_url)%></td>
             </tr>
           <% end %>
           <tr>
             <th><%= Item.human_attribute_name(:memo) %></th>
-            <td><%= @item.memo %></td>
+            <td  id="item_memo"><%= @item.memo %></td>
           </tr>
           <tr>
             <th>入っているKanzume</th>
-            <td><a href="/kanzumes/<%= @item.kanzume.id%>"><img src="<%= @item.kanzume.kanzume_icon.picture_url(:thumb) %>" id="kanzume_img"></a>
+            <td id="item_kanzume"><a href="/kanzumes/<%= @item.kanzume.id%>"><img src="<%= @item.kanzume.kanzume_icon.picture_url(:thumb) %>" id="kanzume_img"></a>
               <%=link_to @item.kanzume.name, "/kanzumes/#{@item.kanzume.id}", id: "kanzume_name" %></td>
           </tr>
         </table>
