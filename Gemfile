@@ -47,7 +47,7 @@ gem 'jquery-rails'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
 gem 'kaminari'
-gem 'webpacker', github: 'rails/webpacker'
+# gem 'webpacker', github: 'rails/webpacker'
 
 
 group :development, :test do
