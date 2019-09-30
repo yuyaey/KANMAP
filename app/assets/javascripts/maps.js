@@ -99,10 +99,10 @@ function initMap() {
             bounds.extend(marker.position);
         }
     };
-    marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map
-    });
+    // marker = new google.maps.Marker({
+    //     position: myLatlng,
+    //     map: map
+    // });
     transitLayer.setMap(map);
     map.fitBounds(bounds);
     // bounds.extend(marker.position);
@@ -208,7 +208,7 @@ function initMap() {
                 },
                 function(error) {
                     //取得失敗
-                    alert("エラーが発生しました。");
+                    alert("現在地の取得に失敗しました。");
                 }, {
                     enableHighAccuracy: true
                 });

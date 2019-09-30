@@ -1,29 +1,24 @@
 <div class="large-container">
-
-<h3>ログイン</h3>
-
-<div class="form-box">
-<%= form_with scope: :session, local: true do |f| %>
- <div class="row">
-  <div class='input-field col s8 m8'>
-    <%= f.label :email, 'メールアドレス' %>
-    <%= f.email_field :email, class: 'form-control', id: 'session_email' %>
+  <h3>ログイン</h3>
+  <div class="form-box">
+    <%= form_with scope: :session, local: true do |f| %>
+      <div class="row">
+        <div class='input-field col s11 m8'>
+          <%= f.label :email, 'メールアドレス' %>
+          <%= f.email_field :email, class: 'form-control', id: 'session_email' %>
+        </div>
+        <div class='input-field col s11 m8'>
+          <%= f.label :password, 'パスワード'%>
+          <%= f.password_field :password, class: 'form-control', id: 'session_password' %>
+        </div>
+      </div>
+      <div>
+        <%= f.submit 'ログインする', class: 'btn btn-primary' %>
+      </div>
+      <br>
+      <div>
+        <a href="/users/new" class="waves-effect waves-light btn white "><i class="material-icons left teal-text text-lighten-1">person_add</i><span class="teal-text text-lighten-1">ユーザーを登録</span></a>
+      </div>
+    <% end %>
   </div>
-  <div class='input-field col s8 m8'>
-    <%= f.label :password, 'パスワード'%>
-    <%= f.password_field :password, class: 'form-control', id: 'session_password' %>
-  </div>
-    </div>
-  <div>
-    <%= f.submit 'ログインする', class: 'btn btn-primary' %>
-  </div>
-  <br>
-  <div>
-    <a href="/users/new" class="waves-effect waves-light btn white "><i class="material-icons left teal-text text-lighten-1">person_add</i><span class="teal-text text-lighten-1">ユーザーを登録</span></a>
-  </div>
-
-<% end %>
-
-  </div>
-
-  </div>
+</div>
