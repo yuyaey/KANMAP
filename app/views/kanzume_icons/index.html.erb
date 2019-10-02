@@ -1,4 +1,5 @@
 <h1>🥫</h1>
+<img src="https://d1oc5iua8d0deu.cloudfront.net/uploads/AddKanzumeIcon2.png" alt="aa">
 <%= search_form_for @q, class: 'mb-5' do |f| %>
   <div class="form-group row">
     <%= f.label :name_cont, '名称', class: 'col-sm-2 col-form-label'%>
@@ -21,10 +22,9 @@
   <table class='table table-hover'>
     <thead class='thead thead-default'>
       <tr>
-      <th></th>
+        <th></th>
         <th><%= sort_link(@q, :name) %></th>
         <th><%= sort_link(@q, :created_at) %></th>
-        
       </tr>
       <tbody>
         <% @kanzume_icons.each do |kanzume_icon| %>

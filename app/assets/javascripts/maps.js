@@ -126,7 +126,7 @@ function initMap() {
 
             c_marker = new google.maps.Marker({
                 icon: {
-                    url: "https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com/uploads/AddKanzumeIcon2.png",
+                    url: "https://d1oc5iua8d0deu.cloudfront.net/uploads/AddKanzumeIcon2.png",
                     scaledSize: new google.maps.Size(50, 50)
                 },
 
