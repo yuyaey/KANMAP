@@ -22,15 +22,15 @@ CarrierWave.configure do |config|
   case Rails.env
     when 'production'
       config.fog_directory = 'kanmap-pictures'
-      config.asset_host = 'https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com'
+      config.asset_host = 'https://d1oc5iua8d0deu.cloudfront.net'
 
     when 'development'
-      config.fog_directory = 'kanmap-pictures'
-      config.asset_host = 'https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com'
+      config.storage :file # 開発環境:public/uploades下に保存
+      config.enable_processing = false if Rails.env.test? #test:処理をスキップ
 
     when 'test'
-      config.fog_directory = 'kanmap-pictures'
-      config.asset_host = 'https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com'
+      config.storage :file # 開発環境:public/uploades下に保存
+      config.enable_processing = false if Rails.env.test? #test:処理をスキップ
   end
 end
 

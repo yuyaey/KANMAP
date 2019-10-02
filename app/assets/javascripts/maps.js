@@ -48,7 +48,7 @@ function initMap() {
 
                 map: map,
                 icon: {
-                    url: "https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com/uploads/kanzume_icon/picture/" + kanzumes[i]["kanzume_icon_id"] + "/" + kanzumes[i]["kanzume_icon_name"],
+                    url: "https://d1oc5iua8d0deu.cloudfront.net/uploads/kanzume_icon/picture/" + kanzumes[i]["kanzume_icon_id"] + "/" + kanzumes[i]["kanzume_icon_name"],
                     scaledSize: new google.maps.Size(30, 30)
                 }
 
@@ -198,7 +198,7 @@ function initMap() {
                         position: latLng,
                         map: map,
                         icon: new google.maps.MarkerImage(
-                            'https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com/uploads/NowLocation.png',
+                            'https://d1oc5iua8d0deu.cloudfront.net/uploads/NowLocation.png',
                             null,
                             null,
                             null,
@@ -277,7 +277,7 @@ function initMap() {
                     text: results[i].name,
                     map: map,
                     icon: new google.maps.MarkerImage(
-                        'https://kanmap-pictures.s3-ap-northeast-1.amazonaws.com/uploads/Searchedmarker.png',
+                        'https://d1oc5iua8d0deu.cloudfront.net/uploads/Searchedmarker.png',
                         null,
                         null,
                         null,
