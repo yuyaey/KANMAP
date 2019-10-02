@@ -47,6 +47,7 @@ gem 'jquery-rails'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
 gem 'kaminari'
+gem 'asset_sync'
 # gem 'webpacker', github: 'rails/webpacker'
 
 
