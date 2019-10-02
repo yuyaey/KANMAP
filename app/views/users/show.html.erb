@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'users', media: 'all'%>
 <div class="large-container">
   <div class="form-box">
-    <img class="circle" src="<%= @user.avatar_url %>">
+    <img class="circle" src="<%= @user.avatar_url(:thumb) %>">
     <table>
       <thead>
         <tr>
