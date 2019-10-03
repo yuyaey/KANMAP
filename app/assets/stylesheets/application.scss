@@ -1,4 +1,4 @@
-/*
+    /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -12,110 +12,146 @@
  * 
  *= require_self
  */
-
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700');
-@import "materialize/components/color-variables";
-$primary-color: color("teal",
-"lighten-1") !default;
-$secondary-color: color("teal",
-"lighten-1") !default;
-$success-color: color("green",
-"base") !default;
-$error-color: color("red",
-"base") !default;
-$link-color: color("light-blue",
-"darken-1") !default;
-@import "materialize";
-head {
-    font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-}
-
-body {
-    font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-    color: rgb(77, 77, 77);
-}
-
-.large-container {
-    padding: 20px;
-}
-
-h3 {
-    display: inline-block;
-    position: relative;
-    border-bottom: solid 3px #26a69a;
-    font-size: 30px;
-}
-
-h3:after {
-    display: block;
-    position: absolute;
-    content: " ";
-    border-bottom: solid 3px #b2dfdb;
-    bottom: -3px;
-    width: 30%;
-}
-
-nav {
-    height: 80px;
-    line-height: 80px;
-}
-
-nav,
-nav .nav-wrapper i,
-nav a.sidenav-trigger,
-nav a.sidenav-trigger i,
-nav .sidenav-trigger i {
-    line-height: 80px;
-}
-
-.sidenav {
-    opacity: 0.9;
-}
-
-.form-box {
-    width: 95%;
-    padding: 2.5em 1.5em;
-    margin: 2em 0;
-    color: #b2dfdb;
-    background: white;
-    border-top: solid 5px #b2dfdb;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-}
-
-.card {
-    border-radius: 6px;
-}
-
-img.bg {
-    opacity: 0.3;
-}
-
-img.logo {
-    position: relative;
-    top: 8px;
-    left: 8px;
-    width: 40px;
-    height: 40px;
-}
-
-img.menu_icon {
-    position: relative;
-    top: 12px;
-    width: 40px;
-    height: 40px;
-}
-
-img.side_menu_icon {
-    position: relative;
-    top: 12px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-}
-
-img.profile_icon {
-    position: relative;
-    top: 12px;
-    width: 40px;
-    height: 40px;
-}
+    
+    @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700');
+    @import "materialize/components/color-variables";
+    $primary-color: color("teal",
+    "lighten-1") !default;
+    $secondary-color: color("teal",
+    "lighten-1") !default;
+    $success-color: color("green",
+    "base") !default;
+    $error-color: color("red",
+    "base") !default;
+    $link-color: color("light-blue",
+    "darken-1") !default;
+    @import "materialize";
+    html {
+        font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    }
+    
+    body {
+        color: rgb(77, 77, 77);
+        background: #b2dfdb;
+    }
+    
+    .large-container {
+        padding: 80px 20px 20px 20px;
+    }
+    
+    h3 {
+        display: inline-block;
+        position: relative;
+        border-bottom: solid 3px #26a69a;
+        font-size: 30px;
+    }
+    
+    h3:after {
+        display: block;
+        position: absolute;
+        content: " ";
+        border-bottom: solid 3px #e0f2f1;
+        bottom: -3px;
+        width: 30%;
+    }
+    
+    nav {
+        height: 80px;
+        line-height: 80px;
+        position: fixed;
+        z-index: 3;
+    }
+    
+    nav,
+    nav .nav-wrapper i,
+    nav a.sidenav-trigger,
+    nav a.sidenav-trigger i,
+    nav .sidenav-trigger i {
+        line-height: 80px;
+    }
+    
+    @media (max-width: 350px) {
+        nav .brand-logo {
+            font-size: 1.8rem;
+        }
+    }
+    
+    .brand-logo img.logo {
+        position: relative;
+        top: 8px;
+        left: 2px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .sidenav {
+        opacity: 0.9;
+    }
+    
+    .form-box {
+        width: 95%;
+        padding: 2.5em 1.5em;
+        margin: 2em 0;
+        color: #b2dfdb;
+        background: white;
+        border-top: solid 5px #b2dfdb;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    }
+    
+    .card {
+        border-radius: 6px;
+    }
+    
+    img.bg {
+        opacity: 0.3;
+        width: 300px;
+        height: 300px;
+    }
+    
+    img.logo {
+        position: relative;
+        top: 8px;
+        left: 8px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    img.menu_icon {
+        position: relative;
+        top: 12px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    #about_menu_icon {
+        width: 25px;
+        height: 25px;
+        position: relative;
+        top: 6px;
+        right: 11px;
+    }
+    
+    img.side_menu_icon {
+        position: relative;
+        top: 12px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+    }
+    
+    img.profile_icon {
+        position: relative;
+        top: 12px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    #side_menu_about_icon {
+        position: relative;
+        top: 6px;
+        left: -5px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
+    }

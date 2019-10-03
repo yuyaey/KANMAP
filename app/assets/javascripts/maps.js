@@ -1,6 +1,11 @@
 $(document).ready(function() {
     $('.modal').modal();
     $('.tooltipped').tooltip();
+    $('.slider').slider({
+        duration: 0,
+        interval: 500000
+    });
+    $('.slider').slider('pause');
 });
 
 
