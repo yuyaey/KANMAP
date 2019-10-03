@@ -111,6 +111,10 @@ GEM
     debase (0.2.4)
       debase-ruby_core_source (>= 0.10.2)
     debase-ruby_core_source (0.10.5)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     ed25519 (1.2.4)
     erubi (1.8.0)
     excon (0.66.0)
@@ -327,6 +331,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   debase
+  dotenv-rails
   ed25519
   fog-aws
   friendly_id

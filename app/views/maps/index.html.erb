@@ -25,7 +25,7 @@
       document.getElementById("infowindows").style.display = "none";
     </script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBwVfFPbRIzMuOHE5p01Nm1K0Y8E4IK5IA&callback=initMap&libraries=places" type="text/javascript"></script>
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap&libraries=places" type="text/javascript"></script>
   </div>
   <% unless current_user %>
     <div class="about-box">

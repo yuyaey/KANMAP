@@ -48,6 +48,7 @@ gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
 gem 'kaminari'
 gem 'asset_sync'
+gem 'dotenv-rails'
 # gem 'webpacker', github: 'rails/webpacker'
 
 

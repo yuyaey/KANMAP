@@ -72,7 +72,7 @@
     </div>
   </div>
   <script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBwVfFPbRIzMuOHE5p01Nm1K0Y8E4IK5IA&callback=initMap"></script>
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
   <script>
     function initMap() {
            var kanzume_lat = $('#kanzumes_lat').data('kanzumes-lat-id');
