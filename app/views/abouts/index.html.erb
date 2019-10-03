@@ -1,0 +1,191 @@
+<div class="about-box">
+  <div class="concept-box teal lighten-2 white-text card">
+    <h3>KANMAPって？</h3>
+    <div class="row">
+      <div class="concept-text col s9">
+        <p>KANMAPは地図上にあなたのKANZUMEを設置し、みんなと共有できるサービスです。</p>
+        <p>一度KANZUMEを設置しその中にアイテムを入れると、誰でもアイテムを見たり、入れたりすることができます。</p>
+        <p>思い出の場所やお気に入りの場所にKANZUMEを設置してみよう!</p>
+      </div>
+      <div class="concept_chef-cans col s3">
+        <img src="https://d1oc5iua8d0deu.cloudfront.net/uploads/ICONS/concept_chef-cans.png" >
+      </div>
+    </div>
+  </div>
+  <div class="slider instruction-box card">
+    <ul class="slides">
+      <li class="teal lighten-2 white-text">
+        <h3>How To...</h3>
+        <div class="row">
+          <div class="col s6 m4">
+            <img src="https://d1oc5iua8d0deu.cloudfront.net/uploads/ICONS/Instruction1.png">
+          </div>
+          <div class="content center-align col m7">
+            <p class="white-text">好きな場所をクリックしてKANZUMEを設置しよう。</p>
+          </div>
+        </div>
+      </li>
+      <li class="teal lighten-2 white-text">
+        <h3>How To...</h3>
+        <div class="row">
+          <div class="col s6 m4">
+            <img src="https://d1oc5iua8d0deu.cloudfront.net/uploads/ICONS/Instruction2.png">
+          </div>
+          <div class="content center-align col m7">
+            <p class="white-text">設置したKANZUMEの中にアイテムを入れ、コメントや写真を追加できます。</p>
+          </div>
+        </div>
+      </li>
+      <li class="teal lighten-2 white-text">
+        <h3>How To...</h3>
+        <div class="row">
+          <div class="col s6 m4"><img src="https://d1oc5iua8d0deu.cloudfront.net/uploads/ICONS/Instruction3.png"></div>
+          <div class="content center-align col m7">
+            <p class="white-text">地図上に表示されているKANZUMEの中身を見れば、自分や他の人の入れたアイテムを見ることができます。</p>
+          </div>
+        </div>
+      </li>
+      <li class="teal lighten-2 white-text">
+        <h3>Let's get started!</h3>
+        <div class="row">
+          <div class="col s6 m4">
+            <img src="https://d1oc5iua8d0deu.cloudfront.net/uploads/start_chef.png" class="start_chef">
+          </div>
+          <div class="content center-align col m7">
+            <p class="white-text"> 使ってみよう！</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<style text= "text/css">
+  .about-box {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      margin-top: 20px;
+      background: #26a69a;
+  }
+  
+  .white-text {
+      padding: 20px;
+  }
+  
+  .about-box {
+      height: 1200px;
+      padding: 100px 20px;
+      background: #26a69a;
+  }
+  
+  .concept-box {
+      padding: 0px 20px 20px 20px;
+  }
+  
+  .concept-text {
+      font-size: 1.2rem;
+      width: 84%;
+  }
+  
+  .concept_chef-cans img {
+      width: 100%;
+      bottom: 30px;
+  }
+  
+  .slider .slides {
+      border-radius: 6px 6px 0px 0px;
+  }
+  
+  .slider .slides li {
+      border-radius: 6px 6px 0px 0px;
+  }
+  
+  .instruction-box {
+      margin-top: 66px;
+  }
+  
+  .instruction-box .content {
+      font-size: 1.2rem;
+      position: relative;
+      bottom: 40px;
+  }
+  
+  .instruction-box p {
+      text-align: left;
+      position: relative;
+      top: 123px;
+  }
+  
+  .instruction-box img {
+      width: 16rem !important;
+      border-radius: 1rem;
+      position: relative;
+      top: 20px;
+  }
+  
+  #instruction-join-btn {
+      float: left;
+      position: relative;
+      top: 103px;
+      left: 20px;
+  }
+  
+  img.start_chef {}
+  
+  .slider .indicators {
+      position: absolute;
+      bottom: 7px !important;
+  }
+  
+  .slider .indicators .indicator-item.active {
+    background-color: #26a69a;
+  }
+  
+  @media (max-width: 600px) {
+      .about-box {
+          height: 218%;
+      }
+      .concept-text {
+          font-size: 1.2rem;
+          width: 100% !important;
+      }
+      .concept_chef-cans img {
+          width: 16rem !important;
+          border-radius: 3rem;
+          position: relative;
+          bottom: 9px;
+      }
+      .instruction-box p {
+          font-size: 0.9rem;
+          text-align: left;
+          position: relative;
+          top: 35px;
+      }
+      .instruction-box img {
+          width: 13rem !important;
+          border-radius: 1rem;
+          position: relative;
+          bottom: 40px;
+      }
+      #instruction-join-btn {
+          float: left;
+          position: relative;
+          top: 6px;
+          left: 20px;
+      }
+  }
+  
+  @media (min-width: 1450px) {
+      .about-box {
+          height: 1600px;
+      }
+  }
+</style>
+<script type= "text/javascript">
+  $('.slider').slider({
+      duration: 0,
+      interval: 500000
+  });
+  $('.slider').slider('pause');
+</script>

@@ -13,7 +13,7 @@
     <nav>
       <div class="nav-wrapper">
         <a href="/" class="brand-logo"><%= image_tag 'logo.png', class: "logo" %> KANMAP</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="/" class="tooltipped" data-position="bottom" data-tooltip="MAP"><%= image_tag 'map_icon.png', class: "menu_icon" %></a></li>
           <% if current_user %>
@@ -25,6 +25,7 @@
               <li><a href="/item_icons">ITEMICON</a></li>
             <% end %>
             <li><a href="/logout" class="tooltipped" data-position="bottom" data-tooltip="SIGN OUT" data-method="delete" ><%= image_tag 'logout_icon.png', class: "menu_icon" %></a></li>
+            <li><a href="/abouts/index" class="tooltipped" data-position="bottom" data-tooltip="ABOUT"><%= image_tag 'about_icon.png', class: "menu_icon", id: "about_menu_icon"%></a></li>
           <% else %>
             <li>
               <a href="/login" class="tooltipped" data-position="bottom" data-tooltip="SIGN IN"><%= image_tag 'login_icon.png', class: "menu_icon" %></a>
@@ -35,7 +36,7 @@
           <%end%>
         </ul>
       </nav>
-      <ul class="sidenav teal lighten-1" id="mobile-demo">
+      <ul class="sidenav teal lighten-1" id="mobile">
         <% if current_user %>
           <li>
             <div class="user-view">
@@ -59,6 +60,7 @@
       <li><a href="/kanzumes"><%= image_tag 'kanzume_icon.png', class: "side_menu_icon" %> <span class="white-text">KANZUME</span></a></li>
       <li><a href="/items"><%= image_tag 'item_icon.png', class: "side_menu_icon" %> <span class="white-text">ITEM</span></a></li>
       <li><a href="/users/<%= current_user.id%>"><%= image_tag 'profile_icon.png', class: "side_menu_icon" %> <span class="white-text">PROFILE</span></a></li>
+      <li><a href="/abouts/index"><%= image_tag 'about_icon.png', class: "side_menu_icon", id: "side_menu_about_icon" %><span class="white-text">ABOUT</span></a></li>
       <% if current_user.admin? %>
         <li><a href="/kanzume_icons"><span class="white-text">KANZUMEICON</span></a></li>
         <li><a href="/item_icons"><span class="white-text">ITEMICON</span></a></li>

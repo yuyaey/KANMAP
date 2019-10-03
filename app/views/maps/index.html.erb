@@ -27,6 +27,70 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBwVfFPbRIzMuOHE5p01Nm1K0Y8E4IK5IA&callback=initMap&libraries=places" type="text/javascript"></script>
   </div>
+  <% unless current_user %>
+    <div class="about-box">
+      <div class="concept-box teal lighten-2 white-text card">
+        <h3>KANMAPって？</h3>
+        <div class="row">
+          <div class="concept-text col s9">
+            <p>KANMAPは地図上にあなたのKANZUMEを設置し、みんなと共有できるサービスです。</p>
+            <p>一度KANZUMEを設置しその中にアイテムを入れると、誰でもアイテムを見たり、入れたりすることができます。</p>
+            <p>思い出の場所やお気に入りの場所にKANZUMEを設置してみよう!</p>
+          </div>
+          <div class="concept_chef-cans col s3">
+            <img src="https://d1oc5iua8d0deu.cloudfront.net/uploads/ICONS/concept_chef-cans.png" >
+          </div>
+        </div>
+      </div>
+      <div class="slider instruction-box card">
+        <ul class="slides">
+          <li class="teal lighten-2 white-text">
+            <h3>How To...</h3>
+            <div class="row">
+              <div class="col s6 m4">
+                <img src="https://d1oc5iua8d0deu.cloudfront.net/uploads/ICONS/Instruction1.png">
+              </div>
+              <div class="content center-align col m7">
+                <p class="white-text">好きな場所をクリックしてKANZUMEを設置しよう。</p>
+              </div>
+            </div>
+          </li>
+          <li class="teal lighten-2 white-text">
+            <h3>How To...</h3>
+            <div class="row">
+              <div class="col s6 m4">
+                <img src="https://d1oc5iua8d0deu.cloudfront.net/uploads/ICONS/Instruction2.png">
+              </div>
+              <div class="content center-align col m7">
+                <p class="white-text">設置したKANZUMEの中にアイテムを入れ、コメントや写真を追加できます。</p>
+              </div>
+            </div>
+          </li>
+          <li class="teal lighten-2 white-text">
+            <h3>How To...</h3>
+            <div class="row">
+              <div class="col s6 m4"><img src="https://d1oc5iua8d0deu.cloudfront.net/uploads/ICONS/Instruction3.png"></div>
+              <div class="content center-align col m7">
+                <p class="white-text">地図上に表示されているKANZUMEの中身を見れば、自分や他の人の入れたアイテムを見ることができます。</p>
+              </div>
+            </div>
+          </li>
+          <li class="teal lighten-2 white-text">
+            <h3>Let's get started!</h3>
+            <div class="row">
+              <div class="col s6 m4">
+                <img src="https://d1oc5iua8d0deu.cloudfront.net/uploads/start_chef.png" class="start_chef">
+              </div>
+              <div class="content center-align col m7">
+                <p class="white-text"> はじめよう！</p>
+                <a href="/users/new" class="waves-effect waves-light btn white" id="instruction-join-btn"><i class="material-icons left teal-text text-lighten-1">person_add</i><span class="teal-text text-lighten-1">JOIN</span></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
   <%= stylesheet_link_tag 'maps', media: 'all'%>
 </body>
 </html>
