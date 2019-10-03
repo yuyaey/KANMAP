@@ -50,8 +50,8 @@
                       <td>
                         <div class='item_name'><%= link_to item.name, item %></div>
                       </td>
-                      <td id="item_user_img">
-                        <a href="/users/<%= item.user.id%>"><img class="circle" src="<%= item.user.avatar_url(:thumb) %>" ></a>
+                      <td >
+                        <a href="/users/<%= item.user.id%>"><img class="circle" src="<%= item.user.avatar_url(:thumb)%>" id="item_user_img" ></a>
                       </td>
                       <td>
                         <div class='item_user_name'><%=link_to item.user.name, "/users/#{item.user.id}" %></div>

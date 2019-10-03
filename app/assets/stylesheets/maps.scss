@@ -44,6 +44,10 @@ body {
     z-index: 2;
 }
 
+#searchBox {
+    height: 160px;
+}
+
 .row {
     margin-bottom: auto;
     padding: 15px;
@@ -130,7 +134,7 @@ body {
 .about-box {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 184%;
     z-index: 1;
     top: 700px;
     margin-top: 30px;
