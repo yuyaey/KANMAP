@@ -211,7 +211,9 @@ img.start_chef {}
 
 @media (max-width: 600px) {
     .about-box {
-        height: 228%;
+        height: 218%;
+        position: relative;
+        top: 690px;
     }
     .concept-text {
         font-size: 1.2rem;
