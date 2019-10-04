@@ -82,6 +82,7 @@ body {
 
 .windowbtn_a {
     position: relative;
+    top: 6px;
     display: block;
     width: 135px;
     height: 38px;
@@ -93,6 +94,7 @@ body {
     background: #26a69a;
     border-radius: 5px;
     overflow: hidden;
+    outline: 0;
 }
 
 .windowbtn_a:before {
@@ -213,7 +215,7 @@ img.start_chef {}
     .about-box {
         height: 228%;
         position: absolute;
-        top: 690px;
+        top: 683px;
     }
     .concept-text {
         font-size: 1.2rem;
