@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'abouts/index', to: 'abouts#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
   delete '/logout', to: 'sessions#destroy'
 
   resources :users
@@ -17,6 +19,4 @@ Rails.application.routes.draw do
   resources :testsessions, only: :create
 
 
-  # 最終行
-  get '*path', to: 'application#render_404'
 end

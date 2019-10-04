@@ -1,6 +1,8 @@
 <div class="large-container">
-
-<h3>ユーザー登録</h3>
-<%= render partial: 'form', locals: { user: @user} %>
-
-</div>
+  <h3>ユーザー登録</h3>
+  <%= render partial: 'form', locals: { user: @user} %>
+  <h3> SNSアカウントで登録する</h3>
+  <br>
+  <a href="/auth/google_oauth2" class="waves-effect waves-light btn red"><i class="fab fa-google"></i><span>&emsp;Signup up with Google&thinsp;</span></a><br>
+  <br>
+  <a href="/auth/twitter" class="waves-effect waves-light btn light-blue lighten-1"><i class="fab fa-twitter"></i><span>&emsp;Signup up with Twitter</span></a>

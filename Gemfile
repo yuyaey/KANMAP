@@ -34,7 +34,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
 gem 'bcrypt'
 gem 'rails_autolink'
 gem 'ransack'
@@ -49,6 +48,9 @@ gem 'material_icons'
 gem 'kaminari'
 gem 'asset_sync'
 gem 'dotenv-rails'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 # gem 'webpacker', github: 'rails/webpacker'
 
 
