@@ -4,9 +4,8 @@ set :application, "KANMAP"
 set :repo_url, "git@github.com:yuyaey/KANMAP.git"
 set :branch, 'master'
 set :deploy_to, '/var/www/KANMAP'
-set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
+set :linked_files, fetch(:linked_files, []).push('config/settings.yml', 'config/master.key', '.env')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
-set :linked_files, fetch(:linked_files, []).push("config/master.key")
 set :keep_releases, 3
 set :rbenv_ruby, '2.6.3'
 set :log_level, :debug
