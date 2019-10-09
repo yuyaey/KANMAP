@@ -93,24 +93,12 @@ body {
     color: #fff;
     background: #26a69a;
     border-radius: 5px;
-    overflow: hidden;
-    outline: 0;
-}
-
-.windowbtn_a:before {
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: -150px;
-    height: 100%;
-    width: 160px;
-    background: #fff;
-    opacity: 0.3;
     transition: .4s;
 }
 
-.windowbtn_a:hover:before {
-    left: 0;
+.windowbtn_a:hover {
+    background: #fff;
+    color: #26a69a;
 }
 
 .windowbtn_s {
