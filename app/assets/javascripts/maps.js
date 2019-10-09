@@ -23,8 +23,6 @@ function initMap() {
         }
     })();
 
-
-    var locations = $('#maplocations').data('maplocations-id');
     var kanzumes = $('#kanzumes').data('kanzumes-id');
     var myLatlng = new google.maps.LatLng(35.681236, 139.767125);
 
@@ -44,20 +42,16 @@ function initMap() {
     var bounds = new google.maps.LatLngBounds();
     var infoWindow = new google.maps.InfoWindow(iwOptions);
     var transitLayer = new google.maps.TransitLayer();
-    if (kanzumes !== []) {
-        for (var i = 0; i < locations.length; i++) {
+    if (kanzumes.length !== 0) {
+        for (var i = 0; i < kanzumes.length; i++) {
             transitLayer.setMap(map);
             marker = new google.maps.Marker({
-
-                position: new google.maps.LatLng(locations[i]["latitude"], locations[i]["longitude"]),
-
+                position: new google.maps.LatLng(kanzumes[i]["kanzume_latitude"], kanzumes[i]["kanzume_longitude"]),
                 map: map,
                 icon: {
                     url: "https://d1oc5iua8d0deu.cloudfront.net/uploads/kanzume_icon/picture/" + kanzumes[i]["kanzume_icon_id"] + "/" + kanzumes[i]["kanzume_icon_name"],
                     scaledSize: new google.maps.Size(30, 30)
                 }
-
-
             });
 
             //Window内のボタンを表示
@@ -67,7 +61,7 @@ function initMap() {
 
                     var k_content = document.getElementById("k_window");
                     document.getElementById("k_name").textContent = `${kanzumes[i]["name"]}`
-                    document.getElementById("k_address").textContent = `${locations[i]["address"]}`
+                    document.getElementById("k_address").textContent = `${kanzumes[i]["kanzume_address"]}`
                     var kanzume_id = kanzumes[i]["id"];
                     // var sk_btn = document.createElement("showkanzumebtn");
 
@@ -104,13 +98,16 @@ function initMap() {
             bounds.extend(marker.position);
         }
     };
-    // marker = new google.maps.Marker({
-    //     position: myLatlng,
-    //     map: map
-    // });
-    transitLayer.setMap(map);
-    map.fitBounds(bounds);
-    // bounds.extend(marker.position);
+    //kanzumeが0の時の処理
+    if (kanzumes.length == 0) {
+        marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map
+        });
+        transitLayer.setMap(map);
+        map.fitBounds(bounds);
+        bounds.extend(marker.position);
+    };
 
     // 地図上をクリックした時情報を取得
     var clickedLatlng;

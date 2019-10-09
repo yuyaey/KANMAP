@@ -6,8 +6,7 @@ class MapsController < ApplicationController
   # GET /maps
   # GET /maps.json
   def index
-    @maps = Map.all
-    @kanzumes = Kanzume.joins(:kanzume_icon).select('kanzumes.*, kanzume_icons.name as "kanzume_icon_name"').all
+    @kanzumes = Kanzume.joins(:kanzume_icon).select('kanzumes.*, kanzume_icons.name as "kanzume_icon_name"').joins(:maps).select('maps.address as "kanzume_address", maps.latitude as "kanzume_latitude", maps.longitude as "kanzume_longitude"').all
   end
 
   # GET /maps/1
