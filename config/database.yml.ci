@@ -8,7 +8,7 @@ default: &default
 
 test:
   <<: *default
-  database: KANMAP_test
+  database: KANMAP_tes
   host: <%= ENV['MYSQL_ROOT_HOST'] || '127.0.0.1' %>
   port: 3306
   
