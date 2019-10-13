@@ -5,13 +5,14 @@ jobs:
    - image: circleci/ruby:2.6.3-node
      environment:
        RAILS_ENV: test
-   - image: circleci/mysql:5.7-ram
+   - image: circleci/mysql:8.0
      environment:
-       MYSQL_DATABASE: circleci-example-for-rails_test
+       MYSQL_DATABASE: KANMAP_test
        MYSQL_ALLOW_EMPTY_PASSWORD: true
        MYSQL_ROOT_HOST: '%'
        MYSQL_USER: root
-   working_directory: ~/circleci-example-for-rails
+       MYSQL_PORT: 3306
+   working_directory: ~/KANMAP
    steps:
    - checkout
    - restore_cache:
@@ -21,7 +22,7 @@ jobs:
    - run:
        name: install dependencies
        command: |
-         gem install bundler -v 2.0.1
+         gem install bundler -v 1.17.3
          bundle install --jobs=4 --retry=3 --path vendor/bundle
    - save_cache:
        paths:
