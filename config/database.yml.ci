@@ -9,6 +9,6 @@ default: &default
 test:
   <<: *default
   database: KANMAP_test
-  host: 127.0.0.1
+  host: '%'
   port: 3306
   
