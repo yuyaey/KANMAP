@@ -10,7 +10,7 @@ jobs:
        MYSQL_DATABASE: KANMAP_test
        MYSQL_ALLOW_EMPTY_PASSWORD: true
        MYSQL_ROOT_HOST: 127.0.0.1
-       MYSQL_ROOT_PASSWORD: ''
+       MYSQL_ROOT_PASSWORD: 136445yY$
        MYSQL_PORT: 3306
        MYSQL_USER: root
    working_directory: ~/KANMAP
