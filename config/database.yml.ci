@@ -1,9 +1,10 @@
 test:
   adapter: mysql2
   encoding: utf8
-  pool: 5
+  database: KANMAP_test
+  host: <%= ENV['MYSQL_ROOT_HOST'] || '127.0.0.1' %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: 136445yY$
-  host: 127.0.0.1
-  port: 3306
-  database: KANMAP_test
+  socket: /tmp/mysql.sock
+  
