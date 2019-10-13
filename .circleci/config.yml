@@ -21,10 +21,6 @@ jobs:
        keys:
        - v1-dependencies-{{ checksum "Gemfile.lock" }}
        - v1-dependencies-
-     #環境変数を使用
-   - run:
-       name: Decode dotenv file
-       command: echo $ENV_FILE | base64 --decode > .env
    - run:
        name: install dependencies
        command: |
