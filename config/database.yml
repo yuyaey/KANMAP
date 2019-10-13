@@ -19,6 +19,6 @@ test:
 production:
   <<: *default
   database: KANMAP_production
-  username: root
-  password: 136445yY$
+  username: <%= ENV.fetch("MYSQL_USER", "root") %>
+  password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") %>
   socket: /var/lib/mysql/mysql.sock
