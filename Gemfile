@@ -65,7 +65,8 @@ group :development, :test do
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
   gem 'rspec-rails'
-  gem "factory_bot_rails"
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-byebug'
