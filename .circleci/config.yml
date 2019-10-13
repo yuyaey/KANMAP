@@ -37,11 +37,14 @@ jobs:
          bundle exec rails db:schema:load --trace
    # run tests!
    - run:
-       name: Run rspec
-       command: |
-         mkdir /tmp/test-results
-         TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-         bundle exec rspec --format progress --color --format documentation
+       name: run tests
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+ 
+            bundle exec rspec --format progress \
+                            --out /tmp/test-results/rspec.xml \
+                            $TEST_FILES
 
    # collect reports
    - store_test_results:
