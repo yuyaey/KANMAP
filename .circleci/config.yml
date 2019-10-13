@@ -35,6 +35,11 @@ jobs:
        name: Prepare db
        command: |
          bundle exec rails db:schema:load --trace
+   # Align chrome-driver's version installed by webdriver
+   - run:
+       name: Update ChromeDriver Version
+       command: |
+         bundle exec rake webdrivers:chromedriver:update
    # run tests!
    - run:
        name: Run rspec
