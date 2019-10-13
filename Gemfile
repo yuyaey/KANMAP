@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', require: false
 gem 'bcrypt'
 gem 'rails_autolink'
 gem 'ransack'
@@ -64,6 +64,13 @@ group :development, :test do
   gem 'capistrano-rails-console'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -73,6 +80,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
   gem 'ruby-debug-ide'
   gem 'debase'
   gem 'hirb'
@@ -82,8 +90,8 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
+  gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
 

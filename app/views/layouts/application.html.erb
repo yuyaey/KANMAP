@@ -18,8 +18,8 @@
         <ul class="right hide-on-med-and-down">
           <li><a href="/" class="tooltipped" data-position="bottom" data-tooltip="MAP"><%= image_tag 'map_icon.png', class: "menu_icon" %></a></li>
           <% if current_user %>
-            <li><a href="/kanzumes" class="tooltipped" data-position="bottom" data-tooltip="KANZUME"><%= image_tag 'kanzume_icon.png', class: "menu_icon" %></a></li>
-            <li><a href="/items" class="tooltipped" data-position="bottom" data-tooltip="ITEM"><%= image_tag 'item_icon.png', class: "menu_icon" %></a></li>
+            <li><a href="/kanzumes" class="tooltipped" data-position="bottom" data-tooltip="KANZUME" id="kanzume-button"><%= image_tag 'kanzume_icon.png', class: "menu_icon" %></a></li>
+            <li><a href="/items" class="tooltipped" data-position="bottom" data-tooltip="ITEM" id="item-button"><%= image_tag 'item_icon.png', class: "menu_icon" %></a></li>
             <li><a href="/users/<%= current_user.id%>" class="tooltipped" data-position="bottom" data-tooltip="PROFILE"><img class="circle profile_icon " src="<%= current_user.avatar_url(:thumb)%>"></a></li>
             <% if current_user.admin? %>
               <li><a href="/kanzume_icons">KANZUMEICON</a></li>
@@ -29,7 +29,7 @@
             <li><a href="/abouts/index" class="tooltipped" data-position="bottom" data-tooltip="ABOUT"><%= image_tag 'about_icon.png', class: "menu_icon", id: "about_menu_icon"%></a></li>
           <% else %>
             <li>
-              <a href="/login" class="tooltipped" data-position="bottom" data-tooltip="SIGN IN"><%= image_tag 'login_icon.png', class: "menu_icon" %></a>
+              <a href="/login" class="tooltipped" data-position="bottom" data-tooltip="SIGN IN" id="login-button"><%= image_tag 'login_icon.png', class: "menu_icon" %></a>
             </li>
             <li>
               <a href="/users/new" class="waves-effect waves-light btn white "><i class="material-icons left teal-text text-lighten-1">person_add</i><span class="teal-text text-lighten-1">JOIN</span></a>

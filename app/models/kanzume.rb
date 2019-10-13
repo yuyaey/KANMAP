@@ -1,5 +1,5 @@
 class Kanzume < ApplicationRecord
-  validates :name, presence: true, length: {maximum: 30}
+  validates :name, presence: true, length: {maximum: 30}, uniqueness: { scope: :user_id }
   belongs_to :user
   has_many :items, dependent: :restrict_with_error
   belongs_to :kanzume_icon

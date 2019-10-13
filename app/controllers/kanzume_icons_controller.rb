@@ -2,8 +2,6 @@ class KanzumeIconsController < ApplicationController
   before_action :set_kanzume_icon, only: [:show, :edit, :update, :destroy]
   before_action :require_admin
 
-
-  
   def index
     @q = KanzumeIcon.ransack(params[:q])
     @kanzume_icons = @q.result(distinct: true).recent
