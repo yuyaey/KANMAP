@@ -27,6 +27,9 @@ jobs:
        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
    - run: 
        command: mv ./config/database.yml.ci ./config/database.yml
+   - run:
+       name: 'wait for db'
+       ommand: dockerize -wait tcp://localhost:3306 -timeout 1m
    # Database setup
    - run:
        name: Prepare db
