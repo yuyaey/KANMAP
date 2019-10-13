@@ -42,6 +42,11 @@ jobs:
          mkdir /tmp/test-results
          TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
          bundle exec rspec --format progress --color --format documentation
+   
+   #環境変数を使用
+   - run:
+    name: Decode dotenv file
+    command: echo $ENV_FILE | base64 --decode > .env
 
    # collect reports
    - store_test_results:
