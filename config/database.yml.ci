@@ -4,7 +4,6 @@ default: &default
   pool: 5
   username: root
   password: 136445yY$
-  socket: /tmp/mysql.sock
 
 test:
   <<: *default
