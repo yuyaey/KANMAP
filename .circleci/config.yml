@@ -5,11 +5,16 @@ jobs:
    - image: circleci/ruby:2.6.3-node
      environment:
        RAILS_ENV: test
+       RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+          DB_USERNAME: 'root'
+          DB_PASSWORD: ''
    - image: circleci/mysql:8.0
      environment:
        MYSQL_DATABASE: KANMAP_test
        MYSQL_ALLOW_EMPTY_PASSWORD: true
-       MYSQL_ROOT_HOST: '%'
+       MYSQL_ROOT_HOST: 127.0.0.1
+       MYSQL_ROOT_PASSWORD: ''
        MYSQL_PORT: 3306
        MYSQL_USER: root
    working_directory: ~/KANMAP
