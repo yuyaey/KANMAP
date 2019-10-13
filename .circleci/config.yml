@@ -1,7 +1,8 @@
 version: 2.1
-jobs:
- build:
-   docker:
+
+executors:
+default_container:
+  docker:
    - image: circleci/ruby:2.6.3-node-browsers
      environment:
        RAILS_ENV: test
@@ -15,6 +16,9 @@ jobs:
        MYSQL_ROOT_PASSWORD: '136445yY$'
        MYSQL_PORT: 3306
    working_directory: ~/KANMAP
+
+jobs:
+ build:
    steps:
    - checkout
    - restore_cache:
