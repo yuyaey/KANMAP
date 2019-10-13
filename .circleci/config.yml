@@ -1,8 +1,7 @@
 version: 2.1
-
-executors:
-default_container:
-  docker:
+jobs:
+ build:
+   docker:
    - image: circleci/ruby:2.6.3-node-browsers
      environment:
        RAILS_ENV: test
@@ -16,9 +15,6 @@ default_container:
        MYSQL_ROOT_PASSWORD: '136445yY$'
        MYSQL_PORT: 3306
    working_directory: ~/KANMAP
-
-jobs:
- build:
    steps:
    - checkout
    - restore_cache:
@@ -44,9 +40,6 @@ jobs:
        name: Update ChromeDriver Version
        command: |
          bundle exec rake webdrivers:chromedriver:update
-   - run:
-       name: Wait for DB
-       command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
    # run tests!
    - run:
        name: Run rspec
