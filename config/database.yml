@@ -30,6 +30,7 @@ test:
   <<: *default
   database: KANMAP_test
 
+
 production:
   <<: *default
   database: KANMAP_production
