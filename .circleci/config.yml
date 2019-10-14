@@ -10,7 +10,7 @@ jobs:
      environment:
        MYSQL_ROOT_HOST: '%'
        MYSQL_USER: root
-       MYSQL_ROOT_PASSWORD: '136445yY$'
+       MYSQL_ROOT_PASSWORD: MYSQL_pass
        MYSQL_PORT: 3306
    working_directory: ~/KANMAP
    steps:
@@ -28,8 +28,6 @@ jobs:
        paths:
        - ./vendor/bundle
        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-  #  - run: 
-  #      command: mv ./config/database.yml.ci ./config/database.yml
    - run:
        name: 'wait for db'
        command: dockerize -wait tcp://localhost:3306 -timeout 1m
