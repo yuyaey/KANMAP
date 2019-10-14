@@ -8,7 +8,7 @@ jobs:
        DB_USER: root
        DB_PASSWORD: 136445yY$
        DB_HOST: '127.0.0.1'
-   - image: circleci/mysql:8.0-ram
+   - image: circleci/mysql:8.0
      command: mysqld --default-authentication-plugin=mysql_native_password
      environment:
        MYSQL_ALLOW_EMPTY_PASSWORD: yes
