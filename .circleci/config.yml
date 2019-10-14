@@ -8,7 +8,7 @@ jobs:
        DB_USER: root
        DB_PASSWORD: 136445yY$
        DB_HOST: '127.0.0.1'
-   - image: circleci/mysql:8.0.17-ram
+   - image: circleci/mysql:8.0-ram
      command: mysqld --default-authentication-plugin=mysql_native_password
      environment:
        MYSQL_ALLOW_EMPTY_PASSWORD: yes
@@ -34,8 +34,8 @@ jobs:
        paths:
        - ./vendor/bundle
        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-   - run: 
-       command: mv ./config/database.yml.ci ./config/database.yml
+  #  - run: 
+  #      command: mv ./config/database.yml.ci ./config/database.yml
    - run:
        name: 'wait for db'
        command: dockerize -wait tcp://localhost:3306 -timeout 1m
