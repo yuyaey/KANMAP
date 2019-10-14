@@ -33,6 +33,13 @@ RSpec.configure do |config|
     FactoryBot.reload
   end
 
+  config.before(:each) do |example|
+    if example.metadata[:type] == :system
+      caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {"args" => %w(--headless --disable-gpu)})
+      driven_by :selenium, using: :chrome, screen_size: [1400, 1400], options: { desired_capabilities: caps }
+    end
+  end
+
   config.include FactoryBot::Syntax::Methods
 
 end
