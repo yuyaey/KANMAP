@@ -69,7 +69,7 @@ jobs:
             key: v2-KANMAP-{{ .Environment.CIRCLE_SHA1 }}
         - restore_cache:
             key: v2-dependencies-{{ checksum "Gemfile.lock" }}
-
+            
         - run:
             name: Watting stand up database
             command: |
@@ -77,8 +77,8 @@ jobs:
               tcp://127.0.0.1:3306 -timeout 120s
 
         # Database setup
-        - run: rm ./config/database.yml
         - run: mv ./config/database.yml.ci ./config/database.yml
+        - install_bundler:
         - run:
             name: Testing DB migration and seed
             command: |
@@ -112,5 +112,5 @@ workflows:
           requires:
             - fetch_source_code
       - rspec:
-          requires: # bundle_dependenciesの後にrspecを実行する
+          requires:
             - bundle_dependencies
