@@ -1,13 +1,10 @@
-default: &default
+test:
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: 136445yY$
+  username: <%= ENV.fetch("MYSQL_USER", "root") %>
+  password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD", "136445yY$") %>
   socket: /tmp/mysql.sock
-
-test:
-  <<: *default
   database: KANMAP_test
-  host: 127.0.0.1
-  port: 3306:3306
+  host: <%= ENV.fetch("MYSQL_ROOT_HOST", "127.0.0.1") %>
+  port: <%= ENV.fetch("MYSQL_PORT", "3306") %>
