@@ -59,7 +59,6 @@ jobs:
           key: v2-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-
   rspec:
       executor:
         name: default_container
@@ -107,9 +106,7 @@ workflows:
   build:
     jobs:
       - fetch_source_code
-      - bundle_dependencies:
-          requires:
-            - fetch_source_code
+      - bundle_dependencies
       - rspec:
           requires:
             - bundle_dependencies
