@@ -11,6 +11,13 @@ jobs:
    - image: circleci/mysql:8.0.17-ram
      command: mysqld --default-authentication-plugin=mysql_native_password
      environment:
+       MYSQL_ALLOW_EMPTY_PASSWORD: yes
+       MYSQL_DATABASE: KANMAP_test
+       MYSQL_HOST: 127.0.0.1
+       MYSQL_ROOT_PASSWORD: 136445yY$
+       MYSQL_USER: root
+       MYSQL_PASSWORD: 136445yY$
+       MYSQL_ROOT_HOST: '%'
    working_directory: ~/KANMAP
    steps:
    - checkout
