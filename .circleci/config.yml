@@ -33,7 +33,6 @@ jobs:
           key: v2-KANMAP-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ~/KANMAP
-
   bundle_dependencies:
     executor:
       name: default_container
