@@ -78,7 +78,7 @@ jobs:
 
         # Database setup
         - run: mv ./config/database.yml.ci ./config/database.yml
-        - install_bundler:
+        - install_bundler
         - run:
             name: Testing DB migration and seed
             command: |
