@@ -32,7 +32,7 @@ jobs:
       - save_cache:
           key: v2-KANMAP-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - ~/circleci-KANMAP
+            - ~/KANMAP
   bundle_dependencies:
     executor:
       name: default_container
@@ -65,7 +65,7 @@ rspec:
             dockerize -wait \
             tcp://127.0.0.1:3306 -timeout 120s
 
-   # Database setup
+      # Database setup
       - run: mv ./config/database.yml.ci ./config/database.yml
       - install_bundler
       - run:
@@ -93,7 +93,6 @@ rspec:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
-
 workflows:
 build:
   jobs:
