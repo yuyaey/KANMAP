@@ -18,10 +18,10 @@ executors:
     working_directory: ~/KANMAP
 
 commands:
-install_bundler:
-  description: Bundler install
-  steps:
-    - run: gem install bundler -v 1.17.3
+  install_bundler:
+    description: Bundler install
+    steps:
+      - run: gem install bundler -v 1.17.3
 
 jobs:
   fetch_source_code:
