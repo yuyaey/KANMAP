@@ -22,7 +22,8 @@ install_bundler:
   description: Bundler install
   steps:
     - run: gem install bundler -v 1.17.3
-
+    
+build:
 jobs:
   fetch_source_code:
     executor:
