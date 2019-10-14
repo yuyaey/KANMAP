@@ -10,7 +10,7 @@ jobs:
      environment:
        MYSQL_ROOT_HOST: '%'
        MYSQL_USER: root
-       MYSQL_ROOT_PASSWORD: ${MYSQL_pass}
+       MYSQL_ROOT_PASSWORD: 136445yYs$
        MYSQL_PORT: 3306
    working_directory: ~/KANMAP
    steps:
