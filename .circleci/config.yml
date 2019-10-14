@@ -93,13 +93,3 @@ jobs:
         - store_artifacts:
             path: /tmp/test-results
             destination: test-results
-workflows:
-  version: 2
-  jobs:
-    - fetch_source_code
-    - bundle_dependencies:
-        requires:
-          - fetch_source_code
-    - rspec:
-        requires:
-          - bundle_dependencies
