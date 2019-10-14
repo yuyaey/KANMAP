@@ -7,4 +7,3 @@ test:
   socket: /tmp/mysql.sock
   database: KANMAP_test
   host: <%= ENV.fetch("MYSQL_ROOT_HOST") %>
-  port: <%= ENV.fetch("MYSQL_PORT", "3306") %>

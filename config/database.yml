@@ -8,8 +8,8 @@ default: &default
 
 development:
   <<: *default
-  # database: KANMAP_dc_development
-  database: KANMAP_development
+  database: KANMAP_dc_development
+  # database: KANMAP_development
 
 test:
   <<: *default
