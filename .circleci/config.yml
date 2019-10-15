@@ -143,6 +143,6 @@ workflows:
       - rspec:
           requires:
             - bundle_dependencies
-      - deploy
+      - deploy:
           requires:
             - fetch_source_code
