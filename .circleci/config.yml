@@ -139,9 +139,9 @@ workflows:
       - bundle_dependencies:
           requires:
             - fetch_source_code
-      - rspec:
-          requires:
-            - bundle_dependencies
+      # - rspec:
+      #     requires:
+      #       - bundle_dependencies
       - deploy:
           requires:
             - rspec
