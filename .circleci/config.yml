@@ -147,5 +147,5 @@ workflows:
       #     requires:
       #       - bundle_dependencies
       - deploy
-          # requires:
-          #   - rspec
+          requires:
+            - bundle_dependencies
