@@ -106,7 +106,7 @@ jobs:
       executor:
         name: default_container
       steps:
-        -checkout
+        - checkout
 
         - restore_cache:
             key: v2-KANMAP-{{ .Environment.CIRCLE_SHA1 }}
