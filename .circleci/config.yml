@@ -131,7 +131,7 @@ jobs:
                 exit 0
               fi
               bundle config --local path vendor/bundle
-              .circleci/deploy.sh
+              bundle exec cap production deploy
 
 workflows:
   build:
