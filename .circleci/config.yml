@@ -102,6 +102,31 @@ jobs:
         - store_artifacts:
             path: /tmp/test-results
             destination: test-results
+  deploy:
+      executor:
+        name: default_container
+      steps:
+        - add_ssh_keys:
+            fingerprints:
+              - '93:8f:4d:f8:f0:3a:0b:3c:c5:63:b6:1b:3e:de:0a:fa'
+
+        - run:
+            name: Add ssh-agent
+            command: |
+              ssh-agent -s > ~/.ssh_agent_conf
+              source ~/.ssh_agent_conf
+              for _k in $(ls ${HOME}/.ssh/id_*); do
+                ssh-add ${_k} || true
+              done
+
+        - deploy:
+            name: Deploy via Capistrano
+            command: |
+              if [ "${CIRCLE_BRANCH}" != "master" ]; then
+                exit 0
+              fi
+              bundle exec cap production deploy
+
 workflows:
   build:
     jobs:
@@ -112,3 +137,4 @@ workflows:
       - rspec:
           requires:
             - bundle_dependencies
+      - deploy

@@ -1,0 +1,203 @@
+          ok  Starting native_osx for sync sync-volume
+          ok  sync-volume container still running, restarting unison in container
+unix:///tmp/supervisor.sock no such file
+     success  Sync container started
+     success  Showing unison logs from your sync container: sync-volume
+[2019-10-16 04:59:58 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 04:59:57.70 on 16 Oct 2019
+[2019-10-16 04:59:58 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 04:59:58 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 04:59:58 +0900] Sync Log:  [BGN] Updating file .git/HEAD from /host_sync to /app_sync
+[2019-10-16 04:59:58 +0900] Sync Log:  [END] Updating file .git/HEAD
+[2019-10-16 04:59:58 +0900] Sync Log:  [BGN] Updating file .git/logs/HEAD from /host_sync to /app_sync
+[2019-10-16 04:59:58 +0900] Sync Log:  [END] Updating file .git/logs/HEAD
+[2019-10-16 04:59:58 +0900] Sync Log:  [BGN] Copying .docker-sync/daemon.log from /host_sync to /app_sync
+[2019-10-16 04:59:58 +0900] Sync Log:  [END] Copying .docker-sync/daemon.log
+[2019-10-16 04:59:58 +0900] Sync Log:  [BGN] Copying .docker-sync/daemon.pid from /host_sync to /app_sync
+[2019-10-16 04:59:58 +0900] Sync Log:  [END] Copying .docker-sync/daemon.pid
+[2019-10-16 04:59:58 +0900] Sync Log:  [BGN] Copying .git/logs/refs/heads/ECR-CircleCI-setting from /host_sync to /app_sync
+[2019-10-16 04:59:58 +0900] Sync Log:  [END] Copying .git/logs/refs/heads/ECR-CircleCI-setting
+[2019-10-16 04:59:58 +0900] Sync Log:  [BGN] Copying .git/refs/heads/ECR-CircleCI-setting from /host_sync to /app_sync
+[2019-10-16 04:59:58 +0900] Sync Log:  [END] Copying .git/refs/heads/ECR-CircleCI-setting
+[2019-10-16 04:59:58 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 04:59:57.76 on 16 Oct 2019
+[2019-10-16 04:59:58 +0900] Sync Log:  Synchronization complete at 04:59:57  (7 items transferred, 0 skipped, 0 failed)
+[2019-10-16 05:12:44 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:12:43.70 on 16 Oct 2019
+[2019-10-16 05:12:44 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:12:44 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:12:44 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:12:43.71 on 16 Oct 2019
+[2019-10-16 05:12:44 +0900] Sync Log:  Synchronization complete at 05:12:44  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:12:46 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:12:45.71 on 16 Oct 2019
+[2019-10-16 05:12:46 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:12:46 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:12:46 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:12:45.76 on 16 Oct 2019
+[2019-10-16 05:12:46 +0900] Sync Log:  Synchronization complete at 05:12:46  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:17:54 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:17:54.68 on 16 Oct 2019
+[2019-10-16 05:17:54 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:17:54 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:17:54 +0900] Sync Log:  [BGN] Copying .git/index.lock from /host_sync to /app_sync
+[2019-10-16 05:17:54 +0900] Sync Log:  [END] Copying .git/index.lock
+[2019-10-16 05:17:54 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:17:54.70 on 16 Oct 2019
+[2019-10-16 05:17:55 +0900] Sync Log:  Synchronization complete at 05:17:54  (2 items transferred, 0 skipped, 0 failed)
+[2019-10-16 05:17:57 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:17:57.22 on 16 Oct 2019
+[2019-10-16 05:17:57 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:17:57 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:17:57 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:17:57.23 on 16 Oct 2019
+[2019-10-16 05:17:57 +0900] Sync Log:  Synchronization complete at 05:17:57  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:20:51 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:20:51.13 on 16 Oct 2019
+[2019-10-16 05:20:51 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:20:51 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:20:51 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:20:51.14 on 16 Oct 2019
+[2019-10-16 05:20:51 +0900] Sync Log:  Synchronization complete at 05:20:51  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:20:52 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:20:52.49 on 16 Oct 2019
+[2019-10-16 05:20:52 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:20:52 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:20:52 +0900] Sync Log:  [BGN] Deleting .git/index.lock from /app_sync
+[2019-10-16 05:20:52 +0900] Sync Log:  [END] Deleting .git/index.lock
+[2019-10-16 05:20:52 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:20:52.50 on 16 Oct 2019
+[2019-10-16 05:20:52 +0900] Sync Log:  Synchronization complete at 05:20:52  (2 items transferred, 0 skipped, 0 failed)
+[2019-10-16 05:22:49 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:22:48.94 on 16 Oct 2019
+[2019-10-16 05:22:49 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:22:49 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:22:49 +0900] Sync Log:  [BGN] Copying .git/index.lock from /host_sync to /app_sync
+[2019-10-16 05:22:49 +0900] Sync Log:  Failed: Error in copying locally:
+[2019-10-16 05:22:49 +0900] Sync Log:  /host_sync/.git/index.lock: No such file or directory
+[2019-10-16 05:22:49 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:22:48.95 on 16 Oct 2019
+[2019-10-16 05:22:49 +0900] Sync Log:  Synchronization incomplete at 05:22:49  (1 item transferred, 0 skipped, 1 failed)
+[2019-10-16 05:22:49 +0900] Sync Log:    failed: .git/index.lock
+[2019-10-16 05:22:52 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:22:51.36 on 16 Oct 2019
+[2019-10-16 05:22:52 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:22:52 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:22:52 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:22:51.37 on 16 Oct 2019
+[2019-10-16 05:22:52 +0900] Sync Log:  Synchronization complete at 05:22:51  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:23:58 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:23:57.84 on 16 Oct 2019
+[2019-10-16 05:23:58 +0900] Sync Log:  [BGN] Copying .git/index.lock from /host_sync to /app_sync
+[2019-10-16 05:23:58 +0900] Sync Log:  [END] Copying .git/index.lock
+[2019-10-16 05:23:58 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:23:57.87 on 16 Oct 2019
+[2019-10-16 05:23:58 +0900] Sync Log:  Synchronization complete at 05:23:58  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:26:21 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:26:20.65 on 16 Oct 2019
+[2019-10-16 05:26:21 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:26:21 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:26:21 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:26:20.67 on 16 Oct 2019
+[2019-10-16 05:26:21 +0900] Sync Log:  Synchronization complete at 05:26:20  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:26:22 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:26:21.97 on 16 Oct 2019
+[2019-10-16 05:26:22 +0900] Sync Log:  [BGN] Deleting .git/index.lock from /app_sync
+[2019-10-16 05:26:22 +0900] Sync Log:  [END] Deleting .git/index.lock
+[2019-10-16 05:26:22 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:26:21.97 on 16 Oct 2019
+[2019-10-16 05:26:22 +0900] Sync Log:  Synchronization complete at 05:26:22  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:26:24 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:26:23.31 on 16 Oct 2019
+[2019-10-16 05:26:24 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:26:24 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:26:24 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:26:23.32 on 16 Oct 2019
+[2019-10-16 05:26:24 +0900] Sync Log:  Synchronization complete at 05:26:23  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:29:38 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:29:38.15 on 16 Oct 2019
+[2019-10-16 05:29:38 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:29:38 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:29:38 +0900] Sync Log:  [BGN] Copying .git/index.lock from /host_sync to /app_sync
+[2019-10-16 05:29:38 +0900] Sync Log:  Failed: Error in copying locally:
+[2019-10-16 05:29:38 +0900] Sync Log:  /host_sync/.git/index.lock: No such file or directory
+[2019-10-16 05:29:38 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:29:38.16 on 16 Oct 2019
+[2019-10-16 05:29:38 +0900] Sync Log:  Synchronization incomplete at 05:29:38  (1 item transferred, 0 skipped, 1 failed)
+[2019-10-16 05:29:38 +0900] Sync Log:    failed: .git/index.lock
+[2019-10-16 05:29:40 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:29:39.52 on 16 Oct 2019
+[2019-10-16 05:29:40 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:29:40 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:29:40 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:29:39.53 on 16 Oct 2019
+[2019-10-16 05:29:40 +0900] Sync Log:  Synchronization complete at 05:29:39  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:43:59 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:43:58.78 on 16 Oct 2019
+[2019-10-16 05:43:59 +0900] Sync Log:  [BGN] Updating file .circleci/config.yml from /host_sync to /app_sync
+[2019-10-16 05:43:59 +0900] Sync Log:  [END] Updating file .circleci/config.yml
+[2019-10-16 05:43:59 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:43:58.80 on 16 Oct 2019
+[2019-10-16 05:43:59 +0900] Sync Log:  Synchronization complete at 05:43:58  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:44:28 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:44:28.27 on 16 Oct 2019
+[2019-10-16 05:44:28 +0900] Sync Log:  [BGN] Updating file .circleci/config.yml from /host_sync to /app_sync
+[2019-10-16 05:44:28 +0900] Sync Log:  [END] Updating file .circleci/config.yml
+[2019-10-16 05:44:28 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:44:28.28 on 16 Oct 2019
+[2019-10-16 05:44:28 +0900] Sync Log:  Synchronization complete at 05:44:28  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:45:03 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:45:02.85 on 16 Oct 2019
+[2019-10-16 05:45:03 +0900] Sync Log:  [BGN] Updating file .circleci/config.yml from /host_sync to /app_sync
+[2019-10-16 05:45:03 +0900] Sync Log:  [END] Updating file .circleci/config.yml
+[2019-10-16 05:45:03 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:45:02.85 on 16 Oct 2019
+[2019-10-16 05:45:03 +0900] Sync Log:  Synchronization complete at 05:45:02  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:45:51 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:45:51.45 on 16 Oct 2019
+[2019-10-16 05:45:51 +0900] Sync Log:  [BGN] Updating file .git/index from /host_sync to /app_sync
+[2019-10-16 05:45:51 +0900] Sync Log:  [END] Updating file .git/index
+[2019-10-16 05:45:51 +0900] Sync Log:  [BGN] Copying .git/objects/92 from /host_sync to /app_sync
+[2019-10-16 05:45:52 +0900] Sync Log:  [END] Copying .git/objects/92
+[2019-10-16 05:45:52 +0900] Sync Log:  [BGN] Copying .git/objects/d9/6e897de098857e16074de1af1d52b7922588aa from /host_sync to /app_sync
+[2019-10-16 05:45:52 +0900] Sync Log:  [END] Copying .git/objects/d9/6e897de098857e16074de1af1d52b7922588aa
+[2019-10-16 05:45:52 +0900] Sync Log:  [BGN] Copying .git/objects/fc/f3e2c2ea292eb5c8e6b7877529a2141e0db302 from /host_sync to /app_sync
+[2019-10-16 05:45:52 +0900] Sync Log:  [END] Copying .git/objects/fc/f3e2c2ea292eb5c8e6b7877529a2141e0db302
+[2019-10-16 05:45:52 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:45:51.66 on 16 Oct 2019
+[2019-10-16 05:45:52 +0900] Sync Log:  Synchronization complete at 05:45:51  (4 items transferred, 0 skipped, 0 failed)
+[2019-10-16 05:46:06 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:46:06.29 on 16 Oct 2019
+[2019-10-16 05:46:06 +0900] Sync Log:  [BGN] Copying .git/index.lock from /host_sync to /app_sync
+[2019-10-16 05:46:06 +0900] Sync Log:  [END] Copying .git/index.lock
+[2019-10-16 05:46:06 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:46:06.30 on 16 Oct 2019
+[2019-10-16 05:46:06 +0900] Sync Log:  Synchronization complete at 05:46:06  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:46:08 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:46:07.76 on 16 Oct 2019
+[2019-10-16 05:46:08 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:46:08 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:46:08 +0900] Sync Log:  [BGN] Updating file .git/HEAD from /host_sync to /app_sync
+[2019-10-16 05:46:08 +0900] Sync Log:  [END] Updating file .git/HEAD
+[2019-10-16 05:46:08 +0900] Sync Log:  [BGN] Updating file .git/logs/HEAD from /host_sync to /app_sync
+[2019-10-16 05:46:08 +0900] Sync Log:  [END] Updating file .git/logs/HEAD
+[2019-10-16 05:46:08 +0900] Sync Log:  [BGN] Copying .git/logs/refs/heads/Capistrano-CircleCI-setting from /host_sync to /app_sync
+[2019-10-16 05:46:08 +0900] Sync Log:  [END] Copying .git/logs/refs/heads/Capistrano-CircleCI-setting
+[2019-10-16 05:46:08 +0900] Sync Log:  [BGN] Copying .git/refs/heads/Capistrano-CircleCI-setting from /host_sync to /app_sync
+[2019-10-16 05:46:08 +0900] Sync Log:  [END] Copying .git/refs/heads/Capistrano-CircleCI-setting
+[2019-10-16 05:46:08 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:46:07.82 on 16 Oct 2019
+[2019-10-16 05:46:08 +0900] Sync Log:  Synchronization complete at 05:46:07  (5 items transferred, 0 skipped, 0 failed)
+[2019-10-16 05:46:10 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:46:10.11 on 16 Oct 2019
+[2019-10-16 05:46:10 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:46:10 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:46:10 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:46:10.11 on 16 Oct 2019
+[2019-10-16 05:46:10 +0900] Sync Log:  Synchronization complete at 05:46:10  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:46:15 +0900] Sync Log:  Synchronization complete at 05:46:15  (0 item transferred, 1 skipped, 0 failed)
+[2019-10-16 05:46:15 +0900] Sync Log:    skipped: .git/index.lock (Error in digesting /host_sync/.git/index.lock:
+[2019-10-16 05:46:15 +0900] Sync Log:  /host_sync/.git/index.lock: No such file or directory)
+[2019-10-16 05:46:16 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:46:16.51 on 16 Oct 2019
+[2019-10-16 05:46:16 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:46:16 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:46:16 +0900] Sync Log:  [BGN] Updating file .git/HEAD from /host_sync to /app_sync
+[2019-10-16 05:46:16 +0900] Sync Log:  [END] Updating file .git/HEAD
+[2019-10-16 05:46:16 +0900] Sync Log:  [BGN] Updating file .git/index from /host_sync to /app_sync
+[2019-10-16 05:46:17 +0900] Sync Log:  [END] Updating file .git/index
+[2019-10-16 05:46:17 +0900] Sync Log:  [BGN] Updating file .git/logs/HEAD from /host_sync to /app_sync
+[2019-10-16 05:46:17 +0900] Sync Log:  [END] Updating file .git/logs/HEAD
+[2019-10-16 05:46:17 +0900] Sync Log:  [BGN] Deleting .git/index.lock from /app_sync
+[2019-10-16 05:46:17 +0900] Sync Log:  [END] Deleting .git/index.lock
+[2019-10-16 05:46:17 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:46:16.65 on 16 Oct 2019
+[2019-10-16 05:46:17 +0900] Sync Log:  Synchronization complete at 05:46:16  (5 items transferred, 0 skipped, 0 failed)
+[2019-10-16 05:46:18 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:46:17.95 on 16 Oct 2019
+[2019-10-16 05:46:18 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:46:18 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:46:18 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:46:17.95 on 16 Oct 2019
+[2019-10-16 05:46:18 +0900] Sync Log:  Synchronization complete at 05:46:18  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:46:23 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:46:23.12 on 16 Oct 2019
+[2019-10-16 05:46:23 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:46:23 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:46:23 +0900] Sync Log:  [BGN] Updating file .git/ORIG_HEAD from /host_sync to /app_sync
+[2019-10-16 05:46:23 +0900] Sync Log:  [END] Updating file .git/ORIG_HEAD
+[2019-10-16 05:46:23 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:46:23.13 on 16 Oct 2019
+[2019-10-16 05:46:23 +0900] Sync Log:  Synchronization complete at 05:46:23  (2 items transferred, 0 skipped, 0 failed)
+[2019-10-16 05:46:24 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:46:24.49 on 16 Oct 2019
+[2019-10-16 05:46:24 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:46:24 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:46:24 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:46:24.50 on 16 Oct 2019
+[2019-10-16 05:46:24 +0900] Sync Log:  Synchronization complete at 05:46:24  (1 item transferred, 0 skipped, 0 failed)
+[2019-10-16 05:46:32 +0900] Sync Log:  Synchronization complete at 05:46:31  (0 item transferred, 1 skipped, 0 failed)
+[2019-10-16 05:46:32 +0900] Sync Log:    skipped: .git/index.lock (Error in digesting /host_sync/.git/index.lock:
+[2019-10-16 05:46:32 +0900] Sync Log:  /host_sync/.git/index.lock: No such file or directory)
+[2019-10-16 05:47:21 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:47:20.66 on 16 Oct 2019
+[2019-10-16 05:47:21 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:47:21 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:47:21 +0900] Sync Log:  [BGN] Updating file .git/HEAD from /host_sync to /app_sync
+[2019-10-16 05:47:21 +0900] Sync Log:  [END] Updating file .git/HEAD
+[2019-10-16 05:47:21 +0900] Sync Log:  [BGN] Updating file .git/logs/HEAD from /host_sync to /app_sync
+[2019-10-16 05:47:21 +0900] Sync Log:  [END] Updating file .git/logs/HEAD
+[2019-10-16 05:47:21 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:47:20.69 on 16 Oct 2019
+[2019-10-16 05:47:21 +0900] Sync Log:  Synchronization complete at 05:47:20  (3 items transferred, 0 skipped, 0 failed)
+[2019-10-16 05:47:23 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 05:47:22.96 on 16 Oct 2019
+[2019-10-16 05:47:23 +0900] Sync Log:  [BGN] Updating file .git/FETCH_HEAD from /host_sync to /app_sync
+[2019-10-16 05:47:23 +0900] Sync Log:  [END] Updating file .git/FETCH_HEAD
+[2019-10-16 05:47:23 +0900] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 05:47:22.96 on 16 Oct 2019
+[2019-10-16 05:47:23 +0900] Sync Log:  Synchronization complete at 05:47:23  (1 item transferred, 0 skipped, 0 failed)
