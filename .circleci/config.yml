@@ -130,7 +130,6 @@ jobs:
               if [ "${CIRCLE_BRANCH}" != "master" ]; then
                 exit 0
               fi
-              bundle config --local path vendor/bundle
               bundle exec cap production deploy
 
 workflows:
