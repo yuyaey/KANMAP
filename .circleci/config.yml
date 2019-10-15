@@ -130,7 +130,8 @@ jobs:
               if [ "${CIRCLE_BRANCH}" != "master" ]; then
                 exit 0
               fi
-              bundle exec cap production deploy
+              bundle config --local path vendor/bundle
+              .circleci/deploy.sh
 
 workflows:
   build:
@@ -144,4 +145,4 @@ workflows:
             - bundle_dependencies
       - deploy:
           requires:
-            - fetch_source_code
+            - rspec
