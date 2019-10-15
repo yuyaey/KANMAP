@@ -104,21 +104,20 @@ jobs:
             destination: test-results
   deploy:
       docker:
-        - image: circleci/python:3.7-stretch
-      working_directory: ~/circleci-docs
+      - image: circleci/python:3.7-stretch
+    working_directory: ~/circleci-docs
       steps:
         - checkout
-
+        - setup_remote_docker: 
+            docker_layer_caching: true
+        - run: sudo apt-get update && sudo apt-get install python3-pip groff-base
+        - run: sudo pip3 install awscli --ignore-installed six
         - restore_cache:
             key: v2-KANMAP-{{ .Environment.CIRCLE_SHA1 }}
         - restore_cache:
             key: v2-dependencies-{{ checksum "Gemfile.lock" }}
         - install_bundler
         
-        - run:
-            name: Install awscli
-            command: sudo pip install awscli
-
         - add_ssh_keys:
             fingerprints:
               - '93:8f:4d:f8:f0:3a:0b:3c:c5:63:b6:1b:3e:de:0a:fa'
