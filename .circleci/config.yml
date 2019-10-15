@@ -134,6 +134,7 @@ jobs:
                 exit 0
               fi
               bundle config --local path vendor/bundle
+              chomd -X $USER:$USER circleci/deploy.sh
               .circleci/deploy.sh
 
 workflows:
