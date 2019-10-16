@@ -22,4 +22,4 @@ production:
   database: KANMAP_production
   username: <%= ENV.fetch("MYSQL_USER") %>
   password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") %>
-  socket: /tmp/mysql.sock
+  # socket: /tmp/mysql.sock
