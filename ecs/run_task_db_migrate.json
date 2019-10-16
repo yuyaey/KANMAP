@@ -1,6 +1,6 @@
 {
     "containerOverrides": [{
-        "name": "kanmap",
+        "name": "kanmap-container",
         "command": ["bundle", "exec", "rails", "db:migrate"]
     }]
 }

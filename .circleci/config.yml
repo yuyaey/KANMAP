@@ -108,14 +108,14 @@ jobs:
             aws ecs run-task \
               --region ap-northeast-1 \
               --cluster kanmap-cluster \
-              --task-definition kanmap \
+              --task-definition kanmap-task \
               --overrides file://ecs/run_task_db_migrate.json
       - run:
-          name: "Sevice deploy"
+          name: "Service deploy"
           environment:
           command: |
             ecs-deploy -c kanmap-cluster -n kanmap-service \
-              -r ap-northeast-1 -t 360 \
+              -r ap-northeast-1 -t 240 \
               -i $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/kanmap:$CIRCLE_SHA1
 
 workflows:
