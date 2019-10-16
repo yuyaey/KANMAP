@@ -5,15 +5,12 @@ default: &default
   username: <%= ENV.fetch("MYSQL_USER") %>
   password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") %>
   socket: /tmp/mysql.sock
-  
-  # socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
   # database: KANMAP_dc_development
   database: KANMAP_development
   host: db
-
 
 test:
   <<: *default
@@ -25,4 +22,4 @@ production:
   database: KANMAP_production
   username: <%= ENV.fetch("MYSQL_USER") %>
   password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") %>
-  socket: /var/run/mysqld/mysqld.sock
+  socket: /tmp/mysql.sock
