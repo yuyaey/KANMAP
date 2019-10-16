@@ -123,12 +123,12 @@ workflows:
   test_and_deploy:
     jobs:
       - checkout_code
-      - test:
-          requires:
-            - checkout_code
+      # - test:
+      #     requires:
+      #       - checkout_code
       - deploy:
           requires:
-            - test
+            - checkout_code
           filters:
             branches:
               only: master
