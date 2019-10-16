@@ -113,8 +113,6 @@ jobs:
             key: v2-KANMAP-{{ .Environment.CIRCLE_SHA1 }}
         - restore_cache:
             key: v2-dependencies-{{ checksum "Gemfile.lock" }}
-        - install_bundler
-        - bundle install
 
         - add_ssh_keys:
             fingerprints:
@@ -150,4 +148,5 @@ workflows:
       #       - bundle_dependencies
       - deploy:
           requires:
+            - fetch_source_code
             - bundle_dependencies
