@@ -113,6 +113,18 @@ jobs:
             key: v2-KANMAP-{{ .Environment.CIRCLE_SHA1 }}
         - restore_cache:
             key: v2-dependencies-{{ checksum "Gemfile.lock" }}
+        - run:
+          name: setup bundler
+          command: |
+            sudo gem uninstall bundler
+            sudo rm /usr/local/bin/bundle
+            sudo rm /usr/local/bin/bundler
+            sudo gem install bundler -v 1.17.3
+  
+        - run:
+            name: Bundle Install Dependencies
+            command: |
+              bundle install
 
         - add_ssh_keys:
             fingerprints:
