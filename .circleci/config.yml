@@ -124,8 +124,23 @@ jobs:
       - run:
           name: "Build & Push Docker Image"
           command: |
-            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/estreak_app_repo:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/estreak_app_repo:$CIRCLE_SHA1 -f Dockerfile.pro --build-arg RAILS_MASTER_KEY=$RAILS_MASTER_KEY .
-            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/estreak_app_repo:$CIRCLE_SHA1
+            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/studire_web:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/studire_web:$CIRCLE_SHA1 -f Dockerfile.prod --build-arg RAILS_MASTER_KEY=$RAILS_MASTER_KEY .
+            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/studire_web:$CIRCLE_SHA1
+      - run:
+          name: "DB Migrate"
+          command: |
+            aws ecs run-task \
+              --region ap-northeast-1 \
+              --cluster stu-cluster \
+              --task-definition stu-task \
+              --overrides file://ecs/run_task_db_migrate.json
+      - run:
+          name: "Sevice deploy"
+          environment:
+          command: |
+            ecs-deploy -c stu-cluster -n studire \
+              -r ap-northeast-1 -t 360 \
+              -i $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/studire_web:$CIRCLE_SHA1
 
 workflows:
   build:
