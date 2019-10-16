@@ -100,64 +100,43 @@ jobs:
             path: /tmp/test-results
             destination: test-results
   deploy:
-      executor:
-        name: default_container
-      steps:
-        - checkout
-        
-        - restore_cache:
-            key: v2-KANMAP-{{ .Environment.CIRCLE_SHA1 }}
-        - restore_cache:
-            key: v2-dependencies-{{ checksum "Gemfile.lock" }}
-        - run: sudo apt-get update && sudo apt-get install python3-pip groff-base
-        - run: sudo pip3 install awscli --ignore-installed six
-        - run:
-            name: setup bundler
-            command: |
-              sudo gem uninstall bundler
-              sudo rm /usr/local/bin/bundle
-              sudo rm /usr/local/bin/bundler
-              sudo gem install bundler -v 1.17.3
-        - run:
-            name: Ruby依存関係のインストール
-            command: bundle check || bundle install --jobs=4 --retry=3
-        
-        - save_cache:
-            key: v2-dependencies-{{ checksum "Gemfile.lock" }}
-            paths:
-              - vendor/bundle
+    docker:
+      - image: circleci/python
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: install aws
+          command: |
+            sudo pip install awscli
+            aws --version
+      - run:
+          name: Install ecs-deploy
+          command: |
+            curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a /usr/bin/ecs-deploy
+            sudo chmod +x /usr/bin/ecs-deploy
+      - run:
+          name: Install jq
+          command: sudo apt-get install -y jq
+      - run:
+          name: "Log in to AWS ECR"
+          command: eval $(aws ecr get-login --no-include-email --region ap-northeast-1)
+      - run:
+          name: "Build & Push Docker Image"
+          command: |
+            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/estreak_app_repo:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/estreak_app_repo:$CIRCLE_SHA1 -f Dockerfile.pro --build-arg RAILS_MASTER_KEY=$RAILS_MASTER_KEY .
+            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/estreak_app_repo:$CIRCLE_SHA1
 
-        - add_ssh_keys:
-            fingerprints:
-              - '93:8f:4d:f8:f0:3a:0b:3c:c5:63:b6:1b:3e:de:0a:fa'
-
-        - run:
-            name: Add ssh-agent
-            command: |
-              ssh-agent -s > ~/.ssh_agent_conf
-              source ~/.ssh_agent_conf
-              for _k in $(ls ${HOME}/.ssh/id_*); do
-                ssh-add ${_k} || true
-              done
-        - deploy:
-            name: Deploy via Capistrano
-            command: |
-              if [ "${CIRCLE_BRANCH}" != "master" ]; then
-                exit 0
-              fi
-              bundle config --local path vendor/bundle
-              .circleci/deploy.sh
 workflows:
   build:
     jobs:
-      - fetch_source_code
-      - bundle_dependencies:
-          requires:
-            - fetch_source_code
+      # - fetch_source_code
+      # - bundle_dependencies:
+      #     requires:
+      #       - fetch_source_code
       # - rspec:
       #     requires:
       #       - bundle_dependencies
-      - deploy:
-          requires:
-            - fetch_source_code
-            - bundle_dependencies
+       - deploy
+      #     requires:
+      #       - test
