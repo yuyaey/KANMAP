@@ -102,6 +102,7 @@ jobs:
           command: |
             docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/kanmap:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/kanmap:$CIRCLE_SHA1 -f Dockerfile.prod --build-arg RAILS_MASTER_KEY=$RAILS_MASTER_KEY .
             docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/kanmap:$CIRCLE_SHA1
+
       - run:
           name: "DB Migrate"
           command: |
@@ -115,7 +116,7 @@ jobs:
           environment:
           command: |
             ecs-deploy -c kanmap-cluster -n kanmap-service \
-              -r ap-northeast-1 -t 240 \
+              -r ap-northeast-1 -t 600 \
               -i $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/kanmap:$CIRCLE_SHA1
 
 workflows:
