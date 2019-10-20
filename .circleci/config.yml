@@ -76,7 +76,6 @@ version: 2.1
 #       - store_artifacts:
 #           path: /tmp/test-results
 #           destination: test-results
-
 workflows:
   build-and-deploy:
     jobs:
