@@ -121,7 +121,7 @@ workflows:
                 - master            
           family: 'kanmap-service'
           cluster-name: 'kanmap-cluster'
-          container-image-name-updates: 'container=kanmap_rails,tag=${CIRCLE_SHA1},container=kanmap_nginx,tag=${CIRCLE_SHA1}'  
+          container-image-name-updates: 'container=kanmap_nginx,image-and-tag=${AWS_ECR_ACCOUNT_URL}/kanmap_nginx:${CIRCLE_SHA1}'
 
 
   # deploy:
