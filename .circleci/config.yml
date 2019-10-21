@@ -113,7 +113,7 @@ jobs:
           name: "Service deploy"
           environment:
           command: |
-            ecs-deploy -c kanmap-cluster -n ecs-kanmap-service \
+            ecs-deploy -c kanmap-cluster -n kanmap-service \
               -r ap-northeast-1 -t 600 \
               -i $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/kanmap:$CIRCLE_SHA1
 
