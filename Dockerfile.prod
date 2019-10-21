@@ -1,8 +1,5 @@
 FROM ruby:2.6.3-alpine3.10
 
-ENV APP_ROOT /usr/src/KANMAP
-WORKDIR $APP_ROOT
-
 RUN apk update && \
     apk add --no-cache \
     curl-dev \
@@ -24,8 +21,11 @@ RUN apk update && \
     /usr/lib/mysqld* \
     /usr/bin/mysql*
 
-COPY Gemfile $APP_ROOT
-COPY Gemfile.lock $APP_ROOT
+
+RUN mkdir /KANMAP
+WORKDIR /KANMAP
+COPY Gemfile /KANMAP/Gemfile
+COPY Gemfile.lock /KANMAP/Gemfile.lock
 
 RUN \
   echo 'gem: --no-document' >> ~/.gemrc && \
@@ -35,7 +35,7 @@ RUN \
   bundle install && \
   rm -rf ~/.gem
 
-COPY . $APP_ROOT
+COPY . /KANMAP
 
 EXPOSE  3000
 
