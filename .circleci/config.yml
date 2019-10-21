@@ -114,7 +114,7 @@ jobs:
           environment:
           command: |
             ecs-deploy -c kanmap-cluster -n kanmap-service \
-              -r ap-northeast-1 -t 600 \
+              -r ap-northeast-1 -t 1200 \
               -i $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/kanmap:$CIRCLE_SHA1
 
 workflows:
@@ -128,6 +128,6 @@ workflows:
       - deploy:
           requires:
             - checkout_code
-          filters:
-            branches:
-              only: master
+          # filters:
+          #   branches:
+          #     only: master
