@@ -116,6 +116,7 @@ jobs:
             ecs-deploy -c kanmap-cluster -n kanmap-service \
               -r ap-northeast-1 -t 1200 \
               -i $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/kanmap:$CIRCLE_SHA1
+          no_output_timeout: 20m
 
 workflows:
   version: 2.1
