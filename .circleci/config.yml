@@ -94,10 +94,18 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "93:8f:4d:f8:f0:3a:0b:3c:c5:63:b6:1b:3e:de:0a:fa"
+      - run:
+          name: Start ssh-agent
+          command: |
+            ssh-agent -s > ~/.ssh_agent_conf
+            source ~/.ssh_agent_conf
+            for _k in $(ls ${HOME}/.ssh/id_*); do
+              ssh-add ${_k} || true
+            done
       - deploy:
-         name: CapistranoDeploy
-         command:
-           bundle exec cap production deploy
+          name: CapistranoDeploy
+          command:
+            bundle exec cap production deploy
 
 workflows:
   version: 2.1

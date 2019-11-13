@@ -1,5 +1,5 @@
 server '52.194.138.126', user: 'yuya', roles: %w{app db web} 
-set :ssh_options, keys: '~/.ssh/kanmap_key_rsa93:8f:4d:f8:f0:3a:0b:3c:c5:63:b6:1b:3e:de:0a:fa'
+set :ssh_options, keys: '~/.ssh/kanmap_key_rsa'
 
 # config.require_master_key = true
 # config.assets.compile = true
