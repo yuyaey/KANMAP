@@ -76,47 +76,15 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/python
+      - image: circleci/ruby:2.6.3-node-browsers-legacy
     steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: install aws
-          command: |
-            sudo pip install awscli
-            aws --version
-      - run:
-          name: Install ecs-deploy
-          command: |
-            curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a /usr/bin/ecs-deploy
-            sudo chmod +x /usr/bin/ecs-deploy
-      - run:
-          name: Install jq
-          command: sudo apt-get install -y jq
-      - run:
-          name: "Log in to AWS ECR"
-          command: eval $(aws ecr get-login --no-include-email --region ap-northeast-1)
-      - run:
-          name: "Rails app Build & Push Docker Image"
-          command: |
-            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/kanmap:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/kanmap:$CIRCLE_SHA1 -f Dockerfile.prod --build-arg RAILS_MASTER_KEY=$RAILS_MASTER_KEY .
-            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/kanmap:$CIRCLE_SHA1
-      - run:
-          name: "DB Migrate"
-          command: |
-            aws ecs run-task \
-              --region ap-northeast-1 \
-              --cluster kanmap-cluster \
-              --task-definition kanmap-task \
-              --overrides file://ecs/run_task_db_migrate.json
-      - run:
-          name: "Service deploy"
-          environment:
-          command: |
-            ecs-deploy -c kanmap-cluster -n kanmap-service \
-              -r ap-northeast-1 -t 1200 \
-              -i $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/kanmap:$CIRCLE_SHA1
-          no_output_timeout: 20m
+      - add_ssh_keys:
+          fingerprints:
+            - "93:8f:4d:f8:f0:3a:0b:3c:c5:63:b6:1b:3e:de:0a:fa"
+      - deploy:
+         name: CapistranoDeploy
+         command:
+           bundle exec cap production deploy
 
 workflows:
   version: 2.1
