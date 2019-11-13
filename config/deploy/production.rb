@@ -1,10 +1,6 @@
 server '52.194.138.126', user: 'yuya', roles: %w{app db web} 
-# set :ssh_options, keys: '~/.ssh/kanmap_key_rsa'
-set :ssh_options, {
-  forward_agent: true,
-  user: fetch(:user),
-  keys: ["#{ENV['SERVICE_NAME_PRODUCTION_SSH_KEY']}"]
-}
+set :ssh_options, keys: '~/.ssh/kanmap_key_rsa'
+
 
 # config.require_master_key = true
 # config.assets.compile = true
