@@ -4,7 +4,7 @@ default: &default
   pool: 5
   username: root
   password: 136445yY$
-  socket: /tmp/mysql.sock
+  # socket: /tmp/mysql.sock
   
 development:
   <<: *default
@@ -24,4 +24,4 @@ production:
   password: 
   # username: <%= ENV.fetch("MYSQL_USER") %>
   # password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") %>
-  # socket: /var/lib/mysql/mysql.sock
+  socket: /var/lib/mysql/mysql.sock
