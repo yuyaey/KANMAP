@@ -93,7 +93,7 @@ jobs:
           key: v2-dependencies-{{ checksum "Gemfile.lock" }}
       - add_ssh_keys:
           fingerprints:
-            - "93:8f:4d:f8:f0:3a:0b:3c:c5:63:b6:1b:3e:de:0a:fa"
+            - "21:51:c0:05:47:39:31:1b:50:24:6f:0a:c0:70:95:a1"
       - run:
           name: Start ssh-agent
           command: |

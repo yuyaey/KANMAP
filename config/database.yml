@@ -3,14 +3,13 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: 136445yY$
+  password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") %>
   # socket: /tmp/mysql.sock
   
 development:
   <<: *default
-  # database: KANMAP_dc_development
   database: KANMAP_development
-  # host: db
+
 
 test:
   <<: *default
@@ -22,6 +21,4 @@ production:
   database: KANMAP_production
   username: root
   password: 
-  # username: <%= ENV.fetch("MYSQL_USER") %>
-  # password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") %>
   socket: /var/lib/mysql/mysql.sock
