@@ -18,10 +18,10 @@ test:
   host: <%= ENV['MYSQL_ROOT_HOST'] || '127.0.0.1' %>
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
+  <<: *default
   database: KANMAP_production
   username: root
-  password: 136445yY$
-  socket: /var/lib/mysql/mysql.sock
+  password: 
+  # username: <%= ENV.fetch("MYSQL_USER") %>
+  # password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") %>
+  # socket: /var/lib/mysql/mysql.sock
