@@ -112,12 +112,12 @@ workflows:
   test_and_deploy:
     jobs:
       - checkout_code
-      # - test:
-      #     requires:
-      #       - checkout_code
-      - deploy:
+      - test:
           requires:
             - checkout_code
+      - deploy:
+          requires:
+            - test
           filters:
             branches:
               only: master
