@@ -1,6 +1,6 @@
 default: &default
   adapter: mysql2
-  encoding: utf8mb4
+  encoding: utf8
   pool: 5
   username: root
   password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") %>
@@ -18,7 +18,7 @@ test:
 
 production:
   adapter: mysql2
-  encoding: utf8mb4
+  encoding: utf8
   pool: 5
   database: KANMAP_production
   username: root
