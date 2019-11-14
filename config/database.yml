@@ -21,6 +21,6 @@ production:
   encoding: utf8
   pool: 5
   database: KANMAP_production
-  username: root
-  password: 
+  username: <%= Rails.application.credentials.aws[:rdb_username] %>
+  password: <%= Rails.application.credentials.aws[:rdb_password] %>
   socket: /var/lib/mysql/mysql.sock
