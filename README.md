@@ -16,29 +16,28 @@ KANMAPは地図上のお気に入りの場所の情報を共有できるサー�
 * 画像はS3に保存し、CloudFrontでCDN配信を行っています。<br>
  
 ## 使用技術
-Ruby 2.6.3<br>
-Ruby on Rails 5.2.3<br>
-MySQL 8.0.17<br>
-Nginx<br>
-SASS<br>
-Materialize<br>
-AWS<br>
-  EC2/ALB<br>
-  RDS for MySQL<br>
-  S3<br>
-  CloudFront<br>
-  Route53<br>
-  ACM<br>
-  VPC<br>
-  CloudWatch<br>
-  AWS<br>
-Docker<br>
-CircleCI<br>
-Capistrano<br>
-GitHub<br>
-Google Maps Javascript API<br>
-Google Geocoding API<br>
-Google Places API<br>
+* Ruby 2.6.3<br>
+* Ruby on Rails 5.2.3<br>
+* MySQL 8.0.17<br>
+* Nginx<br>
+* SASS<br>
+* Materialize<br>
+* AWS<br>
+  * EC2/ALB<br>
+  * RDS for MySQL<br>
+  * S3<br>
+  * CloudFront<br>
+  * Route53<br>
+  * ACM<br>
+  * VPC<br>
+  * CloudWatch<br>
+  * AWS<br>
+* Docker<br>
+* CircleCI<br>
+* Capistrano<br>
+* Google Maps Javascript API<br>
+* Google Geocoding API<br>
+* Google Places API<br>
 
 
 ## 機能一覧(使用gem)
@@ -51,13 +50,12 @@ Google Places API<br>
 * 記事一覧表示の際のページネーション機能(kaminari)<br>
 * 検索機能(Ransack)<br>
 * 管理ユーザー機能
-* GoogleMapでの現在地特定、キーワード検索、ジオコーディング機能<br>
+* GoogleAPIを用いた現在地特定、キーワード検索、ジオコーディング機能<br>
  
 ## クラウドアーキテクチャ
  
  
 ## 開発環境
- 
 MacBookPro上のDocker環境で開発しています。 開発環境用イメージとそれらを起動するdocker-composeで構成されています。 docker-composeでVolumeをマウント、MySQLに関してもローカルのMySQLをマウントしています。<br>
 
 
