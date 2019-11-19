@@ -1,5 +1,5 @@
 # KANMAP
-![README_KANMAP](./app/assets/images/README2)
+![README_KANMAP](./app/assets/images/README2.png)
  
 ## KANMAPとは
 
