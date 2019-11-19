@@ -1,6 +1,6 @@
 # KANMAP
  
-KANMAPとは
+## KANMAPとは
 
 KANMAPは地図上のお気に入りの場所の情報を共有できるサービスです。
 
@@ -13,17 +13,18 @@ KANMAPは地図上のお気に入りの場所の情報を共有できるサー�
 
 
 
-# URL
+## URL
+[KANMAP](https://kan-map.com)
 https://kan-map.com
  
-# 見ていただきたい部分
+## 見ていただきたい部分
  
 ・Dockerを使いこなし、ECS/ECRで本番環境をコンテナで実行していること
 CircleCIとGitHubを連携させて自動テスト、masterブランチのみ本番環境にデプロイなど、CI/CDのパイプラインを構築していること
 ・assets及びユーザー画像データをS3からCloudFrontを使用してCDNで配信していること
 ・自作ライブラリから外部APIを叩いてRailsに組み込んでいること
  
-# 使用技術
+## 使用技術
 Ruby 2.6.3
 Ruby on Rails 5.2.3
 MySQL 8.0.17
@@ -47,26 +48,26 @@ Google Geocoding API
 Google Places API
 
  
-# クラウドアーキテクチャ
+## クラウドアーキテクチャ
  
 "hoge"を動かすのに必要なライブラリなどを列挙する
  
 * huga 3.5.2
 * hogehuga 1.0.2
  
-# 開発環境
+## 開発環境
  
 MacBookPro上のDocker環境で開発しています。 開発環境用イメージとそれらを起動するdocker-composeで構成されています。 docker-composeでVolumeをマウント、MySQLに関してもローカルのMySQLをマウントしています。
 
 GitHubは実際の現場の開発フローを想定しmasterブランチに直接pushせず、worksという作業用のブランチを切ってそこにPush、Masterにmergeしています。
  
-# CircleCI
+## CircleCI
  
 CircleCIではworksではRSpecでのテスト、masterブランチではRSpecでのテストとECRへイメージのpush、ECSへの自動デプロイを行っています。 CircleCIの設定は.ciecleci/config.ymlを見て頂けるとわかるかと思います。 ECSへのデプロイにはecs-deployというツールを使用しています。
 
 最終的にmasterにmergeされてからデプロイされるまでの時間はこのようになりました。
  
-# 機能一覧、使用した有名gem
+## 機能一覧、使用した有名gem
 
 Google、Twitterでの外部サービスログイン(omniauth)
 ユーザープロフィール画像アップロード機能
@@ -74,7 +75,7 @@ Google、Twitterでの外部サービスログイン(omniauth)
 記事一覧表示の際のページネーション機能(kaminari)
 デプロイにCapistrano
  
-# テスト
+## テスト
  
 RSpec
 統合テスト(system spec)
@@ -82,4 +83,4 @@ RSpec
 単体テスト(モデル等)
 テストに関しましてはテストが書けることをアピールする為、全ての機能はテストしていません。 その代わりどのようなテストケースでも書けることを意識しました。
 
-# 改善点、開発してみて想定できなかった部分
+## 改善点、開発してみて想定できなかった部分
