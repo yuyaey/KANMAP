@@ -54,7 +54,7 @@ KANMAPは地図上のお気に入りの場所の情報を共有できるサー�
 * GoogleAPIを用いた現在地特定、キーワード検索、ジオコーディング機能<br>
  
 ## クラウドアーキテクチャ
-![README_Architecutre](./app/assets/images/CloudArchitecture.png)
+![README_Architecutre](./app/assets/images/CloudArchitecture.jpg)
  
 ## 開発環境
 MacBookPro上のDocker環境で開発しています。 開発環境用イメージとそれらを起動するdocker-composeで構成されています。 docker-composeでVolumeをマウント、MySQLに関してもローカルのMySQLをマウントしています。<br>
