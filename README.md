@@ -19,7 +19,6 @@ KANMAPは地図上のお気に入りの場所の情報を共有できるサー�
 * Ruby 2.6.3<br>
 * Ruby on Rails 5.2.3<br>
 * MySQL 8.0.17<br>
-* Nginx<br>
 * SASS<br>
 * Materialize<br>
 * AWS<br>
@@ -35,6 +34,8 @@ KANMAPは地図上のお気に入りの場所の情報を共有できるサー�
 * Docker<br>
 * CircleCI<br>
 * Capistrano<br>
+* Nginx<br>
+* Unicorn<br>
 * Google Maps Javascript API<br>
 * Google Geocoding API<br>
 * Google Places API<br>
