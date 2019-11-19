@@ -1,24 +1,46 @@
-# README
+Handmade Garden
+Handmade Gardenとは
+ハンドメイドに関するイベント(フリーマケーットやワークショップ)を管理するアプリケーションです。 このアプリの利用ユーザの種類は下記の３種類を想定しています。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+イベントの主催者
+ハンドメイドイベントの作成。出店者の募集。
+イベントの出店者 (作家)
+主催者のイベントへの応募
+出店情報の管理
+イベントの参加者（一般人（特にユーザ登録していない人））
+ユーザ登録していないその他のユーザ。イベントの検索ができる。
+アプリケーションURL
+URL
 
-Things you may want to cover:
+アプリケーション本番環境構成
+アプリケーション構成図
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+アプリケーション機能一覧
+ログイン・ログアウト機能（アクティベーション）
+プロフィール編集機能
+イベント検索機能
+イベント応募(参加)機能
+イベント作成機能
+イベント出店情報機能
+参加イベント一覧機能
+イベントグループチャット機能
+ユーザ間メッセージチャット機能(action cableを利用)
+ユーザ検索機能
+使用技術一覧
+Ruby: 2.6.3
+Rails: 5.2.3
+Docker
+Nginx
+AWS
+ECS/ECR
+RDS(mysql
+EC2
+S3
+VPC
+Route53
+SES
+ALB
+ACM
+CircleCI
+CI/CD
+Google Maps Javascript API
