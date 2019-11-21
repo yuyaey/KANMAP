@@ -2,7 +2,6 @@
 ![README_KANMAP](./app/assets/images/README2.png)
  
 ## KANMAPとは
-
 KANMAPは地図上のお気に入りの場所の情報を共有できるサービスです。<br>
 転職活動用のポートフォリオとして制作致しました。<br>
 
